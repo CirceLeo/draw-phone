@@ -29,6 +29,3 @@ img {
   height: auto;
 }
 
-#main:hover ~ #hide {
-  display: none
-}
