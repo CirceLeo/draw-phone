@@ -1,9 +1,9 @@
 import { useState, useEffect } from "react";
 function GameTimer(props) {
-    const [timeLeft, setTimeLeft] = useState({
-        minutes: 3,
-        seconds: 30
-    })
+    const [timeLeft, setTimeLeft] = useState(180) //{
+    //     // minutes: 3,
+    //     // seconds: 30
+    // })
     // const [seconds, setSeconds] = useState(0)
     const [isActive, setIsActive] = useState(false)
 
@@ -32,11 +32,13 @@ function GameTimer(props) {
 
     useEffect(() => {
         const interval = setInterval(() => {
-            const {seconds, minutes} = timeLeft
-            if (seconds > 0){
-                console.log(seconds)
-                // setTimeLeft({...timeLeft, seconds: timeLeft.seconds - 1})
-            }
+            // const {seconds, minutes} = timeLeft
+            // console.log(timeLeft.seconds)
+            setTimeLeft(timeLeft =>  timeLeft - 1)
+            // if (seconds > 0){
+            //     console.log(timeLeft.seconds)
+            //     setTimeLeft({...timeLeft, seconds: timeLeft.seconds - 1})
+            // }
             // setSeconds(seconds => seconds +1);
         }, 1000);
         return () => clearInterval(interval)
@@ -51,7 +53,8 @@ function GameTimer(props) {
     // }, [])
     return (
         <>
-            <h2>{timeLeft.minutes} : {timeLeft.seconds < 10 ? `0${timeLeft.seconds}`: timeLeft.seconds}</h2>
+            <h2>{timeLeft}</h2>
+            {/* <h2>{timeLeft.minutes} : {timeLeft.seconds < 10 ? `0${timeLeft.seconds}`: timeLeft.seconds}</h2> */}
             {/* <h2>{seconds}</h2> */}
             <button onClick={handleStart}> Start</button>
         </>
