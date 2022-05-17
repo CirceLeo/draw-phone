@@ -22,7 +22,8 @@ function GameCanvas({setDrawing}) {
         brushColor={brushColor}
         hideGrid
         hideInterface
-        brushRadius={2}
+        brushRadius={4}
+        lazyRadius={2}
         ref={canvasRef}
         // imgSrc={picUrl} <- try out both ways? would look cleaner
     />
