@@ -1,8 +1,10 @@
 import '../App.css';
+import '../game.css';
 import React, {useEffect, useState, useRef} from 'react';
 import ReactDOM from 'react-dom';
 import CanvasDraw from 'react-canvas-draw';
 import Header from './Header'
+import {GithubPicker} from 'react-color'
 
 function GamePage(props) {
 
@@ -21,9 +23,9 @@ function GamePage(props) {
         .catch( error => console.log(error.message));
     }
 
-  // useEffect(() => {
-  //   loadImg()
-  // }, [])
+//   useEffect(() => {
+//     loadImg()
+//   }, [])
   // loadImg()
 
     const handleExport = () => {
@@ -47,16 +49,18 @@ function GamePage(props) {
         <div id="game-page">
             <Header />
             <h1>is game wow</h1>
-        { isShown && (<div >
-            <img id="hide" src={picUrl} />
-        </div>)}
+            <div id='goal-pic-div'>
+                { isShown ? <img src={picUrl} /> : null }
+            </div>
         <div 
             id="main" 
-            onMouseEnter={() => setIsShown(true)}
-            onMouseLeave={() => setIsShown(false)}
+            onMouseEnter={() => setIsShown(false)}
+            onMouseLeave={() => setIsShown(true)}
         >
             {canvas}
         </div>
+        {/* <input type="color"/> */}
+        <GithubPicker />
         <button
             onClick={() => {
             console.log("erase")

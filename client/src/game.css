@@ -1,0 +1,16 @@
+#goal-pic-div {
+    height: 15em;
+    border: 2px black solid;
+    background-color: pink;
+}
+
+.canvas {
+    border: 2px black solid;
+    margin: 1em;
+}
+
+img {
+    width: auto;
+    height: 13em;
+}
+

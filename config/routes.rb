@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  root to: 'home#index'
   resources :drawings
   resources :users
   devise_for :users
@@ -13,5 +14,4 @@ Rails.application.routes.draw do
   # Defines the root path route ("/")
   # root "articles#index"
 
-  get '/hello', to: 'application#hello_world'
 end
