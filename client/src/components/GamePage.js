@@ -1,18 +1,15 @@
 import '../App.css';
 import '../game.css';
-import React, {useEffect, useState, useRef} from 'react';
-import ReactDOM from 'react-dom';
-import CanvasDraw from 'react-canvas-draw';
+import React, {useEffect, useState} from 'react';
 import Header from './Header'
-import {CirclePicker, GithubPicker} from 'react-color'
+import GameCanvas from './GameCanvas';
+import GameTimer from './GameTimer';
 
 function GamePage(props) {
 
     const [picUrl, setPicUrl] = useState('')
     const [drawing, setDrawing] = useState()
     const [isShown, setIsShown] = useState(true)
-    const [brushColor, setBrushColor] = useState('#B80000')
-    const canvasRef = useRef(null)
 
     const client_id = 'dixX_GB7IbetuPLpQS9-JATQ8GI3j7nJlA3udPSmDZw'
 
@@ -27,62 +24,23 @@ function GamePage(props) {
 //   useEffect(() => {
 //     loadImg()
 //   }, [])
-  // loadImg()
-
-    const handleExport = () => {
-        // console.log(canvasRef)
-        const base64 = canvasRef.current.canvasContainer.childNodes[1].toDataURL();
-        setDrawing(base64);
-        // console.log(base64)
-    };
-
-    const handleColorChange = (e) => {
-        // console.log(e.hex)
-        setBrushColor(e.hex)
-    }
-
-    const canvas =  <CanvasDraw 
-        className='canvas'
-        brushColor={brushColor}
-        hideGrid
-        hideInterface
-        brushRadius={2}
-        ref={canvasRef}
-        // imgSrc={picUrl}
-    />
 
     return (
         <div id="game-page">
             <Header />
-            <h1>is game wow</h1>
+            <GameTimer />
             <div id='goal-pic-div'>
                 { isShown ? <img src={picUrl} /> : null }
             </div>
-        <div 
-            id="main" 
-            onMouseEnter={() => setIsShown(false)}
-            onMouseLeave={() => setIsShown(true)}
-        >
-            {canvas}
-        </div>
-        {/* <input type="color"/> */}
-        {/* <CirclePicker /> */}
-        <GithubPicker triangle='hide' onChange={handleColorChange} />
+            <div 
+                id="game-canvas" 
+                onMouseEnter={() => setIsShown(false)}
+                onMouseLeave={() => setIsShown(true)}
+            >
+                <GameCanvas setDrawing={setDrawing} />
+            </div>
 
-        <button
-            onClick={() => {
-            console.log("erase")
-            }}>
-            Erase
-        </button>
-        <button
-            onClick={() => {
-            handleExport()
-            // console.log("SAVE")
-            }}>
-            save
-        </button>
-        <img src={drawing}/>
+            <img src={drawing}/>
         </div>
     )
 }
