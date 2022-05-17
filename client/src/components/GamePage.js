@@ -4,13 +4,14 @@ import React, {useEffect, useState, useRef} from 'react';
 import ReactDOM from 'react-dom';
 import CanvasDraw from 'react-canvas-draw';
 import Header from './Header'
-import {GithubPicker} from 'react-color'
+import {CirclePicker, GithubPicker} from 'react-color'
 
 function GamePage(props) {
 
     const [picUrl, setPicUrl] = useState('')
     const [drawing, setDrawing] = useState()
     const [isShown, setIsShown] = useState(true)
+    const [brushColor, setBrushColor] = useState('#B80000')
     const canvasRef = useRef(null)
 
     const client_id = 'dixX_GB7IbetuPLpQS9-JATQ8GI3j7nJlA3udPSmDZw'
@@ -35,9 +36,14 @@ function GamePage(props) {
         // console.log(base64)
     };
 
+    const handleColorChange = (e) => {
+        // console.log(e.hex)
+        setBrushColor(e.hex)
+    }
+
     const canvas =  <CanvasDraw 
         className='canvas'
-        brushColor="rgba(155,12,60)"
+        brushColor={brushColor}
         hideGrid
         hideInterface
         brushRadius={2}
@@ -60,7 +66,9 @@ function GamePage(props) {
             {canvas}
         </div>
         {/* <input type="color"/> */}
-        <GithubPicker />
+        {/* <CirclePicker /> */}
+        <GithubPicker triangle='hide' onChange={handleColorChange} />
+
         <button
             onClick={() => {
             console.log("erase")
