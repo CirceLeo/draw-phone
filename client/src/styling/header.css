@@ -1,0 +1,18 @@
+a {
+    text-decoration: none;
+    color: blue;
+    padding: .4em 2em;
+    background-color: antiquewhite;
+    transition: all ease-in-out 0.3s;
+    border-radius: 1em;
+}
+
+nav a:hover {
+    background-color: aquamarine;
+    transition: all ease-in-out 0.3s;
+}
+
+nav .active {
+    background-color: pink;
+    border-radius: 1em;
+}

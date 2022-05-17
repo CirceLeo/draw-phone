@@ -1,5 +1,5 @@
-import '../App.css';
-import '../game.css';
+import '../styling/App.css';
+import '../styling/game.css';
 import React, {useEffect, useState} from 'react';
 import Header from './Header'
 import GameCanvas from './GameCanvas';

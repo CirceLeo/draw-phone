@@ -1,4 +1,4 @@
-import './App.css';
+import './styling/App.css';
 import React, {useEffect, useState, useRef, useContext} from 'react';
 import ReactDOM from 'react-dom';
 import CanvasDraw from 'react-canvas-draw';
