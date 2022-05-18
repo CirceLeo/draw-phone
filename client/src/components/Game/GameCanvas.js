@@ -3,7 +3,7 @@ import {CirclePicker, GithubPicker} from 'react-color';
 import CanvasDraw from 'react-canvas-draw';
 
 
-function GameCanvas({setDrawingData, handleExport}) {
+function GameCanvas({setDrawingData, handleExport, gameActive}) {
 
     const [brushColor, setBrushColor] = useState('#B80000')
     const [brushSize, setBrushSize] = useState(3)
@@ -31,6 +31,8 @@ function GameCanvas({setDrawingData, handleExport}) {
         canvasRef.current.eraseAll()
     }
 
+    console.log(gameActive)
+
     const canvas =  <CanvasDraw 
         className='canvas'
         brushColor={brushColor}
@@ -39,6 +41,7 @@ function GameCanvas({setDrawingData, handleExport}) {
         brushRadius={brushSize}
         lazyRadius={2}
         ref={canvasRef}
+        disabled={!gameActive}
         // imgSrc={picUrl} <- try out both ways? would look cleaner
     />
 

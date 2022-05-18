@@ -1,4 +1,5 @@
 import React, {useEffect, useState} from 'react';
+import { flushSync } from 'react-dom';
 import Header from '../Header'
 import GameCanvas from './GameCanvas';
 import GameTimer from './GameTimer';
@@ -31,6 +32,11 @@ function GamePage(props) {
         setGameActive(true)
     }
 
+    function handlePause(){
+        setGameActive(false)
+        setIsShown(false)
+    }
+
     function handleGameEnd(){
         setGameActive(false)
         setIsShown(true)
@@ -60,6 +66,7 @@ function GamePage(props) {
             <Header />
             <GameTimer handleGameEnd={handleGameEnd} gameActive={gameActive} />
             <button onClick={handleStart}> Start</button>
+            <button onClick={handlePause}>Pause</button>
             <div id='goal-pic-div'>
                 { isShown ? <img src={picUrl} /> : null }
             </div>
@@ -68,7 +75,7 @@ function GamePage(props) {
                 onMouseEnter={() => {if(gameActive){setIsShown(false)}}}
                 onMouseLeave={() => {if(gameActive){setIsShown(true)}}}
             >
-                <GameCanvas setDrawingData={setDrawingData} OriginPicUrl={picUrl} handleExport={handleExport} />
+                <GameCanvas setDrawingData={setDrawingData} gameActive={gameActive} handleExport={handleExport} />
             </div>
 
             <img src={drawingData}/>

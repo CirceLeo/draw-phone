@@ -2,7 +2,8 @@
     height: 15em;
     border: 2px black solid;
     background-color: pink;
-    width: fit-content;
+    width: 20em;
+    margin-left: 3em;
 }
 
 .canvas {

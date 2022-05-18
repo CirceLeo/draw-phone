@@ -1,8 +1,47 @@
 import { useState, useEffect } from "react";
+
 function GameTimer(props) {
-    const [timeLeft, setTimeLeft] = useState(120) //{
-    // const [isActive, setIsActive] = useState(false)
     const {gameActive, handleGameEnd} = props
+    const [timeLeft, setTimeLeft] = useState(5) 
+
+    useEffect(() => {
+        if(gameActive){
+        const interval = setInterval(() => {
+            setTimeLeft(timeLeft =>  timeLeft - 1)
+            // if (seconds > 0){
+                //     console.log(timeLeft.seconds)
+                //     setTimeLeft({...timeLeft, seconds: timeLeft.seconds - 1})
+                // }
+            // setSeconds(seconds => seconds +1);
+        }, 1000);
+        return () => clearInterval(interval)
+    }
+    }, [gameActive])
+
+    if (timeLeft === 0) {
+        handleGameEnd()
+    }
+    
+    return (
+        <>
+            {/* <h2>{timeLeft % 60 }: {Math.abs(60 - timeLeft)}</h2> */}
+            <h2 style={{color: timeLeft < 60 ? "red" : "black"}}>{timeLeft}</h2>
+        </>
+    )
+}
+export default GameTimer
+
+// const {seconds, minutes} = timeLeft
+// console.log(timeLeft.seconds)
+    // useEffect(() => {
+    //     // let interval = null;
+    //     if (isActive) {
+    //         // interval = setInterval(() => {
+    //         //     setTimeLeft(seconds => seconds + 1)
+    //         // })
+    //     }
+    // }, [])
+
 
     // function handleStart(){
         // setIsActive(true)
@@ -24,39 +63,3 @@ function GameTimer(props) {
         //         }
         //     }
         // }, 1000)
-
-    // }
-
-    useEffect(() => {
-        if(gameActive){
-        const interval = setInterval(() => {
-            // const {seconds, minutes} = timeLeft
-            // console.log(timeLeft.seconds)
-            setTimeLeft(timeLeft =>  timeLeft - 1)
-            // if (seconds > 0){
-            //     console.log(timeLeft.seconds)
-            //     setTimeLeft({...timeLeft, seconds: timeLeft.seconds - 1})
-            // }
-            // setSeconds(seconds => seconds +1);
-        }, 1000);
-        return () => clearInterval(interval)
-    }
-    }, [gameActive])
-
-    // useEffect(() => {
-    //     // let interval = null;
-    //     if (isActive) {
-    //         // interval = setInterval(() => {
-    //         //     setTimeLeft(seconds => seconds + 1)
-    //         // })
-    //     }
-    // }, [])
-
-    return (
-        <>
-            {/* <h2>{timeLeft % 60 }: {Math.abs(60 - timeLeft)}</h2> */}
-            <h2>{timeLeft}</h2>
-        </>
-    )
-}
-export default GameTimer
