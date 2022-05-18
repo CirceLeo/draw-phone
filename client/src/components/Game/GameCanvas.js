@@ -3,31 +3,11 @@ import {CirclePicker, GithubPicker} from 'react-color';
 import CanvasDraw from 'react-canvas-draw';
 
 
-function GameCanvas({setDrawing, OriginPicUrl}) {
+function GameCanvas({setDrawingData, handleExport}) {
 
     const [brushColor, setBrushColor] = useState('#B80000')
     const [brushSize, setBrushSize] = useState(3)
     const canvasRef = useRef(null)
-
-    const handleExport = () => {
-        const drawingData = canvasRef.current.canvasContainer.childNodes[1].toDataURL();
-        setDrawing(drawingData);
-        fetch(`/drawings`, {
-            method: "POST",
-            headers: {
-                "Content-Type": "application/json",
-                Accept: "application/json"
-            },
-            body: JSON.stringify({
-                user_id: 1,
-                data_url: drawingData,
-                origin_pic_url: OriginPicUrl
-            })
-        })
-        .then( res => res.json())
-        .then( data => console.log(data))
-        .catch( error => console.log(error.message));
-    };
 
     const handleColorChange = (e) => {
         setBrushColor(e.hex)
@@ -35,6 +15,18 @@ function GameCanvas({setDrawing, OriginPicUrl}) {
 
     const handleSizeChange = (e) => {
         setBrushSize(parseInt(e.target.value, 10))
+    }
+
+    const handleSaveImg = () => {
+        const currentCanvas = canvasRef.current.canvasContainer.childNodes[1].toDataURL();
+        setDrawingData(currentCanvas);
+        // handleExport()
+    }
+
+    const handleUndo = () => {
+        const currentCanvas = canvasRef.current.canvasContainer.childNodes[1]
+        console.log(currentCanvas)
+        // currentCanvas.undo()
     }
 
     const canvas =  <CanvasDraw 
@@ -53,15 +45,16 @@ function GameCanvas({setDrawing, OriginPicUrl}) {
             {canvas}
             <GithubPicker triangle='hide' onChange={handleColorChange} />
             <button
-            onClick={() => {
-            console.log("erase")
-            }}>
-            Erase
-        </button>
+                onClick={handleUndo}
+            >
+                undo
+            </button>
         <button
             onClick={() => {
-            handleExport()
-            }}>
+                handleSaveImg()
+            // handleExport()
+            }}
+        >
             save
         </button>
         <label>Brush size</label>

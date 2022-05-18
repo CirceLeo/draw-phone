@@ -1,5 +1,3 @@
-// import '.../styling/App.css';
-// import '.../styling/game.css';
 import React, {useEffect, useState} from 'react';
 import Header from '../Header'
 import GameCanvas from './GameCanvas';
@@ -9,10 +7,15 @@ function GamePage(props) {
 
     const [gameActive, setGameActive] = useState(false)
     const [picUrl, setPicUrl] = useState('')
-    const [drawing, setDrawing] = useState()
+    const [drawingData, setDrawingData] = useState()
     const [isShown, setIsShown] = useState(false)
+    // console.log(isShown)
 
     const client_id = 'dixX_GB7IbetuPLpQS9-JATQ8GI3j7nJlA3udPSmDZw'
+
+    useEffect(() => {
+        loadImg()
+    }, [])
 
     function loadImg(){
         const url = `https://api.unsplash.com/photos/random?query=dog&client_id=${client_id}`
@@ -30,11 +33,27 @@ function GamePage(props) {
 
     function handleGameEnd(){
         setGameActive(false)
+        setIsShown(true)
     }
 
-    useEffect(() => {
-        loadImg()
-    }, [])
+    const handleExport = () => {
+        console.log(drawingData)
+        fetch(`/drawings`, {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json",
+                Accept: "application/json"
+            },
+            body: JSON.stringify({
+                user_id: 1,
+                data_url: drawingData,
+                origin_pic_url: picUrl
+            })
+        })
+        .then( res => res.json())
+        .then( data => console.log(data))
+        .catch( error => console.log(error.message));
+    };
 
     return (
         <div id="game-page">
@@ -46,13 +65,13 @@ function GamePage(props) {
             </div>
             <div 
                 id="game-canvas" 
-                onMouseEnter={() => setIsShown(false)}
-                onMouseLeave={() => setIsShown(true)}
+                onMouseEnter={() => {if(gameActive){setIsShown(false)}}}
+                onMouseLeave={() => {if(gameActive){setIsShown(true)}}}
             >
-                <GameCanvas setDrawing={setDrawing} OriginPicUrl={picUrl} />
+                <GameCanvas setDrawingData={setDrawingData} OriginPicUrl={picUrl} handleExport={handleExport} />
             </div>
 
-            <img src={drawing}/>
+            <img src={drawingData}/>
         </div>
     )
 }
