@@ -2,6 +2,7 @@
     height: 15em;
     border: 2px black solid;
     background-color: pink;
+    width: fit-content;
 }
 
 .canvas {

@@ -24,9 +24,11 @@ function GameCanvas({setDrawingData, handleExport}) {
     }
 
     const handleUndo = () => {
-        const currentCanvas = canvasRef.current.canvasContainer.childNodes[1]
-        console.log(currentCanvas)
-        // currentCanvas.undo()
+        canvasRef.current.undo()
+    }
+
+    const handleEraseAll = () => {
+        canvasRef.current.eraseAll()
     }
 
     const canvas =  <CanvasDraw 
@@ -49,6 +51,11 @@ function GameCanvas({setDrawingData, handleExport}) {
             >
                 undo
             </button>
+            <button
+                onClick={handleEraseAll}
+            >
+                clear canvas
+            </button> 
         <button
             onClick={() => {
                 handleSaveImg()
