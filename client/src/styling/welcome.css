@@ -1,0 +1,5 @@
+.display-drawing img{
+    transition: 1s;
+    border-radius: 1em;
+    border: 2px black solid;
+}

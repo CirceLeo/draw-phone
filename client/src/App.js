@@ -1,6 +1,8 @@
 import './styling/App.css';
 import './styling/App.css';
 import './styling/game.css';
+import './styling/welcome.css';
+
 import React, {useEffect, useState, useRef, useContext} from 'react';
 import ReactDOM from 'react-dom';
 import { BrowserRouter as Router, Routes, Route} from 'react-router-dom';

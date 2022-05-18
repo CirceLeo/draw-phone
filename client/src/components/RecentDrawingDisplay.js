@@ -11,7 +11,15 @@ function RecentDrawingDisplay(props) {
     }, [])
 
     const renderedDrawings = recentPics.map((drawing) => {
-        return <img key={drawing.id} src={drawing.data_url} />
+        return (
+                <div key={drawing.id}  className="display-drawing"   >
+                    <img 
+                        src={drawing.data_url} 
+                        onMouseOver={e => (e.currentTarget.src = drawing.origin_pic_url)}
+                        onMouseOut={e => (e.currentTarget.src = drawing.data_url)}
+                    />
+                </div>
+            )
     })
     
     return (
