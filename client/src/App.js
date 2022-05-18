@@ -1,7 +1,6 @@
 import './styling/App.css';
 import React, {useEffect, useState, useRef, useContext} from 'react';
 import ReactDOM from 'react-dom';
-import CanvasDraw from 'react-canvas-draw';
 import { BrowserRouter as Router, Routes, Route} from 'react-router-dom';
 import {UserProvider} from './components/context/user'
 import WelcomePage from './components/WelcomPage';

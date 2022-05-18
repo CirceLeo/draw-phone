@@ -3,7 +3,7 @@ import {CirclePicker, GithubPicker} from 'react-color';
 import CanvasDraw from 'react-canvas-draw';
 
 
-function GameCanvas({setDrawing}) {
+function GameCanvas({setDrawing, OriginPicUrl}) {
 
     const [brushColor, setBrushColor] = useState('#B80000')
     const [brushSize, setBrushSize] = useState(3)
@@ -12,6 +12,21 @@ function GameCanvas({setDrawing}) {
     const handleExport = () => {
         const base64 = canvasRef.current.canvasContainer.childNodes[1].toDataURL();
         setDrawing(base64);
+        fetch(`/drawings/create`, {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json",
+                Accept: "application/json"
+            },
+            body: JSON.stringify({
+                user_id: 1,
+                data_url: base64,
+                origin_pic_url: OriginPicUrl
+            })
+        })
+        .then( res => res.json())
+        .then( data => console.log(data))
+        .catch( error => console.log(error.message));
     };
 
     const handleColorChange = (e) => {
@@ -49,6 +64,7 @@ function GameCanvas({setDrawing}) {
             }}>
             save
         </button>
+        <label>Brush size</label>
         <input 
             type="number" 
             value={brushSize}

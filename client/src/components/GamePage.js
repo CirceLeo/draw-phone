@@ -49,7 +49,7 @@ function GamePage(props) {
                 onMouseEnter={() => setIsShown(false)}
                 onMouseLeave={() => setIsShown(true)}
             >
-                <GameCanvas setDrawing={setDrawing} />
+                <GameCanvas setDrawing={setDrawing} OriginPicUrl={picUrl} />
             </div>
 
             <img src={drawing}/>
