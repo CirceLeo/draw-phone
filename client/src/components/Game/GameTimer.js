@@ -8,19 +8,17 @@ function GameTimer(props) {
         if(gameActive){
         const interval = setInterval(() => {
             setTimeLeft(timeLeft =>  timeLeft - 1)
-            // if (seconds > 0){
-                //     console.log(timeLeft.seconds)
-                //     setTimeLeft({...timeLeft, seconds: timeLeft.seconds - 1})
-                // }
-            // setSeconds(seconds => seconds +1);
         }, 1000);
         return () => clearInterval(interval)
     }
-    }, [gameActive])
+}, [gameActive])
 
-    if (timeLeft === 0) {
-        handleGameEnd()
-    }
+useEffect(() => {
+        if (timeLeft === 0) {
+            console.log("TIME!")
+            handleGameEnd()
+        }
+    }, [timeLeft])
     
     return (
         <>
@@ -30,6 +28,12 @@ function GameTimer(props) {
     )
 }
 export default GameTimer
+
+            // if (seconds > 0){
+                //     console.log(timeLeft.seconds)
+                //     setTimeLeft({...timeLeft, seconds: timeLeft.seconds - 1})
+                // }
+            // setSeconds(seconds => seconds +1);
 
 // const {seconds, minutes} = timeLeft
 // console.log(timeLeft.seconds)

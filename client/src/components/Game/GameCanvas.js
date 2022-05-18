@@ -3,7 +3,7 @@ import {CirclePicker, GithubPicker} from 'react-color';
 import CanvasDraw from 'react-canvas-draw';
 
 
-function GameCanvas({setDrawingData, handleExport, gameActive}) {
+function GameCanvas({setDrawingData, gameActive}) {
 
     const [brushColor, setBrushColor] = useState('#B80000')
     const [brushSize, setBrushSize] = useState(3)

@@ -40,11 +40,11 @@ function GamePage(props) {
     function handleGameEnd(){
         setGameActive(false)
         setIsShown(true)
-        console.log("drawing data when time runs out", drawingData)
         handleExport()
     }
 
     const handleExport = () => {
+        console.log("put the pretty pic in the database")
         fetch(`/drawings`, {
             method: "POST",
             headers: {
