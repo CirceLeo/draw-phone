@@ -4,6 +4,7 @@ function SignUpForm(props) {
         <div>
             <form>
                 <input type="email"/>
+                <input type='username' />
             </form>
         </div>
 

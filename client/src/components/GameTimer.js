@@ -1,16 +1,13 @@
 import { useState, useEffect } from "react";
 function GameTimer(props) {
-    const [timeLeft, setTimeLeft] = useState(180) //{
-    //     // minutes: 3,
-    //     // seconds: 30
-    // })
-    // const [seconds, setSeconds] = useState(0)
-    const [isActive, setIsActive] = useState(false)
+    const [timeLeft, setTimeLeft] = useState(120) //{
+    // const [isActive, setIsActive] = useState(false)
+    const {gameActive, handleGameEnd} = props
 
-    function handleStart(){
-        setIsActive(true)
-        console.log("start timer")
-        console.log(isActive)
+    // function handleStart(){
+        // setIsActive(true)
+        // console.log("start timer")
+        // console.log(isActive)
         // setInterval(() => {
         //     // const {seconds, minutes} = timeLeft
     
@@ -28,9 +25,10 @@ function GameTimer(props) {
         //     }
         // }, 1000)
 
-    }
+    // }
 
     useEffect(() => {
+        if(gameActive){
         const interval = setInterval(() => {
             // const {seconds, minutes} = timeLeft
             // console.log(timeLeft.seconds)
@@ -42,7 +40,9 @@ function GameTimer(props) {
             // setSeconds(seconds => seconds +1);
         }, 1000);
         return () => clearInterval(interval)
-    }, [])
+    }
+    }, [gameActive])
+
     // useEffect(() => {
     //     // let interval = null;
     //     if (isActive) {
@@ -51,12 +51,11 @@ function GameTimer(props) {
     //         // })
     //     }
     // }, [])
+
     return (
         <>
+            {/* <h2>{timeLeft % 60 }: {Math.abs(60 - timeLeft)}</h2> */}
             <h2>{timeLeft}</h2>
-            {/* <h2>{timeLeft.minutes} : {timeLeft.seconds < 10 ? `0${timeLeft.seconds}`: timeLeft.seconds}</h2> */}
-            {/* <h2>{seconds}</h2> */}
-            <button onClick={handleStart}> Start</button>
         </>
     )
 }

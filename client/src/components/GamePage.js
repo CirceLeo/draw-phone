@@ -7,9 +7,10 @@ import GameTimer from './GameTimer';
 
 function GamePage(props) {
 
+    const [gameActive, setGameActive] = useState(false)
     const [picUrl, setPicUrl] = useState('')
     const [drawing, setDrawing] = useState()
-    const [isShown, setIsShown] = useState(true)
+    const [isShown, setIsShown] = useState(false)
 
     const client_id = 'dixX_GB7IbetuPLpQS9-JATQ8GI3j7nJlA3udPSmDZw'
 
@@ -21,14 +22,25 @@ function GamePage(props) {
         .catch( error => console.log(error.message));
     }
 
-//   useEffect(() => {
-//     loadImg()
-//   }, [])
+    function handleStart(){
+        // loadImg()
+        setIsShown(true)
+        setGameActive(true)
+    }
+
+    function handleGameEnd(){
+        setGameActive(false)
+    }
+
+    useEffect(() => {
+        loadImg()
+    }, [])
 
     return (
         <div id="game-page">
             <Header />
-            <GameTimer />
+            <GameTimer handleGameEnd={handleGameEnd} gameActive={gameActive} />
+            <button onClick={handleStart}> Start</button>
             <div id='goal-pic-div'>
                 { isShown ? <img src={picUrl} /> : null }
             </div>
