@@ -9,6 +9,12 @@ function GameCanvas({setDrawingData, handleExport, gameActive}) {
     const [brushSize, setBrushSize] = useState(3)
     const canvasRef = useRef(null)
 
+    useEffect(() => {
+        if(!gameActive){
+            handleSaveImg()
+        }
+    }, [gameActive])
+
     const handleColorChange = (e) => {
         setBrushColor(e.hex)
     }
@@ -30,8 +36,6 @@ function GameCanvas({setDrawingData, handleExport, gameActive}) {
     const handleEraseAll = () => {
         canvasRef.current.eraseAll()
     }
-
-    console.log(gameActive)
 
     const canvas =  <CanvasDraw 
         className='canvas'
