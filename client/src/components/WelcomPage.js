@@ -1,5 +1,6 @@
 import LoginForm from "./LoginForm"
 import Header from './Header'
+import RecentDrawingDisplay from "./RecentDrawingDisplay"
 
 function WelcomePage(props) {
     
@@ -8,6 +9,7 @@ function WelcomePage(props) {
             <Header />
             <h1>welcome</h1>
             <LoginForm />
+            <RecentDrawingDisplay />
         </div>
     )
 }

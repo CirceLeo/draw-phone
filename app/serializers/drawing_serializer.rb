@@ -1,3 +1,3 @@
 class DrawingSerializer < ActiveModel::Serializer
-  attributes :id
+  attributes :id, :data_url, :origin_pic_url
 end

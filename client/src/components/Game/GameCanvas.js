@@ -10,9 +10,9 @@ function GameCanvas({setDrawing, OriginPicUrl}) {
     const canvasRef = useRef(null)
 
     const handleExport = () => {
-        const base64 = canvasRef.current.canvasContainer.childNodes[1].toDataURL();
-        setDrawing(base64);
-        fetch(`/drawings/create`, {
+        const drawingData = canvasRef.current.canvasContainer.childNodes[1].toDataURL();
+        setDrawing(drawingData);
+        fetch(`/drawings`, {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",
@@ -20,7 +20,7 @@ function GameCanvas({setDrawing, OriginPicUrl}) {
             },
             body: JSON.stringify({
                 user_id: 1,
-                data_url: base64,
+                data_url: drawingData,
                 origin_pic_url: OriginPicUrl
             })
         })

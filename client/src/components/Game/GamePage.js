@@ -1,7 +1,7 @@
-import '../styling/App.css';
-import '../styling/game.css';
+// import '.../styling/App.css';
+// import '.../styling/game.css';
 import React, {useEffect, useState} from 'react';
-import Header from './Header'
+import Header from '../Header'
 import GameCanvas from './GameCanvas';
 import GameTimer from './GameTimer';
 

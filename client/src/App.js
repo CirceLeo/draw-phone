@@ -1,10 +1,12 @@
 import './styling/App.css';
+import './styling/App.css';
+import './styling/game.css';
 import React, {useEffect, useState, useRef, useContext} from 'react';
 import ReactDOM from 'react-dom';
 import { BrowserRouter as Router, Routes, Route} from 'react-router-dom';
 import {UserProvider} from './components/context/user'
 import WelcomePage from './components/WelcomPage';
-import GamePage from './components/GamePage';
+import GamePage from './components/Game/GamePage';
 import UserPage from './components/UserPage';
 
 
