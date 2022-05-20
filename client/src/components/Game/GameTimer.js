@@ -19,11 +19,13 @@ useEffect(() => {
             handleGameEnd()
         }
     }, [timeLeft])
+
+const secondsLeft = Math.abs(timeLeft % 60)
     
     return (
         <>
-            {/* <h2>{timeLeft % 60 }: {Math.abs(60 - timeLeft)}</h2> */}
-            <h2 style={{color: timeLeft < 60 ? "red" : "black"}}>{timeLeft}</h2>
+            <h2 style={{color: timeLeft < 60 ? "red" : "black"}}>{Math.floor(timeLeft / 60) }:{secondsLeft < 10 ? `0${secondsLeft}` : secondsLeft}</h2>
+            {/* <h2 style={{color: timeLeft < 60 ? "red" : "black"}}>{timeLeft}</h2> */}
         </>
     )
 }
