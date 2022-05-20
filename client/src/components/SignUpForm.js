@@ -5,6 +5,7 @@ function SignUpForm(props) {
             <form>
                 <input type="email"/>
                 <input type='username' />
+                <input type='password' />
             </form>
         </div>
 
