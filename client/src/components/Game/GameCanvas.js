@@ -7,11 +7,13 @@ function GameCanvas({setDrawingData, gameActive}) {
 
     const [brushColor, setBrushColor] = useState('#B80000')
     const [brushSize, setBrushSize] = useState(3)
+    // const [currentDrawing, setCurrentDrawing] = useState('')
     const canvasRef = useRef(null)
 
     useEffect(() => {
         if(!gameActive){
-            handleSaveImg()
+            console.log("save the pic tho")
+            handleSaveDrawing()
         }
     }, [gameActive])
 
@@ -23,10 +25,9 @@ function GameCanvas({setDrawingData, gameActive}) {
         setBrushSize(parseInt(e.target.value, 10))
     }
 
-    const handleSaveImg = () => {
+    const handleSaveDrawing = () => {
         const currentCanvas = canvasRef.current.canvasContainer.childNodes[1].toDataURL();
         setDrawingData(currentCanvas);
-        // handleExport()
     }
 
     const handleUndo = () => {
@@ -65,7 +66,7 @@ function GameCanvas({setDrawingData, gameActive}) {
             </button> 
         <button
             onClick={() => {
-                handleSaveImg()
+                handleSaveDrawing()
             // handleExport()
             }}
         >

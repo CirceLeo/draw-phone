@@ -15,7 +15,7 @@ function GameTimer(props) {
 
 useEffect(() => {
         if (timeLeft === 0) {
-            console.log("TIME!")
+            console.log("time's up!")
             handleGameEnd()
         }
     }, [timeLeft])

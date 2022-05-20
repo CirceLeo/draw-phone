@@ -44,7 +44,7 @@ function GamePage(props) {
     }
 
     const handleExport = () => {
-        console.log("put the pretty pic in the database")
+        console.log("put her in the data")
         fetch(`/drawings`, {
             method: "POST",
             headers: {
@@ -58,7 +58,7 @@ function GamePage(props) {
             })
         })
         .then( res => res.json())
-        .then( data => console.log(data))
+        // .then( data => console.log(data))
         .catch( error => console.log(error.message));
     };
 
