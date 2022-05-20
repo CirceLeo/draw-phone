@@ -16,6 +16,19 @@ function LoginForm(props) {
     function handleSubmit(event){
         event.preventDefault()
         console.log(loginInfo)
+        fetch(`/login`, {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json",
+                Accept: "application/json"
+            },
+            body: JSON.stringify({
+                loginInfo
+            })
+        })
+        .then( res => res.json())
+        .then( data => console.log(data))
+        .catch( error => console.log(error.message));
     }
 
     return (
