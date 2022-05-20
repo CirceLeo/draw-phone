@@ -1,4 +1,4 @@
-import React, {useEffect, useState} from 'react';
+import React, {useEffect, useState, useRef} from 'react';
 import Header from '../Header'
 import GameCanvas from './GameCanvas';
 import GameTimer from './GameTimer';
@@ -9,6 +9,8 @@ function GamePage(props) {
     const [picUrl, setPicUrl] = useState('')
     const [drawingData, setDrawingData] = useState()
     const [isShown, setIsShown] = useState(false)
+    const canvasRef = useRef(null)
+
 
     const client_id = 'dixX_GB7IbetuPLpQS9-JATQ8GI3j7nJlA3udPSmDZw'
     const search_term = 'dog'
@@ -39,11 +41,13 @@ function GamePage(props) {
 
     function handleGameEnd(){
         setGameActive(false)
+        const currentCanvas = canvasRef.current.canvasContainer.childNodes[1].toDataURL();
+        setDrawingData(currentCanvas);
         setIsShown(true)
-        handleExport()
+        handleExport(currentCanvas)
     }
 
-    const handleExport = () => {
+    const handleExport = (canvasData) => {
         console.log("put her in the data")
         fetch(`/drawings`, {
             method: "POST",
@@ -53,7 +57,7 @@ function GamePage(props) {
             },
             body: JSON.stringify({
                 user_id: 1,
-                data_url: drawingData,
+                data_url: canvasData,
                 origin_pic_url: picUrl
             })
         })
@@ -76,7 +80,7 @@ function GamePage(props) {
                 onMouseEnter={() => {if(gameActive){setIsShown(false)}}}
                 onMouseLeave={() => {if(gameActive){setIsShown(true)}}}
             >
-                <GameCanvas setDrawingData={setDrawingData} gameActive={gameActive} handleExport={handleExport} />
+                <GameCanvas setDrawingData={setDrawingData} gameActive={gameActive} handleExport={handleExport} canvasRef={canvasRef} />
             </div>
 
             <img src={drawingData}/>

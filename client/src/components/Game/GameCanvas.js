@@ -3,19 +3,19 @@ import {CirclePicker, GithubPicker} from 'react-color';
 import CanvasDraw from 'react-canvas-draw';
 
 
-function GameCanvas({setDrawingData, gameActive}) {
+function GameCanvas({setDrawingData, gameActive, canvasRef}) {
 
     const [brushColor, setBrushColor] = useState('#B80000')
     const [brushSize, setBrushSize] = useState(3)
     // const [currentDrawing, setCurrentDrawing] = useState('')
-    const canvasRef = useRef(null)
+    // const canvasRef = useRef(null)
 
-    useEffect(() => {
-        if(!gameActive){
-            console.log("save the pic tho")
-            handleSaveDrawing()
-        }
-    }, [gameActive])
+    // useEffect(() => {
+    //     if(!gameActive){
+    //         // console.log("save the pic tho")
+    //         handleSaveDrawing()
+    //     }
+    // }, [gameActive])
 
     const handleColorChange = (e) => {
         setBrushColor(e.hex)
@@ -25,10 +25,10 @@ function GameCanvas({setDrawingData, gameActive}) {
         setBrushSize(parseInt(e.target.value, 10))
     }
 
-    const handleSaveDrawing = () => {
-        const currentCanvas = canvasRef.current.canvasContainer.childNodes[1].toDataURL();
-        setDrawingData(currentCanvas);
-    }
+    // const handleSaveDrawing = () => {
+    //     const currentCanvas = canvasRef.current.canvasContainer.childNodes[1].toDataURL();
+    //     setDrawingData(currentCanvas);
+    // }
 
     const handleUndo = () => {
         canvasRef.current.undo()
@@ -66,7 +66,7 @@ function GameCanvas({setDrawingData, gameActive}) {
             </button> 
         <button
             onClick={() => {
-                handleSaveDrawing()
+                // handleSaveDrawing()
             // handleExport()
             }}
         >
