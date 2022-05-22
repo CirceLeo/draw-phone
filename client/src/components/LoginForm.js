@@ -23,9 +23,7 @@ function LoginForm(props) {
                 "Content-Type": "application/json",
                 Accept: "application/json"
             },
-            body: JSON.stringify({
-                loginInfo
-            })
+            body: JSON.stringify(loginInfo)
         })
         .then( res => res.json())
         .then( data => console.log(data))
