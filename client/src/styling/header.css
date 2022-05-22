@@ -1,13 +1,14 @@
-a {
+nav a, nav .header-btn {
     text-decoration: none;
     color: blue;
     padding: .4em 2em;
     background-color: antiquewhite;
     transition: all ease-in-out 0.3s;
     border-radius: 1em;
+    border: none;
 }
 
-nav a:hover {
+nav a:hover,  nav .header-btn:hover {
     background-color: aquamarine;
     transition: all ease-in-out 0.3s;
 }
@@ -16,3 +17,4 @@ nav .active {
     background-color: pink;
     border-radius: 1em;
 }
+
