@@ -4,30 +4,31 @@ import './styling/game.css';
 import './styling/welcome.css';
 
 import React, {useEffect, useState, useRef, useContext} from 'react';
-import ReactDOM from 'react-dom';
+// import ReactDOM from 'react-dom';
 import { BrowserRouter as Router, Routes, Route} from 'react-router-dom';
-import {UserProvider} from './context/user'
 import WelcomePage from './components/WelcomPage';
 import GamePage from './components/Game/GamePage';
 import UserPage from './components/UserPage';
 
+import { UserContext, userObject } from "./context/user";
+
 
 
 function App() {
+  const [user, setUser] = useContext(UserContext)
 
-  // const [user, setUser] = useContext(UserContext)
-
-  // useEffect( () => {
-  //   fetch("/me")
-  //   .then(res => {
-  //     if (res.ok) {
-  //       // console.log(res)
-  //       res.json().then(user => setUser(user))
-  //     }
-  //     else {
-  //       console.log("fetch failed")
-  //     }
-  //   })}, []) 
+  useEffect( () => {
+    console.log("ok let's look for a user")
+    fetch("/me")
+    .then(res => {
+      console.log(res)
+      if (res.ok) {
+        // res.json().then(user => setUser(user))
+      }
+      else {
+        console.log("fetch failed")
+      }
+    })}, []) 
 
   return (
     <div className="App">

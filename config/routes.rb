@@ -4,10 +4,42 @@ Rails.application.routes.draw do
   resources :friendships
   resources :drawings
   resources :users
-  devise_for :users
+  # devise_for :users
 
-  post '/login', to: 'sessions#create'
-  delete '/logout', to: 'sessions#destroy'
+  # devise_scope :user do
+  #   get 'login', to: 'devise/sessions#new'
+  # end
+
+  # devise_scope :user do
+  #   delete 'logout', to: 'devise/sessions#destroy'
+  # end
+
+  # devise_for :users, skip: [:sessions]
+  # as :user do
+  #   get 'signin', to: 'devise/sessions#new', as: :new_user_session
+  #   post 'signin', to: 'devise/sessions#create', as: :user_session
+  #   delete 'signout', to: 'devise/sessions#destroy', as: :destroy_user_session
+  # end
+
+  devise_for :users, skip: :all
+
+  devise_scope :user do
+    # scope :auth, defaults: { format: :json } do
+      post   '/login',       to: 'sessions#create'
+      delete '/logout',      to: 'sessions#destroy'
+      # post   '/signup',       to: 'registrations#create'
+      # put    '/account',      to: 'registrations#update'
+      # delete '/account',      to: 'registrations#destroy'
+      # put    '/password',     to: 'devise/passwords#update'
+      # post   '/password',     to: 'devise/passwords#create'
+      # get    '/confirmation', to: 'devise/confirmations#show'
+      # post   '/unlock',       to: 'devise/unlocks#create'
+      # get    '/unlock',       to: 'devise/unlocks#show'
+    # end
+  end
+
+  # post '/login', to: 'sessions#create'
+  # delete '/logout', to: 'sessions#destroy'
 
   post '/signup', to: 'users#create'
   get '/me', to: 'users#show'

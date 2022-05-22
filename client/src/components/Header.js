@@ -7,12 +7,11 @@ function Header(props) {
 
     const [user, setUser] = useContext(UserContext)
 
-
     const navigateTo = useNavigate()
 
     function handleLogOut(){
         console.log("bye")
-        fetch(`http://localhost:4000/logout`, { method: "DELETE" })
+        fetch(`/logout`, { method: "DELETE" })
         .then( res => console.log(res))
         .then(() => 
         { navigateTo("/") 
@@ -26,6 +25,7 @@ function Header(props) {
     
     return (
         <div id="header">
+            { user.username ? <p>{user.username}</p> : <p> No one is logged in</p>}
             <h3>Im a header look at me go</h3>
             <nav>
                 <NavLink to = '/'>Home</NavLink>

@@ -61,7 +61,7 @@ function LoginForm(props) {
                     onChange={handleLoginInfoChange}
                     value={loginInfo.username}
                 />
-                <br />
+                {/* <br />
                 <label>email: </label>
                 
                 <input 
@@ -69,7 +69,7 @@ function LoginForm(props) {
                     name="email" 
                     onChange={handleLoginInfoChange}
                     value={loginInfo.email}
-                />
+                /> */}
                 <br/>
                 <label>Password: </label>
                 <input 
