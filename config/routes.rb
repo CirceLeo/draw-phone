@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
-  resources :friendships
   root to: 'home#index'
+
+  resources :friendships
   resources :drawings
   resources :users
   devise_for :users
@@ -10,6 +11,7 @@ Rails.application.routes.draw do
 
   post '/signup', to: 'users#create'
   get '/me', to: 'users#show'
+  get '/auth', to: 'users#show'
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
   # Defines the root path route ("/")

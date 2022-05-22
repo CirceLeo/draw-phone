@@ -1,6 +1,15 @@
 import {useState} from 'react';
+import { useNavigate } from 'react-router-dom';
+import { UserContext, userObject } from "../context/user";
 
 function LoginForm(props) {
+
+    const navigate = useNavigate()
+    const [errors, setErrors] = useState([]);
+    const [showErrors, setShowErrors] = useState(false);
+    const [user, setUser] = useContext(UserContext)
+
+
     const [loginInfo, setLoginInfo] = useState({
         username: '',
         password: '',
@@ -25,8 +34,20 @@ function LoginForm(props) {
             },
             body: JSON.stringify(loginInfo)
         })
-        .then( res => res.json())
-        .then( data => console.log(data))
+        .then( res => {
+            if(res.ok){
+                res.json().then(userData => {
+                    setUser(userData)
+                    navigate('/me') //TODO: change to play??
+                })
+            } else {
+                res.json().then(response => {
+                    setErrors(response.error)
+                    setShowErrors(true)
+                })
+            }
+        })
+        // .then( data => console.log(data))
         .catch( error => console.log(error.message));
     }
 
