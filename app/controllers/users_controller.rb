@@ -9,19 +9,22 @@ class UsersController < ApplicationController
     def show
         user = User.find(session[:user_id])
         if user
-            render json: user, status: :ok
+            render json: {}
+            # render json: user, status: :ok
         else
-            render json: {message: "couldn't find a user"}, status: :unauthorized
+            render json: {}, status: :unauthorized
         end
     end
 
     def index
         render json: User.all, status: :ok
     end
+
     def update
         @user.update(user_params)
         render json: @user, status: :accepted
     end
+
     def destroy
         @user.destroy
         render json: {}, status: 204

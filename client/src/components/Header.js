@@ -14,11 +14,9 @@ function Header(props) {
         fetch(`/logout`, { method: "DELETE" })
         .then( res => console.log(res))
         .then(() => 
-        { navigateTo("/") 
+        { navigateTo("/play") 
             setUser({})
         })
-        // .then(data => console.log(data))
-        // .then( data => console.log(data))
         .catch( error => console.log(error.message));
     }
     

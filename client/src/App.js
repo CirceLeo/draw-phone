@@ -19,10 +19,10 @@ function App() {
 
   useEffect( () => {
     console.log("ok let's look for a user")
-    fetch("/me")
+    fetch("http://localhost:4000/me")
     .then(res => {
-      console.log(res)
       if (res.ok) {
+        console.log(res.json())
         // res.json().then(user => setUser(user))
       }
       else {
