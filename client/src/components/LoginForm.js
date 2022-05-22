@@ -3,7 +3,8 @@ import {useState} from 'react';
 function LoginForm(props) {
     const [loginInfo, setLoginInfo] = useState({
         username: '',
-        password: ''
+        password: '',
+        email: ''
     })
 
     function handleLoginInfoChange(event){
@@ -40,6 +41,15 @@ function LoginForm(props) {
                     name="username" 
                     onChange={handleLoginInfoChange}
                     value={loginInfo.username}
+                />
+                <br />
+                <label>email: </label>
+                
+                <input 
+                    type="email" 
+                    name="email" 
+                    onChange={handleLoginInfoChange}
+                    value={loginInfo.email}
                 />
                 <br/>
                 <label>Password: </label>
