@@ -3,3 +3,13 @@
     border-radius: 1em;
     border: 2px black solid;
 }
+
+.drawing-display {
+    overflow: auto;
+    white-space: nowrap;
+}
+
+.display-drawing {
+    display: inline-block;
+    margin: 0em 1em;
+}

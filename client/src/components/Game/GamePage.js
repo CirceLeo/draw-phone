@@ -123,7 +123,7 @@ function GamePage(props) {
                 <GameCanvas setDrawingData={setDrawingData} gameActive={gameActive} handleExport={handleExport} canvasRef={canvasRef} />
             </div>
 
-            <img src={drawingData}/>
+            {/* <img src={drawingData}/> */}
         </div>
     )
 }
