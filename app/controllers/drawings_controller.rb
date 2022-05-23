@@ -9,7 +9,7 @@ class DrawingsController < ApplicationController
         render json: @drawing, status: :ok
     end
     def index
-        render json: Drawing.all, status: :ok
+        render json: Drawing.all.order(created_at: :desc), status: :ok
     end
     def update
         @drawing.update(drawing_params)

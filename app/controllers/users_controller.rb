@@ -1,8 +1,10 @@
 class UsersController < ApplicationController
     skip_before_action :authenticate_user!, only: :create
     before_action :find_user, only: [:update, :destroy]
+
     def create
         user = User.create!(user_params)
+        session[:user_id] = user.id
         render json: user, status: :created
     end
 

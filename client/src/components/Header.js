@@ -27,7 +27,7 @@ function Header(props) {
             <h3>Im a header look at me go</h3>
             <nav>
                 <NavLink to = '/'>Home</NavLink>
-                <NavLink to ='/me'>User Page</NavLink>
+                { user.username ? <NavLink to ='/me'>User Page</NavLink> : null}                
                 <NavLink to = '/play'>Play!</NavLink>
                 {/* TODO: conditional render logout but */}
                 <button  onClick={handleLogOut} className='header-btn'>Log Out</button>

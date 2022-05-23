@@ -21,7 +21,8 @@ Rails.application.routes.draw do
   #   delete 'signout', to: 'devise/sessions#destroy', as: :destroy_user_session
   # end
 
-  devise_for :users, skip: :all
+  # devise_for :users, skip: :all
+  devise_for :users,     controllers: {       sessions: 'sessions'     }
 
   devise_scope :user do
     # scope :auth, defaults: { format: :json } do
