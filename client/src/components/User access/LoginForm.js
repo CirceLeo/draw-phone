@@ -54,6 +54,13 @@ function LoginForm({closeModal}) {
     return (
         <div id="login-form">
             <button className='close-button' onClick={closeModal}>X</button>
+            {showErrors ? 
+                <div className='login-issues'>
+                    <p>{errors}</p>
+                    <button onClick={()=>setShowErrors(false)} className='close-button'>X</button>
+                </div> 
+                : null
+            }
             <form onSubmit={handleSubmit}>
                 <label>Username: </label>
                 <input 

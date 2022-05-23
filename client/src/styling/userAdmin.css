@@ -1,0 +1,10 @@
+.login-issues, .sigup-issues {
+    border: 1px white solid;
+    background-color: rgba(231, 65, 65, 0.459);
+    display: flex;
+}
+
+.login-issues p, .sigup-issues p {
+    padding: .5em;
+    margin: .5em;
+}

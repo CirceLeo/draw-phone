@@ -29,6 +29,7 @@
     background-color: rgba(240, 248, 255, 0);
     border: 0px;
     transition: 1s;
+    /* border-radius: 5em; */
 }
 
 .close-button:hover{
@@ -36,6 +37,7 @@
     font-size: 1em;
     background-color: rgb(244, 43, 7);
     border: 0px;
+    border-radius: 2em;
 }
 
 .modal button {

@@ -4,9 +4,12 @@ import Footer from "./Admin/Footer"
 import RecentDrawingDisplay from "./RecentDrawingDisplay"
 import SignUpForm from "./User access/SignUpForm"
 
-import {useState, useEffect} from 'react'
+import {useState, useEffect, useContext} from 'react'
+import { UserContext } from "../context/user"
 
 function WelcomePage(props) {
+
+    const [user, setUser] = useContext(UserContext)
 
     const [recentPics, setRecentPics] = useState([])
     const [modalOpen, setModalOpen] = useState(false);
@@ -48,21 +51,25 @@ function WelcomePage(props) {
                 <p>Hover over them to see the inspiration behind the piece!</p>
             </div>
             <RecentDrawingDisplay displayPics={recentPics} />
-            <div id="login-text">
-                <button onClick={openLoginModal}>login?</button>
-                {
-                    modalOpen && (
-                        <>
-                        <div className="overlay"></div>
-                        <div className="modal">
-                            { modalDisplay==="login" ? <LoginForm closeModal={closeModal} /> : null}
-                            { modalDisplay==="signup" ? <SignUpForm closeModal={closeModal} /> : null}
-                        </div>
-                        </>
-                    )
-                }
-                <p>New user? Click <button onClick={openSignupModal}>here</button> to sign up or head <a href='/play'>here</a> to play as a guest!</p>
-            </div>
+            { user ? 
+                <div id="login-text">
+                    <button onClick={openLoginModal}>login?</button>
+                    {
+                        modalOpen && (
+                            <>
+                            <div className="overlay"></div>
+                            <div className="modal">
+                                { modalDisplay==="login" ? <LoginForm closeModal={closeModal} /> : null}
+                                { modalDisplay==="signup" ? <SignUpForm closeModal={closeModal} /> : null}
+                            </div>
+                            </>
+                        )
+                    }
+                    <p>New user? Click <button onClick={openSignupModal}>here</button> to sign up or head <a href='/play'>here</a> to play as a guest!</p>
+                </div>
+                :
+                null
+            }
             {/* <SignUpForm /> */}
             <Footer />
         </div>

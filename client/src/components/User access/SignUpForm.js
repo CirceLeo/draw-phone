@@ -3,7 +3,11 @@ import {Navigate} from 'react-router-dom'
 import {UserContext} from '../../context/user'
 
 function SignUpForm({closeModal}) {
+
     const navigate = Navigate
+    const [errors, setErrors] = useState([]);
+    const [showErrors, setShowErrors] = useState(false);
+
     const [user, setUser] = useContext(UserContext)
     const [newUserData, setNewUserData] = useState({
         email: '',
@@ -27,13 +31,14 @@ function SignUpForm({closeModal}) {
             if(res.ok){
                 res.json().then(userData => {
                     setUser(userData)
+                    closeModal()
                     // navigate('/me') //TODO: change to play??
                 })
             } else {
                 res.json().then(response => {
-                    console.log(response)
-                    // setErrors(response.error)
-                    // setShowErrors(true)
+                    console.log(response.errors)
+                    setErrors(response.errors)
+                    setShowErrors(true)
                 })
             }
         })
@@ -56,6 +61,13 @@ function SignUpForm({closeModal}) {
     return (
         <div>
             <button className='close-button' onClick={closeModal}>X</button>
+            {showErrors ? 
+                <div className='signup-issues'>
+                    <p>{errors}</p>
+                    <button onClick={()=>setShowErrors(false)} className='close-button'>X</button>
+                </div> 
+                : null
+            }
             <form onSubmit={handleNewSignup}>
                 <label>Email: </label>
                 <input onChange={handleFormChange}  name="email" type="email" value={newUserData.email}/>

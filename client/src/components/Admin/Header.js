@@ -32,7 +32,7 @@ function Header(props) {
     
     return (
         <div id="header">
-            <h3>Im a header look at me go</h3>
+            <h3>Im a header and youre { user.username ? user.username : "a guest"}</h3>
             {
                 howToOpen && (
                     <>
