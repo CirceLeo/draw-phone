@@ -1,8 +1,8 @@
 import React, {useEffect, useState, useRef, useContext} from 'react';
 import { UserContext } from "../../context/user";
 
-import Header from '../Header'
-import Footer from '../Footer';
+import Header from '../Admin/Header'
+import Footer from '../Admin/Footer';
 import GameCanvas from './GameCanvas';
 import GameSettings from './GameSettings';
 import GameTimer from './GameTimer';

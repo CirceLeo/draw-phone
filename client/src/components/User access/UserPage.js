@@ -1,9 +1,9 @@
-import Header from "./Header"
-import Footer from "./Footer";
+import Header from "../Admin/Header"
+import Footer from "../Admin/Footer";
 
 import { useContext, useEffect } from "react"
-import { UserContext, userObject } from "../context/user";
-import RecentDrawingDisplay from "./RecentDrawingDisplay";
+import { UserContext, userObject } from "../../context/user";
+import RecentDrawingDisplay from "../RecentDrawingDisplay";
 
 function UserPage(props) {
     const [user, setUser] = useContext(UserContext)

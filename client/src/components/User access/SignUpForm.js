@@ -1,6 +1,6 @@
 import {useState, useContext} from 'react';
 import {Navigate} from 'react-router-dom'
-import {UserContext} from '../context/user'
+import {UserContext} from '../../context/user'
 
 function SignUpForm(props) {
     const navigate = Navigate

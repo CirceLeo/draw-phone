@@ -9,7 +9,7 @@ import React, {useEffect, useState, useRef, useContext} from 'react';
 import { BrowserRouter as Router, Routes, Route} from 'react-router-dom';
 import WelcomePage from './components/WelcomPage';
 import GamePage from './components/Game/GamePage';
-import UserPage from './components/UserPage';
+import UserPage from './components/User access/UserPage';
 
 import { UserContext, userObject } from "./context/user";
 

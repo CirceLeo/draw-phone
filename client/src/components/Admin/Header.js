@@ -1,7 +1,7 @@
 import {NavLink, useNavigate} from 'react-router-dom';
 import React, { useContext, useState } from "react";
-import { UserContext } from "../context/user";
-import '../styling/header.css'
+import { UserContext } from "../../context/user";
+import '../../styling/header.css'
 import HowToPlay from './HowToPlay';
 
 function Header(props) {

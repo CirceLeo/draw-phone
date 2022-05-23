@@ -1,6 +1,6 @@
 import {useState, useContext} from 'react';
 import { useNavigate } from 'react-router-dom';
-import { UserContext, userObject } from "../context/user";
+import { UserContext, userObject } from "../../context/user";
 
 function LoginForm({closeModal}) {
 

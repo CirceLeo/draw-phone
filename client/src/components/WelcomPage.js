@@ -1,8 +1,8 @@
-import LoginForm from "./LoginForm"
-import Header from './Header'
-import Footer from "./Footer"
+import LoginForm from "./User access/LoginForm"
+import Header from './Admin/Header'
+import Footer from "./Admin/Footer"
 import RecentDrawingDisplay from "./RecentDrawingDisplay"
-import SignUpForm from "./SignUpForm"
+import SignUpForm from "./User access/SignUpForm"
 
 import {useState, useEffect} from 'react'
 
