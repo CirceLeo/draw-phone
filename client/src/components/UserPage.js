@@ -1,4 +1,5 @@
 import Header from "./Header"
+import Footer from "./Footer";
 
 import { useContext, useEffect } from "react"
 import { UserContext, userObject } from "../context/user";
@@ -34,7 +35,9 @@ function UserPage(props) {
             <Header />
             <p>You are a user, good job, babe</p>
             <p>{user.username}</p>
+            <h3>Here are some of your masterpieces</h3>
             <RecentDrawingDisplay displayPics={user.drawings}/>
+            <Footer />
         </div>
 
     )

@@ -1,9 +1,10 @@
 import {useState} from 'react'
 function GameSettings({closeModal, setPlayTime, setImageTerm}) {
-
-    function handleGameStart(){
-        closeModal()
-    }
+    const [tempPlayTime, setTempPlayTime] = useState(45)
+    const [tempSearchTerm, setTempSearchTerm] = useState('dogs')
+    // function handleGameStart(){
+    //     closeModal()
+    // }
 
     function handleNewPlayTime(e){
         setPlayTime(e.target.value)
@@ -12,10 +13,17 @@ function GameSettings({closeModal, setPlayTime, setImageTerm}) {
     function handleNewSearchTerm(e){
         setImageTerm(e.target.value)
     }
+
+    function handleSubmit(e){
+        e.preventDefault()
+        setPlayTime(tempPlayTime)
+        setImageTerm(tempSearchTerm)
+        closeModal()
+    }
     
     return (
         <div id="game-setttings">
-            <form>
+            <form onSubmit={handleSubmit}>
                 <label>How long do you want?</label>
                 <select onChange={handleNewPlayTime}>
                     <option value={5}>testing</option>
@@ -23,7 +31,6 @@ function GameSettings({closeModal, setPlayTime, setImageTerm}) {
                     <option value={90}>medium</option>
                     <option value={180}>long</option>
                 </select>
-
                 <br/>
                 <label>What do you want to draw?</label>
                 <select onChange={handleNewSearchTerm}>
@@ -34,7 +41,7 @@ function GameSettings({closeModal, setPlayTime, setImageTerm}) {
                     <option value="superhero">superheroes</option> 
                 </select>
                 <br/>
-                <button onClick={handleGameStart}>Play!</button>
+                <button type='submit'>Looks good, let's draw!</button>
             </form>
         </div>
     )

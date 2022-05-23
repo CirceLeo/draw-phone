@@ -8,6 +8,7 @@
 .drawing-display {
     overflow: auto;
     white-space: nowrap;
+    margin-bottom: 2em;
 }
 
 .display-drawing {

@@ -16,3 +16,19 @@ img {
     height: 19em;
 }
 
+/* #goal-and-canvas{
+    display: inline-block;
+} */
+
+#current-settings{
+    margin: 1em;
+    padding: 0em;
+    border: black 2px solid;
+    width: fit-content;
+}
+
+#current-settings p{
+    margin: 0em;
+    padding: 0em;
+}
+

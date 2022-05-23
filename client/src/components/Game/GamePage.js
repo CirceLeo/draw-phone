@@ -2,6 +2,7 @@ import React, {useEffect, useState, useRef, useContext} from 'react';
 import { UserContext } from "../../context/user";
 
 import Header from '../Header'
+import Footer from '../Footer';
 import GameCanvas from './GameCanvas';
 import GameSettings from './GameSettings';
 import GameTimer from './GameTimer';
@@ -10,7 +11,7 @@ import GameTimer from './GameTimer';
 function GamePage(props) {
     
     const [user, setUser] = useContext(UserContext)
-    const [modalOpen, setModalOpen] = useState(true);
+    const [modalOpen, setModalOpen] = useState(false);
     const [gameActive, setGameActive] = useState(false)
     const [picUrl, setPicUrl] = useState('')
     const [drawingData, setDrawingData] = useState()
@@ -106,24 +107,30 @@ function GamePage(props) {
                     </>
                 )
             }
+            {gameActive ? null : <div id="current-settings">
+                <p>Current Settings:</p>
+                <p>Drawing subject: {imageTerm}</p>
+                <p>seconds to draw: {playTime}</p>
+                <button onClick={openModal}>Change settings?</button>
+                </div>}
             <GameTimer handleGameEnd={handleGameEnd} gameActive={gameActive} playTime={playTime} />
             {/* TODO: conditionally render so after game first begins, it says 'con't not start' */}
-            {/* TODO: new game button after game ends that replaces the pause button */}
             { gameActive ?    
             <button onClick={handlePause}>Pause</button> : 
             <button onClick={handleStart}> Start</button>}
-            <div id='goal-pic-div'>
-                { isShown ? <img src={picUrl} /> : null }
+            <div id='goal-and-canvas'>
+                <div id='goal-pic-div'>
+                    { isShown ? <img src={picUrl} /> : null }
+                </div>
+                <div 
+                    id="game-canvas" 
+                    onMouseEnter={() => {if(gameActive){setIsShown(false)}}}
+                    onMouseLeave={() => {if(gameActive){setIsShown(true)}}}
+                >
+                    <GameCanvas setDrawingData={setDrawingData} gameActive={gameActive} handleExport={handleExport} canvasRef={canvasRef} />
+                </div>
             </div>
-            <div 
-                id="game-canvas" 
-                onMouseEnter={() => {if(gameActive){setIsShown(false)}}}
-                onMouseLeave={() => {if(gameActive){setIsShown(true)}}}
-            >
-                <GameCanvas setDrawingData={setDrawingData} gameActive={gameActive} handleExport={handleExport} canvasRef={canvasRef} />
-            </div>
-
-            {/* <img src={drawingData}/> */}
+            <Footer />
         </div>
     )
 }
