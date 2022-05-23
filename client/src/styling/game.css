@@ -14,6 +14,19 @@
     grid-area: game-info
 }
 
+#result-pics {
+    display: flex;
+}
+
+#result-pics div{
+    margin: 1em 2em;
+}
+
+#result-pics img, #result-pics p {
+    width: 10em;
+    height: auto;
+}
+
 #setting-and-control{
     grid-area: controls;
     align-items: center;
@@ -29,6 +42,17 @@
     width: 30em;
     margin-left: 3em;
     grid-area: goal-pic;
+}
+
+.gameEnd{
+    height: 80vh;
+    overflow: auto;
+    width: 80vw;
+    margin: 1em;
+}
+.gameEnd img {
+    background-color: white;
+    border: black 2px inset;
 }
 
 #start-pause-buttons {

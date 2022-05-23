@@ -26,7 +26,8 @@ nav .active {
 #header{
     background-color: rgba(139, 0, 0, 0.67);
     width: 90vw;
-    margin: 1em 2em;
+    margin: 0em 2em;
     color: white;
+    /* top: 1em; */
 }
 
