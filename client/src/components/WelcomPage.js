@@ -35,23 +35,27 @@ function WelcomePage(props) {
     return (
         <div id="welcome-page">
             <Header />
-            <h1>welcome</h1>
-            <button onClick={openModal}>login?</button>
-            {
-                modalOpen && (
-                    <>
-                    <div className="overlay"></div>
-                    <div className="modal">
-                        <LoginForm closeModal={closeModal} />
-                    </div>
-                    </>
-                )
-            }
-            <p>New user? Click <button onClick={openModal}>here</button> to sign up or head <a href='/play'>here</a> to play as a guest!</p>
-            {/* <SignUpForm /> */}
-            <h3>Below, we have a few of our recent accusitions</h3>
-            <p>Hover over them to see the inspiration behind the piece!</p>
+            <div id="welcome-text">
+                <h1>welcome</h1>
+                <h3>Please peruse some of our most recent artistic works</h3>
+                <p>Hover over them to see the inspiration behind the piece!</p>
+            </div>
             <RecentDrawingDisplay displayPics={recentPics} />
+            <div id="login-text">
+                <button onClick={openModal}>login?</button>
+                {
+                    modalOpen && (
+                        <>
+                        <div className="overlay"></div>
+                        <div className="modal">
+                            <LoginForm closeModal={closeModal} />
+                        </div>
+                        </>
+                    )
+                }
+                <p>New user? Click <button onClick={openModal}>here</button> to sign up or head <a href='/play'>here</a> to play as a guest!</p>
+            </div>
+            {/* <SignUpForm /> */}
             <Footer />
         </div>
     )
