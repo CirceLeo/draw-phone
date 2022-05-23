@@ -2,9 +2,11 @@ import Header from "./Header"
 
 import { useContext, useEffect } from "react"
 import { UserContext, userObject } from "../context/user";
+import RecentDrawingDisplay from "./RecentDrawingDisplay";
 
 function UserPage(props) {
     const [user, setUser] = useContext(UserContext)
+    // const [userPics, setUserPics] = useState([])
 
     // useEffect( () => {
     //     console.log("fetching from the userpage")
@@ -18,12 +20,21 @@ function UserPage(props) {
     //         console.log("fetch failed")
     //         }
     //     })}, []) 
+
+    // useEffect(() => {
+    //     fetch('/drawings')
+    //     .then(resp => resp.json())
+    //     .then(data => setRecentPics(data))
+    // }, [])
+
+    console.log(user.drawings)
     
     return (
         <div id="user-page">
             <Header />
             <p>You are a user, good job, babe</p>
             <p>{user.username}</p>
+            {/* <RecentDrawingDisplay displayPics={user.drawings}/> */}
         </div>
 
     )

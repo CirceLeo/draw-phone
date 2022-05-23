@@ -1,16 +1,16 @@
 import {useEffect, useState} from 'react'
 
-function RecentDrawingDisplay(props) {
+function RecentDrawingDisplay({displayPics}) {
 
-    const [recentPics, setRecentPics] = useState([])
+    // const [displayPics, setdisplayPics] = useState([])
 
-    useEffect(() => {
-        fetch('/drawings')
-        .then(resp => resp.json())
-        .then(data => setRecentPics(data))
-    }, [])
+    // useEffect(() => {
+    //     fetch('/drawings')
+    //     .then(resp => resp.json())
+    //     .then(data => setdisplayPics(data))
+    // }, [])
 
-    const renderedDrawings = recentPics.map((drawing) => {
+    const renderedDrawings = displayPics.map((drawing) => {
         return (
                 <div key={drawing.id}  className="display-drawing"   >
                     <img 

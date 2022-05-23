@@ -52,7 +52,6 @@ function GamePage(props) {
     }
 
     const handleExport = (canvasData) => {
-        console.log("put her in the data")
         let tempUserID = 1 //TODO: fix so we're not straight up hard coding an id cause this will fail as soon as we reseed
     
         if (user.username){
