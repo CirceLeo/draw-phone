@@ -4,7 +4,7 @@ import CanvasDraw from 'react-canvas-draw';
 
 
 function GameCanvas({setDrawingData, gameActive, canvasRef}) {
-
+    
     const [brushColor, setBrushColor] = useState('#B80000')
     const [brushSize, setBrushSize] = useState(3)
     // const [currentDrawing, setCurrentDrawing] = useState('')
@@ -54,6 +54,7 @@ function GameCanvas({setDrawingData, gameActive, canvasRef}) {
         <>
             {canvas}
             <GithubPicker triangle='hide' onChange={handleColorChange} />
+            {/* <CirclePicker /> */}
             <button
                 onClick={handleUndo}
             >

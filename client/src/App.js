@@ -17,18 +17,18 @@ import { UserContext, userObject } from "./context/user";
 function App() {
   const [user, setUser] = useContext(UserContext)
 
-  useEffect( () => {
-    console.log("ok let's look for a user")
-    fetch("http://localhost:4000/me")
-    .then(res => {
-      if (res.ok) {
-        console.log(res.json())
-        // res.json().then(user => setUser(user))
-      }
-      else {
-        console.log("fetch failed")
-      }
-    })}, []) 
+  // useEffect( () => {
+  //   console.log("ok let's look for a user")
+  //   fetch("http://localhost:4000/me")
+  //   .then(res => {
+  //     if (res.ok) {
+  //       console.log(res.json())
+  //       // res.json().then(user => setUser(user))
+  //     }
+  //     else {
+  //       console.log("fetch failed")
+  //     }
+  //   })}, []) 
 
   return (
     <div className="App">

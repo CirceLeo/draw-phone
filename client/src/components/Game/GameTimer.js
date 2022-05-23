@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 
 function GameTimer(props) {
     const {gameActive, handleGameEnd} = props
-    const [timeLeft, setTimeLeft] = useState(5) 
+    const [timeLeft, setTimeLeft] = useState(90) 
 
     useEffect(() => {
         if(gameActive){
