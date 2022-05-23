@@ -101,7 +101,7 @@ function GamePage(props) {
                     <>
                     <div className="overlay"></div>
                     <div className="modal">
-                        <GameSettings closeModal={closeModal} />
+                        <GameSettings closeModal={closeModal} setImageTerm={setImageTerm} setPlayTime={setPlayTime}/>
                     </div>
                     </>
                 )

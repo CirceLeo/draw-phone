@@ -23,6 +23,8 @@ function WelcomePage(props) {
             <LoginForm />
             <p>sign up</p>
             <SignUpForm />
+            <h3>Below, we have a few of our recent accusitions</h3>
+            <p>Hover over them to see the inspiration behind the piece!</p>
             <RecentDrawingDisplay displayPics={recentPics} />
         </div>
     )

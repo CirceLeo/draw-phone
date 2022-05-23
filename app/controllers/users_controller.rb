@@ -11,7 +11,7 @@ class UsersController < ApplicationController
     def show
         user = User.find(session[:user_id])
         if user
-            render json: {}
+            render json: {user}, include: "drawings", status, ok
             # render json: user, status: :ok
         else
             render json: {}, status: :unauthorized

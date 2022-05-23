@@ -34,7 +34,7 @@ function UserPage(props) {
             <Header />
             <p>You are a user, good job, babe</p>
             <p>{user.username}</p>
-            {/* <RecentDrawingDisplay displayPics={user.drawings}/> */}
+            <RecentDrawingDisplay displayPics={user.drawings}/>
         </div>
 
     )

@@ -27,7 +27,7 @@ function SignUpForm(props) {
             if(res.ok){
                 res.json().then(userData => {
                     setUser(userData)
-                    navigate('/me') //TODO: change to play??
+                    // navigate('/me') //TODO: change to play??
                 })
             } else {
                 res.json().then(response => {

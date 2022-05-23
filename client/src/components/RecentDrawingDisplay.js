@@ -18,6 +18,8 @@ function RecentDrawingDisplay({displayPics}) {
                         onMouseOver={e => (e.currentTarget.src = drawing.origin_pic_url)}
                         onMouseOut={e => (e.currentTarget.src = drawing.data_url)}
                     />
+                    <p>Artist: {drawing.user ? drawing.user.username: "anon"}</p>
+                    <p>Title: {drawing.title ? drawing.title :` untitled piece ${drawing.id}`}</p>
                 </div>
             )
     })

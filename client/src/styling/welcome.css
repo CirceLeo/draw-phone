@@ -1,7 +1,8 @@
 .display-drawing img{
     transition: 1s;
-    border-radius: 1em;
-    border: 2px black solid;
+    border: gold 4px inset;
+    margin: .3em;
+    background-color: white;
 }
 
 .drawing-display {
@@ -12,4 +13,12 @@
 .display-drawing {
     display: inline-block;
     margin: 0em 1em;
+    border: 2px black solid;
+    border-radius: 1em;
+    background-color: antiquewhite;
+}
+
+.display-drawing p {
+    padding: 0px;
+    margin: 0px;
 }
