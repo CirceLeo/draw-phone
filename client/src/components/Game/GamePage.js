@@ -100,25 +100,36 @@ function GamePage(props) {
             {
                 modalOpen && (
                     <>
-                    <div className="overlay"></div>
-                    <div className="modal">
-                        <GameSettings closeModal={closeModal} setImageTerm={setImageTerm} setPlayTime={setPlayTime}/>
-                    </div>
+                        <div className="overlay"></div>
+                        <div className="modal">
+                            <GameSettings closeModal={closeModal} setImageTerm={setImageTerm} setPlayTime={setPlayTime}/>
+                        </div>
                     </>
                 )
             }
-            {gameActive ? null : <div id="current-settings">
-                <p>Current Settings:</p>
-                <p>Drawing subject: {imageTerm}</p>
-                <p>seconds to draw: {playTime}</p>
-                <button onClick={openModal}>Change settings?</button>
-                </div>}
-            <GameTimer handleGameEnd={handleGameEnd} gameActive={gameActive} playTime={playTime} />
+            <div id='game-grid'>
+                <div id='setting-and-control'>
+                    {/* <div id='current-game-info'> */}
+                        {gameActive ? 
+                            <GameTimer handleGameEnd={handleGameEnd} gameActive={gameActive} playTime={playTime} />
+                                        : 
+                            <div id="current-settings">
+                                <p>Current Settings:</p>
+                                <p>Drawing subject: {imageTerm}</p>
+                                <p>seconds to draw: {playTime}</p>
+                                <button onClick={openModal}>Change settings?</button>
+                            </div>
+                        }
+                    {/* </div> */}
+                    {/* <div id='start-pause-buttons'> */}
+                        { gameActive ?    
+                            <button onClick={handlePause}>Pause</button> : 
+                            <button onClick={handleStart}> Start</button>
+                        }
+                    {/* </div> */}
+                </div>
             {/* TODO: conditionally render so after game first begins, it says 'con't not start' */}
-            { gameActive ?    
-            <button onClick={handlePause}>Pause</button> : 
-            <button onClick={handleStart}> Start</button>}
-            <div id='goal-and-canvas'>
+            {/* <div id='goal-and-canvas'> */}
                 <div id='goal-pic-div'>
                     { isShown ? <img src={picUrl} /> : null }
                 </div>
@@ -129,6 +140,7 @@ function GamePage(props) {
                 >
                     <GameCanvas setDrawingData={setDrawingData} gameActive={gameActive} handleExport={handleExport} canvasRef={canvasRef} />
                 </div>
+            {/* </div> */}
             </div>
             <Footer />
         </div>

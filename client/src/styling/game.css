@@ -1,9 +1,42 @@
+#game-grid{
+    display: grid;
+    margin-bottom: 3em;
+    grid-template-areas:
+    ". controls controls ."
+    "goal-pic goal-pic canvas canvas"
+    "goal-pic goal-pic canvas canvas";
+}
+
+/* #current-settings{
+    grid-area: settings;
+} */
+#current-game-info{
+    grid-area: game-info
+}
+
+#setting-and-control{
+    grid-area: controls;
+    align-items: center;
+    /* background-color: rgb(38, 255, 0); */
+    width: fit-content;
+    height: 10em;
+}
+
 #goal-pic-div {
     height: 20em;
     border: 2px black solid;
     background-color: pink;
     width: 30em;
     margin-left: 3em;
+    grid-area: goal-pic;
+}
+
+#start-pause-buttons {
+    grid-area: timing-btn;
+}
+
+#game-canvas{
+    grid-area: canvas;    
 }
 
 .canvas {
@@ -31,4 +64,5 @@ img {
     margin: 0em;
     padding: 0em;
 }
+
 
