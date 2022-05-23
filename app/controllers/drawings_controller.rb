@@ -25,6 +25,6 @@ class DrawingsController < ApplicationController
         @drawing = Drawing.find(params[:id])
     end
     def drawing_params
-        params.permit(:data_url, :origin_pic_url)
+        params.permit(:data_url, :origin_pic_url, :user_id)
     end
 end
