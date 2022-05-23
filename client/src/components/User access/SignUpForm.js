@@ -2,7 +2,7 @@ import {useState, useContext} from 'react';
 import {Navigate} from 'react-router-dom'
 import {UserContext} from '../../context/user'
 
-function SignUpForm(props) {
+function SignUpForm({closeModal}) {
     const navigate = Navigate
     const [user, setUser] = useContext(UserContext)
     const [newUserData, setNewUserData] = useState({
@@ -55,6 +55,7 @@ function SignUpForm(props) {
     
     return (
         <div>
+            <button className='close-button' onClick={closeModal}>X</button>
             <form onSubmit={handleNewSignup}>
                 <label>Email: </label>
                 <input onChange={handleFormChange}  name="email" type="email" value={newUserData.email}/>

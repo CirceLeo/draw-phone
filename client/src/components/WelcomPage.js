@@ -10,6 +10,7 @@ function WelcomePage(props) {
 
     const [recentPics, setRecentPics] = useState([])
     const [modalOpen, setModalOpen] = useState(false);
+    const [modalDisplay, setModalDisplay] = useState('')
 
     useEffect(() => {
         fetch('/drawings')
@@ -17,8 +18,14 @@ function WelcomePage(props) {
         .then(data => setRecentPics(data))
     }, [])
 
-    function openModal(e) {
+    function openLoginModal(e) {
         setModalOpen(true)
+        setModalDisplay("login")
+    }
+
+    function openSignupModal(e) {
+        setModalOpen(true)
+        setModalDisplay("signup")
     }
 
     function closeModal(){
@@ -42,18 +49,19 @@ function WelcomePage(props) {
             </div>
             <RecentDrawingDisplay displayPics={recentPics} />
             <div id="login-text">
-                <button onClick={openModal}>login?</button>
+                <button onClick={openLoginModal}>login?</button>
                 {
                     modalOpen && (
                         <>
                         <div className="overlay"></div>
                         <div className="modal">
-                            <LoginForm closeModal={closeModal} />
+                            { modalDisplay==="login" ? <LoginForm closeModal={closeModal} /> : null}
+                            { modalDisplay==="signup" ? <SignUpForm closeModal={closeModal} /> : null}
                         </div>
                         </>
                     )
                 }
-                <p>New user? Click <button onClick={openModal}>here</button> to sign up or head <a href='/play'>here</a> to play as a guest!</p>
+                <p>New user? Click <button onClick={openSignupModal}>here</button> to sign up or head <a href='/play'>here</a> to play as a guest!</p>
             </div>
             {/* <SignUpForm /> */}
             <Footer />

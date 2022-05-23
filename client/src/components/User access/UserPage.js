@@ -28,15 +28,14 @@ function UserPage(props) {
     //     .then(data => setRecentPics(data))
     // }, [])
 
-    console.log(user.drawings)
+    // console.log(user.drawings)
     
     return (
         <div id="user-page">
             <Header />
-            <p>You are a user, good job, babe</p>
             <p>{user.username}</p>
             <h3>Here are some of your masterpieces</h3>
-            <RecentDrawingDisplay displayPics={user.drawings}/>
+            {user.drawings.length > 0 ? <RecentDrawingDisplay displayPics={user.drawings}/> : <p>We have no artworks attributed to you, alas</p>}
             <Footer />
         </div>
 

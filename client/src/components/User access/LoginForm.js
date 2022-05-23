@@ -53,7 +53,7 @@ function LoginForm({closeModal}) {
 
     return (
         <div id="login-form">
-            <button onClick={closeModal}>X</button>
+            <button className='close-button' onClick={closeModal}>X</button>
             <form onSubmit={handleSubmit}>
                 <label>Username: </label>
                 <input 
