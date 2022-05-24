@@ -65,14 +65,14 @@ function GameCanvas({setDrawingData, gameActive, canvasRef}) {
             >
                 clear canvas
             </button> 
-        <button
+        {/* <button
             onClick={() => {
-                // handleSaveDrawing()
-            // handleExport()
+                handleSaveDrawing()
+            handleExport()
             }}
         >
             save
-        </button>
+        </button> */}
         <label>Brush size</label>
         <input 
             type="number" 

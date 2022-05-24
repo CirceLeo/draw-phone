@@ -4,6 +4,9 @@ import { UserContext } from "../../context/user";
 import '../../styling/header.css'
 import HowToPlay from './HowToPlay';
 
+import useSound from "use-sound"
+
+
 function Header(props) {
 
     const [user, setUser] = useContext(UserContext)

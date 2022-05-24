@@ -7,6 +7,7 @@ import SignUpForm from "./User access/SignUpForm"
 import {useState, useEffect, useContext} from 'react'
 import { UserContext } from "../context/user"
 
+
 function WelcomePage(props) {
 
     const [user, setUser] = useContext(UserContext)

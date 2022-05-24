@@ -18,7 +18,7 @@ function RecentDrawingDisplay({displayPics}) {
                             <img src={drawing.origin_pic_url}/>
                         </div> */}
                         <div className='display-drawing-text'>
-                            <p>Artist: {drawing.user ? drawing.user.username: "anon"}</p>
+                            <p>Artist: {drawing.user.username !== "guest"  ? drawing.user.username: "anon"}</p>
                             <p>Title: {drawing.title ? drawing.title :` untitled piece ${drawing.id}`}</p>
                         </div>
                     </div>

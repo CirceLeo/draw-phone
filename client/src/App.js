@@ -15,7 +15,6 @@ import UserPage from './components/User access/UserPage';
 import { UserContext, userObject } from "./context/user";
 
 
-
 function App() {
   const [user, setUser] = useContext(UserContext)
 
@@ -24,11 +23,11 @@ function App() {
     fetch("/me")
     .then(res => {
       if (res.ok) {
-        // console.log(res.json())
-        res.json().then(user => setUser(user))
+        res.json().then(recievedUser => {setUser(recievedUser) 
+          console.log("set user as", recievedUser.username)})
       }
       else {
-        console.log("fetch failed", res)
+        console.log("fetch failed")
       }
     })}, []) 
 

@@ -9,11 +9,17 @@ class User < ApplicationRecord
 
   has_many :drawings
 
+  has_many :followers, foreign_key: :follower_id, class_name: "Friendship"
+  has_many :followed, through: :followers
+
+  has_many :followed, foreign_key: :followed_id, class_name: "Friendship"
+  has_many :followers, through: :followed
+
+
   def create
     user = User.create(user_params)
     if user.valid?
         render json: user, status: :created
-        #admin? signup/check
     else 
         render json: {errors: user.errors.full_messages}, status: :unprocessable_entity
     end

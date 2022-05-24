@@ -7,6 +7,7 @@ import RecentDrawingDisplay from "../RecentDrawingDisplay";
 
 function UserPage(props) {
     const [user, setUser] = useContext(UserContext)
+    console.log("username in userpage", user.username)
     // const [userPics, setUserPics] = useState([])
 
     // useEffect( () => {
@@ -33,19 +34,25 @@ function UserPage(props) {
     return (
         <div id="user-page">
             <Header />
-            <p>hi there, {user.username}</p>
-            
-            {user.drawings.length > 0 ? 
-                <> 
-                    <h3>Here are some of your masterpieces</h3> 
-                    <RecentDrawingDisplay displayPics={user.drawings}/> 
-                </> 
-                : 
-                <>
-                <h3>We have no artworks attributed to you, alas</h3>
-                <p>Why not <a href="/play">play</a> a few rounds?</p>
-                </>
-            }
+            { user.username ? 
+            <>
+                <p>hi there, {user.username}</p>
+
+                {user.drawings.length > 0 ? 
+                    <> 
+                        <h3>Here are some of your masterpieces</h3> 
+                        <RecentDrawingDisplay displayPics={user.drawings}/> 
+                    </> 
+                    : 
+                    <>
+                    <h3>We have no artworks attributed to you, alas</h3>
+                    <p>Why not <a href="/play">play</a> a few rounds?</p>
+                    </>
+                }
+            </>
+            :
+            <p>User page loading!</p>
+        }
             <Footer />
         </div>
 
