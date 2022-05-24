@@ -37,7 +37,7 @@ function GameEndScreen({drawingData, prepNewGame, picUrl, closeModal, newDrawing
             </div>
 
             {titleChagned ? 
-            <p>Awesome! Your artwork will be known as {inputTitle}</p>
+            <p>Awesome! Your artwork will be known as <strong>{inputTitle}</strong></p>
             :
             <>
                 <br/>

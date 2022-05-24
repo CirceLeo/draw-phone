@@ -1,35 +1,23 @@
 import Header from "../Admin/Header"
 import Footer from "../Admin/Footer";
 
-import { useContext, useEffect } from "react"
+import { useContext, useEffect, useState } from "react"
 import { UserContext, userObject } from "../../context/user";
 import RecentDrawingDisplay from "../RecentDrawingDisplay";
 
 function UserPage(props) {
     const [user, setUser] = useContext(UserContext)
-    console.log("username in userpage", user.username)
-    // const [userPics, setUserPics] = useState([])
+    const [userPics, setUserPics] = useState([])
 
-    // useEffect( () => {
-    //     console.log("fetching from the userpage")
-    //     fetch("http://localhost:4000/me")
-    //     .then(res => {
-    //         if (res.ok) {
-    //             console.log(res)
-    //         // res.json().then(user => setUser(user))
-    //         }
-    //         else {
-    //         console.log("fetch failed")
-    //         }
-    //     })}, []) 
+    useEffect(() => {
+        if(user.id){
+            fetch(`user_details/${user.id}`)
+            .then(resp => resp.json())
+            .then(data => setUserPics(data))
+        }
+    }, [])
 
-    // useEffect(() => {
-    //     fetch('/drawings')
-    //     .then(resp => resp.json())
-    //     .then(data => setRecentPics(data))
-    // }, [])
-
-    // console.log(user.drawings)
+    console.log(user.drawings)
     
     return (
         <div id="user-page">
@@ -41,7 +29,7 @@ function UserPage(props) {
                 {user.drawings.length > 0 ? 
                     <> 
                         <h3>Here are some of your masterpieces</h3> 
-                        <RecentDrawingDisplay displayPics={user.drawings}/> 
+                        <RecentDrawingDisplay displayPics={userPics}/> 
                     </> 
                     : 
                     <>
@@ -51,7 +39,10 @@ function UserPage(props) {
                 }
             </>
             :
+            <>
             <p>User page loading!</p>
+            <p>Click <a href="/play">here</a>to play instead!</p>
+            </>
         }
             <Footer />
         </div>
