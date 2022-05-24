@@ -47,12 +47,14 @@ function WelcomePage(props) {
         <div id="welcome-page">
             <Header />
             <div id="welcome-text">
-                <h1>welcome</h1>
+                <h1>welcome {user.username ? "back" : null}</h1>
                 <h3>Please peruse some of our most recent artistic works</h3>
                 <p>Hover over them to see the inspiration behind the piece!</p>
             </div>
             <RecentDrawingDisplay displayPics={recentPics} />
-            { user ? 
+            { user.username ? 
+                null
+                :
                 <div id="login-text">
                     <button onClick={openLoginModal}>login?</button>
                     {
@@ -68,10 +70,7 @@ function WelcomePage(props) {
                     }
                     <p>New user? Click <button onClick={openSignupModal}>here</button> to sign up or head <a href='/play'>here</a> to play as a guest!</p>
                 </div>
-                :
-                null
             }
-            {/* <SignUpForm /> */}
             <Footer />
         </div>
     )

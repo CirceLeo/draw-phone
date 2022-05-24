@@ -19,15 +19,13 @@ function App() {
   const [user, setUser] = useContext(UserContext)
 
   useEffect( () => {
-    console.log("ok let's look for a user")
     fetch("/me")
     .then(res => {
       if (res.ok) {
-        res.json().then(recievedUser => {setUser(recievedUser) 
-          console.log("set user as", recievedUser.username)})
+        res.json().then(recievedUser => {setUser(recievedUser)})
       }
       else {
-        console.log("fetch failed")
+        console.log("couldn't find a saved user")
       }
     })}, []) 
 
