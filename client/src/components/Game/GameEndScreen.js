@@ -1,6 +1,6 @@
 import {useState} from 'react'
 
-function GameEndScreen({drawingData, picUrl, closeModal, newDrawingId}) {
+function GameEndScreen({drawingData, prepNewGame, picUrl, closeModal, newDrawingId}) {
 
     const [inputTitle, setInputTitle] = useState('')
     const [titleChagned, setTitleChanged] = useState(false)
@@ -23,7 +23,7 @@ function GameEndScreen({drawingData, picUrl, closeModal, newDrawingId}) {
 
     return (
         <div className="gameEnd">
-            <button className="close-button" onClick={closeModal}>X</button>
+            <button className="close-button" onClick={prepNewGame}>X</button>
             <h2>Time's Up!</h2>
             <div id="result-pics">
                 <div>
@@ -50,7 +50,7 @@ function GameEndScreen({drawingData, picUrl, closeModal, newDrawingId}) {
             </>
             }
             <br/>
-            <button>Play Again?</button>
+            <button onClick={prepNewGame}>Play Again?</button>
         </div>
     )
 }

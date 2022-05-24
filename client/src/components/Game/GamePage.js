@@ -27,7 +27,6 @@ function GamePage(props) {
 
     const canvasRef = useRef(null)
 
-
     const client_id = 'dixX_GB7IbetuPLpQS9-JATQ8GI3j7nJlA3udPSmDZw'
 
     useEffect(() => {
@@ -62,6 +61,12 @@ function GamePage(props) {
         setIsShown(true)
         setGameActive(true)
         setGameStarted(true)
+    }
+
+    function prepNewGame(){
+        closeModal()
+        canvasRef.current.eraseAll()
+        setGameStarted(false)
     }
 
     function handlePause(){
@@ -114,7 +119,7 @@ function GamePage(props) {
                         <div className="overlay"></div>
                         <div className="modal">
                             { gameStarted ? 
-                                <GameEndScreen picUrl={picUrl} closeModal={closeModal} drawingData={drawingData} newDrawingId={newDrawingId}/>
+                                <GameEndScreen prepNewGame={prepNewGame} picUrl={picUrl} closeModal={closeModal} drawingData={drawingData} newDrawingId={newDrawingId}/>
                                 : <GameSettings closeModal={closeModal} setImageTerm={setImageTerm} setPlayTime={setPlayTime}/>
                             }
                         </div>

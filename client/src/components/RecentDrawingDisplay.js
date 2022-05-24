@@ -3,7 +3,6 @@ import {useEffect, useState} from 'react'
 function RecentDrawingDisplay({displayPics}) {
 
     const renderedDrawings = displayPics.map((drawing) => {
-        console.log(drawing)
         return (
                 <div key={drawing.id}  className="display-drawing flip-card">
                     {/* TODO: change schema of drawings to include origin topics and time spent, then put here */}
