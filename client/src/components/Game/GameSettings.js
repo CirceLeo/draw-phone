@@ -29,14 +29,14 @@ function GameSettings({closeModal, setPlayTime, setImageTerm}) {
                 <label>How long do you want?</label>
                 <select onChange={handleNewPlayTime}>
                     <option value={5}>testing</option>
-                    <option value={45} selected>short</option>
+                    <option value={45} defaultValue>short</option>
                     <option value={90}>medium</option>
                     <option value={180}>long</option>
                 </select>
                 <br/>
                 <label>What do you want to draw?</label>
                 <select onChange={handleNewSearchTerm}>
-                    <option value="dog" selected>Dogs!</option>
+                    <option value="dog" defaultValue>Dogs!</option>
                     <option value="cat">Cats</option>
                     <option value="flower">flowers</option>
                     <option value="car">cars</option> 
