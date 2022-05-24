@@ -16,8 +16,6 @@ function UserPage(props) {
             .then(data => setUserPics(data))
         }
     }, [])
-
-    console.log(user.drawings)
     
     return (
         <div id="user-page">
@@ -26,6 +24,20 @@ function UserPage(props) {
             <>
                 <p>hi there, {user.username}</p>
 
+                <div className="user-friends">
+                    {
+                        user.followers.length > 0 ?
+                        <>
+                            <p>how do you have a friend</p>
+                        </>
+                        :
+                        <>
+                            <p>sorry buddy, you have not friends</p>
+                        </>
+                    }
+                </div>
+
+                <div className="user-drawings">
                 {user.drawings.length > 0 ? 
                     <> 
                         <h3>Here are some of your masterpieces</h3> 
@@ -37,6 +49,7 @@ function UserPage(props) {
                     <p>Why not <a href="/play">play</a> a few rounds?</p>
                     </>
                 }
+                </div>
             </>
             :
             <>

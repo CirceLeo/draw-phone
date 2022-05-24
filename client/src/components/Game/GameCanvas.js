@@ -7,15 +7,6 @@ function GameCanvas({setDrawingData, gameActive, canvasRef}) {
     
     const [brushColor, setBrushColor] = useState('#B80000')
     const [brushSize, setBrushSize] = useState(3)
-    // const [currentDrawing, setCurrentDrawing] = useState('')
-    // const canvasRef = useRef(null)
-
-    // useEffect(() => {
-    //     if(!gameActive){
-    //         // console.log("save the pic tho")
-    //         handleSaveDrawing()
-    //     }
-    // }, [gameActive])
 
     const handleColorChange = (e) => {
         setBrushColor(e.hex)
@@ -24,11 +15,6 @@ function GameCanvas({setDrawingData, gameActive, canvasRef}) {
     const handleSizeChange = (e) => {
         setBrushSize(parseInt(e.target.value, 10))
     }
-
-    // const handleSaveDrawing = () => {
-    //     const currentCanvas = canvasRef.current.canvasContainer.childNodes[1].toDataURL();
-    //     setDrawingData(currentCanvas);
-    // }
 
     const handleUndo = () => {
         canvasRef.current.undo()
@@ -53,8 +39,6 @@ function GameCanvas({setDrawingData, gameActive, canvasRef}) {
     return (
         <>
             {canvas}
-            <GithubPicker triangle='hide' onChange={handleColorChange} />
-            {/* <CirclePicker /> */}
             <button
                 onClick={handleUndo}
             >
@@ -65,14 +49,6 @@ function GameCanvas({setDrawingData, gameActive, canvasRef}) {
             >
                 clear canvas
             </button> 
-        {/* <button
-            onClick={() => {
-                handleSaveDrawing()
-            handleExport()
-            }}
-        >
-            save
-        </button> */}
         <label>Brush size</label>
         <input 
             type="number" 
@@ -81,7 +57,26 @@ function GameCanvas({setDrawingData, gameActive, canvasRef}) {
             max={50}
             onChange={handleSizeChange}
         />
+        <GithubPicker triangle='hide' onChange={handleColorChange} />
+
         </>
     )
 }
 export default GameCanvas
+
+
+///LEGACY CODE IN CASE THINGS REALLY BREAK
+    // const handleSaveDrawing = () => {
+    //     const currentCanvas = canvasRef.current.canvasContainer.childNodes[1].toDataURL();
+    //     setDrawingData(currentCanvas);
+    // }
+
+        // const [currentDrawing, setCurrentDrawing] = useState('')
+    // const canvasRef = useRef(null)
+
+    // useEffect(() => {
+    //     if(!gameActive){
+    //         // console.log("save the pic tho")
+    //         handleSaveDrawing()
+    //     }
+    // }, [gameActive])

@@ -98,8 +98,9 @@ function GamePage(props) {
             body: JSON.stringify({
                 user_id: tempUserID,
                 data_url: canvasData,
-                origin_pic_url: picUrl
-                //TODO: add category and playtime for future sorting (will need to put in schema)
+                origin_pic_url: picUrl,
+                subject_category: imageTerm,
+                play_time: playTime
             })
         })
         .then( res => res.json())
