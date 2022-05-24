@@ -35,6 +35,7 @@ function LoginForm({closeModal}) {
             body: JSON.stringify(loginInfo)
         })
         .then( res => {
+            // console.log(res.json())
             if(res.ok){
                 res.json().then(userData => {
                     setUser(userData)

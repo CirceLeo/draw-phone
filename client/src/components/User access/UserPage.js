@@ -38,7 +38,7 @@ function UserPage(props) {
             {user.drawings.length > 0 ? 
                 <> 
                     <h3>Here are some of your masterpieces</h3> 
-                    <RecentDrawingDisplay displayPics={user.drawings}/> 
+                    {/* <RecentDrawingDisplay displayPics={user.drawings}/>  */}
                 </> 
                 : 
                 <>
