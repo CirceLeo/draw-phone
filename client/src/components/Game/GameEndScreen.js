@@ -3,6 +3,8 @@ import {useState} from 'react'
 function GameEndScreen({drawingData, picUrl, closeModal, newDrawingId}) {
 
     const [inputTitle, setInputTitle] = useState('')
+    const [titleChagned, setTitleChanged] = useState(false)
+
     function handleAddTitle(){
         fetch(`/drawings/${newDrawingId}`, {
             method: "PATCH",
@@ -14,10 +16,11 @@ function GameEndScreen({drawingData, picUrl, closeModal, newDrawingId}) {
                 title: inputTitle
             })
         })
-        .then( res => {console.log(res.json())})
-        // .then(recieved )
+        .then( res => (res.json()))
+        .then(() => setTitleChanged(true) )
         .catch( error => console.log(error.message));
     }
+
     return (
         <div className="gameEnd">
             <button className="close-button" onClick={closeModal}>X</button>
@@ -32,13 +35,20 @@ function GameEndScreen({drawingData, picUrl, closeModal, newDrawingId}) {
                     <img src={drawingData}/>
                 </div>
             </div>
-            <br/>
-            <label>Would you like to give your drawing a title?</label>
-            <br/>
-            <form onSubmit={handleAddTitle}>
-                <input type='text'onChange={(e)=>setInputTitle(e.target.value)}/>
-                <button type='submit'>submit title</button>
-            </form>
+
+            {titleChagned ? 
+            <p>Awesome! Your artwork will be known as {inputTitle}</p>
+            :
+            <>
+                <br/>
+                <label>Would you like to give your drawing a title?</label>
+                <br/>
+                <form onSubmit={handleAddTitle}>
+                    <input placeholder='Your title here!' type='text'onChange={(e)=>setInputTitle(e.target.value)}/>
+                    <button type='submit'>submit title</button>
+                </form>
+            </>
+            }
             <br/>
             <button>Play Again?</button>
         </div>

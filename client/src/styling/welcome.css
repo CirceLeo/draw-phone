@@ -7,10 +7,10 @@
 .display-drawing img{
     transition: 1s;
     border: gold 4px inset;
-    margin: .3em;
+    margin: .5em;
     background-color: white;
-    width: 20em;
-    height: auto;
+    /* width: 20em;
+    height: auto; */
 }
 
 /* .display-drawing-text {
