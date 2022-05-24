@@ -11,6 +11,7 @@ class DrawingsController < ApplicationController
     def index
         render json: Drawing.all.limit(15).order(created_at: :desc), status: :ok
     end
+    
     def update
         @drawing.update(drawing_params)
         render json: @drawing, status: :accepted
@@ -25,6 +26,6 @@ class DrawingsController < ApplicationController
         @drawing = Drawing.find(params[:id])
     end
     def drawing_params
-        params.permit(:data_url, :origin_pic_url, :user_id)
+        params.permit(:data_url, :origin_pic_url, :user_id, :title, :subject_category, :play_time)
     end
 end

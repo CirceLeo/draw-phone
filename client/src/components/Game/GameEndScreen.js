@@ -1,7 +1,22 @@
+import {useState} from 'react'
+
 function GameEndScreen({drawingData, picUrl, closeModal, newDrawingId}) {
-    // console.log(newDrawingId)
+
+    const [inputTitle, setInputTitle] = useState('')
     function handleAddTitle(){
-        
+        fetch(`/drawings/${newDrawingId}`, {
+            method: "PATCH",
+            headers: {
+                "Content-Type": "application/json",
+                Accept: "application/json"
+            },
+            body: JSON.stringify({
+                title: inputTitle
+            })
+        })
+        .then( res => {console.log(res.json())})
+        // .then(recieved )
+        .catch( error => console.log(error.message));
     }
     return (
         <div className="gameEnd">
@@ -20,8 +35,10 @@ function GameEndScreen({drawingData, picUrl, closeModal, newDrawingId}) {
             <br/>
             <label>Would you like to give your drawing a title?</label>
             <br/>
-            <input type='text'/>
-            <button>submit title</button>
+            <form onSubmit={handleAddTitle}>
+                <input type='text'onChange={(e)=>setInputTitle(e.target.value)}/>
+                <button type='submit'>submit title</button>
+            </form>
             <br/>
             <button>Play Again?</button>
         </div>

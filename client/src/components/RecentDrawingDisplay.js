@@ -11,6 +11,7 @@ function RecentDrawingDisplay({displayPics}) {
     // }, [])
 
     const renderedDrawings = displayPics.map((drawing) => {
+        console.log(drawing)
         return (
                 <div key={drawing.id}  className="display-drawing flip-card">
                     <div className='flip-card-inner'>
