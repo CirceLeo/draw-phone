@@ -1,5 +1,8 @@
-function GameEndScreen({drawingData, picUrl, closeModal}) {
-    
+function GameEndScreen({drawingData, picUrl, closeModal, newDrawingId}) {
+    // console.log(newDrawingId)
+    function handleAddTitle(){
+        
+    }
     return (
         <div className="gameEnd">
             <button className="close-button" onClick={closeModal}>X</button>

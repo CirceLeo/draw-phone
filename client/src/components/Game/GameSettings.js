@@ -29,7 +29,7 @@ function GameSettings({closeModal, setPlayTime, setImageTerm}) {
                 <label>How long do you want?</label>
                 <select onChange={handleNewPlayTime}>
                     <option value={5}>testing</option>
-                    <option value={45} defaultValue>short</option>
+                    <option value={45} selected>short</option>
                     <option value={90}>medium</option>
                     <option value={180}>long</option>
                 </select>

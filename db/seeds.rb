@@ -5,15 +5,15 @@
 #
 #   movies = Movie.create([{ name: "Star Wars" }, { name: "Lord of the Rings" }])
 #   Character.create(name: "Luke", movie: movies.first)
-puts ("deleting")
-Drawing.delete_all
-User.delete_all
-puts("guest user?")
-User.create!(
-    username: "guest",
-    email: "no@no",
-    password: "beagle"
-)
+# puts ("deleting")
+# Drawing.delete_all
+# User.delete_all
+# puts("guest user?")
+# User.create!(
+#     username: "guest",
+#     email: "no@no",
+#     password: "beagle"
+# )
 
 puts ("drawing?")
 Drawing.create!(
