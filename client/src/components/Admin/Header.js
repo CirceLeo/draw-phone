@@ -50,14 +50,14 @@ function Header(props) {
             <nav>
                 <NavLink to = '/'>Home</NavLink>
                 <NavLink to = '/gallery'>Gallery</NavLink>
+                <NavLink to = '/play'>Play!</NavLink>
+                <button onClick={openHowTo}className='header-btn'>How to Play</button>
                 { user.username ?
                     <>
                         <NavLink to ='/me'>User Page</NavLink> 
                         <button  onClick={handleLogOut} className='header-btn'>Log Out</button>
                     </>: 
                     null}                
-                <NavLink to = '/play'>Play!</NavLink>
-                <button onClick={openHowTo}className='header-btn'>How to Play</button>
             </nav>
         </div>
     )

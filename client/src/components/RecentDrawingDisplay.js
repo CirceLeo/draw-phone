@@ -2,6 +2,12 @@ import {useEffect, useState} from 'react'
 
 function RecentDrawingDisplay({displayPics}) {
 
+    const [friendToAdd, setFriendToAdd] = useState({})
+
+    function openAddFriend(friendToAdd){
+        console.log(friendToAdd)
+    }
+
     const renderedDrawings = displayPics.map((drawing) => {
         return (
                 <div key={drawing.id}  className="display-drawing flip-card">
@@ -18,8 +24,9 @@ function RecentDrawingDisplay({displayPics}) {
                             <img src={drawing.origin_pic_url}/>
                         </div> */}
                         <div className='display-drawing-text'>
-                            <p>Artist: {drawing.user.username !== "guest"  ? drawing.user.username: "anon"}</p>
-                            <p>Title: {drawing.title ? drawing.title :` untitled piece ${drawing.id}`}</p>
+                            <p><strong>Artist: </strong> {drawing.user.username !== "guest"  ? <em className='clickable-username' onClick={() => openAddFriend(drawing.user.id)}>{drawing.user.username}</em>: "anon"}</p>
+                            <p><strong>Title: </strong> {drawing.title ? drawing.title :` untitled piece ${drawing.id}`}</p>
+                            {/* var dataURI = canvas.toDataURL("image/jpeg", 0.2);  // type, enc. option <0.0, 1.0] */}
                         </div>
                     </div>
                 </div>

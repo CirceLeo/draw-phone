@@ -1,3 +1,7 @@
+.clickable-username {
+    text-decoration: underline;
+}
+
 .drawing-display {
     overflow: auto;
     white-space: nowrap;

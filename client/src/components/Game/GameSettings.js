@@ -1,5 +1,9 @@
-import {useState} from 'react'
+import {useState, useContext} from 'react'
+import { UserContext } from '../../context/user'
 function GameSettings({closeModal, setPlayTime, setImageTerm}) {
+
+    const [user, setUser] = useContext(UserContext)
+
     const [tempPlayTime, setTempPlayTime] = useState(45)
     const [tempSearchTerm, setTempSearchTerm] = useState('dogs')
     // function handleGameStart(){
@@ -27,16 +31,17 @@ function GameSettings({closeModal, setPlayTime, setImageTerm}) {
             <h3>Choose how you want to draw!</h3>
             <form onSubmit={handleSubmit}>
                 <label>How long do you want?</label>
-                <select onChange={handleNewPlayTime}>
+                <select defaultValue={45} onChange={handleNewPlayTime}>
                     <option value={5}>testing</option>
-                    <option value={45} selected>short</option>
+                    <option value={45} >short</option>
                     <option value={90}>medium</option>
                     <option value={180}>long</option>
                 </select>
                 <br/>
                 <label>What do you want to draw?</label>
                 <select onChange={handleNewSearchTerm}>
-                    <option value="dog" defaultValue>Dogs!</option>
+                    <option value="dog">Dogs!</option>
+                    {user.username && user.did_daily ? <option value="daily">Daily challenge!</option> : null}
                     <option value="cat">Cats</option>
                     <option value="flower">flowers</option>
                     <option value="car">cars</option> 

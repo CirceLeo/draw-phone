@@ -4,6 +4,7 @@ import Footer from "../Admin/Footer";
 import { useContext, useEffect, useState } from "react"
 import { UserContext, userObject } from "../../context/user";
 import RecentDrawingDisplay from "../RecentDrawingDisplay";
+import FriendsList from "./FriendList";
 
 function UserPage(props) {
     const [user, setUser] = useContext(UserContext)
@@ -26,10 +27,9 @@ function UserPage(props) {
 
                 <div className="user-friends">
                     {
-                        user.followers.length > 0 ?
-                        <>
-                            <p>how do you have a friend</p>
-                        </>
+                        user.followed.length > 0 ?
+                        <FriendsList friends={user.followed} />
+                        // TODO:might need to fetch from the backend for this once you can add friends
                         :
                         <>
                             <p>sorry buddy, you have not friends</p>
