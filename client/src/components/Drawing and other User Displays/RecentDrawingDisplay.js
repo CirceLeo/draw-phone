@@ -2,7 +2,6 @@ import {useEffect, useState} from 'react'
 import OtherUserDetails from './OtherUserDetails'
 
 function RecentDrawingDisplay({displayPics, artistDetails}) {
-    // console.log(displayPics)
 
     const [userToShow, setUserToShow] = useState({})
     const [otherUserOpen, setOtherUserOpen] = useState(false)

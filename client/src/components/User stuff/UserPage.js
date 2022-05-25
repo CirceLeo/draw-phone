@@ -3,7 +3,7 @@ import Footer from "../Admin/Footer";
 
 import { useContext, useEffect, useState } from "react"
 import { UserContext, userObject } from "../../context/user";
-import RecentDrawingDisplay from "../Drawing Displays/RecentDrawingDisplay";
+import RecentDrawingDisplay from "../Drawing and other User Displays/RecentDrawingDisplay";
 import FriendsList from "./FriendList";
 
 function UserPage(props) {

@@ -1,7 +1,7 @@
 import LoginForm from "./User stuff/LoginForm"
 import Header from './Admin/Header'
 import Footer from "./Admin/Footer"
-import RecentDrawingDisplay from "./Drawing Displays/RecentDrawingDisplay"
+import RecentDrawingDisplay from "./Drawing and other User Displays/RecentDrawingDisplay"
 import SignUpForm from "./User stuff/SignUpForm"
 
 import {useState, useEffect, useContext} from 'react'

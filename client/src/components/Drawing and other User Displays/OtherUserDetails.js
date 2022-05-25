@@ -15,8 +15,10 @@ function OtherUserDetails({displayID, closeOtherUser}) {
     }, [])
 
     // console.log(displayUser.drawings)
-
-    const alreadyFriends = user.followers.find(friend => friend.id === displayID)
+    let alreadyFriends = false
+    if (user.username){
+        alreadyFriends = user.followers.find(friend => friend.id === displayID)
+    }
     
     return (
         <div id="show-other-user">
@@ -24,12 +26,14 @@ function OtherUserDetails({displayID, closeOtherUser}) {
             { user.id !== displayID ?
                 <>
                     <h2>Artist detail: {displayUser.username}</h2> 
-                    {
+                    { user.username ? 
+                    <>{
                         alreadyFriends ? 
                         <p>You're friends already!</p> 
                         :
                         <button>make a friend</button>
-                    }
+                    }</>
+                    : null}
                     <p>let's look at what they've done</p>
                     { displayUser.drawings ? <RecentDrawingDisplay artistDetails={false} displayPics={displayUser.drawings} /> : <p>loading artist's recent works!</p>}
                 </>
