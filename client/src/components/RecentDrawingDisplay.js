@@ -1,17 +1,37 @@
 import {useEffect, useState} from 'react'
+import OtherUserDetails from './OtherUserDetails'
 
 function RecentDrawingDisplay({displayPics}) {
 
-    const [friendToAdd, setFriendToAdd] = useState({})
+    const [userToShow, setUserToShow] = useState({})
+    const [otherUserOpen, setOtherUserOpen] = useState(false)
 
-    function openAddFriend(friendToAdd){
-        console.log(friendToAdd)
+    function openAddFriend(clickedUser){
+        console.log(clickedUser)
+        setUserToShow(clickedUser)
+    }
+
+    function openOtherUser(){
+        setOtherUserOpen(true)
+    }
+
+    function closeOtherUser(){
+        setOtherUserOpen(false)
     }
 
     const renderedDrawings = displayPics.map((drawing) => {
         return (
                 <div key={drawing.id}  className="display-drawing flip-card">
-                    {/* TODO: change schema of drawings to include origin topics and time spent, then put here */}
+                    {
+                        otherUserOpen && (
+                            <>
+                                <div className="overlay"></div>
+                                <div className="modal">
+                                    <OtherUserDetails closeOtherUser={closeOtherUser} displayID={userToShow}/>
+                                </div>
+                            </>
+                        )
+                    }
                     <div className='flip-card-inner'>
                         <div className='flip-card-front'>
                             <img 
@@ -25,7 +45,8 @@ function RecentDrawingDisplay({displayPics}) {
                         </div> */}
                         <div className='display-drawing-text'>
                             <p><strong>Artist: </strong> {drawing.user.username !== "guest"  ? <em className='clickable-username' onClick={() => openAddFriend(drawing.user.id)}>{drawing.user.username}</em>: "anon"}</p>
-                            <p><strong>Title: </strong> {drawing.title ? drawing.title :` untitled piece ${drawing.id}`}</p>
+                            <p><strong>Title: </strong> <em> {drawing.title ? drawing.title :` untitled piece ${drawing.id}`}</em></p>
+                            <p><strong>Completed in:</strong> {drawing.play_time ? <em>{drawing.play_time} seconds</em> : "unknown" }  </p>
                             {/* var dataURI = canvas.toDataURL("image/jpeg", 0.2);  // type, enc. option <0.0, 1.0] */}
                         </div>
                     </div>
