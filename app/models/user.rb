@@ -9,11 +9,12 @@ class User < ApplicationRecord
 
   has_many :drawings, -> {order(:created_at => :desc)}
 
-  has_many :followers, foreign_key: :follower_id, class_name: "Friendship"
-  has_many :followed, through: :followers
+  # has_many :friendships
+  has_many :follower_follows, foreign_key: :followed_id, class_name: "Friendship"
+  has_many :followers, through: :follower_follows, source: :follower
 
-  has_many :followed, foreign_key: :followed_id, class_name: "Friendship"
-  has_many :followers, through: :followed
+  has_many :followed_follows, foreign_key: :followed_id, class_name: "Friendship"
+  has_many :followeds, through: :followed_follows, source: :followed
 
 
   def create
@@ -23,6 +24,11 @@ class User < ApplicationRecord
     else 
         render json: {errors: user.errors.full_messages}, status: :unprocessable_entity
     end
+  end
+
+  def friends
+    all_friends = self.followeds + self.followers
+    all_friends
   end
 
   private 

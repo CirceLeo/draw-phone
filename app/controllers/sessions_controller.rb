@@ -6,7 +6,7 @@ class SessionsController < ApplicationController
         if user&.valid_password?(params[:password])
             sign_in(user)
             session[:user_id] = user.id
-            render json: user, include: ["drawings", "followers"], status: :created
+            render json: user, include: ["drawings", "followers"], methods: :friends, status: :created
         else
             render json: {error: "Invalid username or password"}, status: :unauthorized
         end

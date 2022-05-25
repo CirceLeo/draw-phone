@@ -25,8 +25,8 @@ function UserPage(props) {
 
                 <div className="user-friends">
                     {
-                        user.followers.length > 0 ?
-                        <FriendsList friends={user.followers} />
+                        user.friends.length > 0 ?
+                        <FriendsList friends={user.friends} />
                         // TODO:might need to fetch from the backend for this once you can add friends
                         :
                         <>
