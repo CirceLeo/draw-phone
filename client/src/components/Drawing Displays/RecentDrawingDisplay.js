@@ -7,8 +7,8 @@ function RecentDrawingDisplay({displayPics}) {
     const [otherUserOpen, setOtherUserOpen] = useState(false)
 
     function openAddFriend(clickedUser){
-        console.log(clickedUser)
         setUserToShow(clickedUser)
+        openOtherUser()
     }
 
     function openOtherUser(){
@@ -21,17 +21,7 @@ function RecentDrawingDisplay({displayPics}) {
 
     const renderedDrawings = displayPics.map((drawing) => {
         return (
-                <div key={drawing.id}  className="display-drawing flip-card">
-                    {
-                        otherUserOpen && (
-                            <>
-                                <div className="overlay"></div>
-                                <div className="modal">
-                                    <OtherUserDetails closeOtherUser={closeOtherUser} displayID={userToShow}/>
-                                </div>
-                            </>
-                        )
-                    }
+                <div key={drawing.id} className=" display-drawing flip-card">
                     <div className='flip-card-inner'>
                         <div className='flip-card-front'>
                             <img 
@@ -56,6 +46,14 @@ function RecentDrawingDisplay({displayPics}) {
     
     return (
         <div className="drawing-display">
+            {otherUserOpen && (
+                        <>
+                            <div className="overlay"></div>
+                            <div className="modal">
+                                <OtherUserDetails closeOtherUser={closeOtherUser} displayID={userToShow}/>
+                            </div>
+                        </>
+                    )}
             {renderedDrawings}
         </div>
     )

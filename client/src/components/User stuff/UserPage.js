@@ -3,7 +3,7 @@ import Footer from "../Admin/Footer";
 
 import { useContext, useEffect, useState } from "react"
 import { UserContext, userObject } from "../../context/user";
-import RecentDrawingDisplay from "../RecentDrawingDisplay";
+import RecentDrawingDisplay from "../Drawing Displays/RecentDrawingDisplay";
 import FriendsList from "./FriendList";
 
 function UserPage(props) {
@@ -11,11 +11,9 @@ function UserPage(props) {
     const [userPics, setUserPics] = useState([])
 
     useEffect(() => {
-        if(user.id){
             fetch(`user_details/${user.id}`)
             .then(resp => resp.json())
             .then(data => setUserPics(data))
-        }
     }, [])
     
     return (

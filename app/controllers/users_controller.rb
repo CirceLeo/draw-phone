@@ -1,11 +1,11 @@
 class UsersController < ApplicationController
     skip_before_action :authenticate_user!, only: :create
-    before_action :find_user, only: [:update, :destroy, :user_drawings]
+    before_action :find_user, only: [:update, :destroy, :user_drawings, :show]
 
     def create
         user = User.create!(user_params)
         session[:user_id] = user.id
-        render json: user, include: "drawings", status: :created
+        render json: user, status: :created
     end
 
     def user_drawings
@@ -13,6 +13,10 @@ class UsersController < ApplicationController
     end
 
     def show
+        render json: @user, include: "drawings", status: :ok
+    end
+
+    def current_logged_in
         user = User.find(session[:user_id])
         if user
             render json: user, include: ["drawings", "followers", "followed"], status: :ok
