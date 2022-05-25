@@ -49,6 +49,7 @@ function Header(props) {
             {/* { user.username ? <p>{user.username}</p> : <p> No one is logged in</p>} */}
             <nav>
                 <NavLink to = '/'>Home</NavLink>
+                <NavLink to = '/gallery'>Gallery</NavLink>
                 { user.username ?
                     <>
                         <NavLink to ='/me'>User Page</NavLink> 

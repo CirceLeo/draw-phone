@@ -9,6 +9,8 @@
     border: gold 4px inset;
     margin: .5em;
     background-color: white;
+    width: 80%;
+    /* height: auto; */
     /* width: 20em;
     height: auto; */
 }
@@ -41,6 +43,7 @@
 } */
 
 .display-drawing {
+    width: 22em;
     display: inline-block;
     margin: 0em 1em;
     border: 2px black solid;

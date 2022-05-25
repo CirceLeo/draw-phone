@@ -13,6 +13,7 @@ import GamePage from './components/Game/GamePage';
 import UserPage from './components/User stuff/UserPage';
 
 import { UserContext, userObject } from "./context/user";
+import Gallery from './components/Gallery';
 
 
 function App() {
@@ -36,6 +37,7 @@ function App() {
           <Route path='/' element={<WelcomePage />} />
           <Route path='/play' element={<GamePage />} />
           <Route path='/me' element={<UserPage />} />
+          <Route path='/gallery' element={<Gallery/>} />
         </Routes>
       </Router>
     </div>
