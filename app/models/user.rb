@@ -7,7 +7,7 @@ class User < ApplicationRecord
   validates :email, uniqueness: true
   validates :username, uniqueness: true
 
-  has_many :drawings
+  has_many :drawings, -> {order(:created_at => :desc)}
 
   has_many :followers, foreign_key: :follower_id, class_name: "Friendship"
   has_many :followed, through: :followers

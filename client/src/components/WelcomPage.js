@@ -51,7 +51,7 @@ function WelcomePage(props) {
                 <h3>Please peruse some of our most recent artistic works</h3>
                 <p>Hover over them to see the inspiration behind the piece!</p>
             </div>
-            <RecentDrawingDisplay displayPics={recentPics} />
+            <RecentDrawingDisplay artistDetails={true} displayPics={recentPics} />
             { user.username ? 
                 null
                 :

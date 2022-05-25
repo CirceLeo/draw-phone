@@ -35,11 +35,10 @@ function LoginForm({closeModal}) {
             body: JSON.stringify(loginInfo)
         })
         .then( res => {
-            // console.log(res.json())
             if(res.ok){
                 res.json().then(userData => {
                     setUser(userData)
-                    navigate('/me') //TODO: change to play??
+                    navigate('/me')
                 })
             } else {
                 res.json().then(response => {

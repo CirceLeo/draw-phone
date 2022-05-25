@@ -1,5 +1,6 @@
 .clickable-username {
     text-decoration: underline;
+    cursor: pointer;
 }
 
 .drawing-display {

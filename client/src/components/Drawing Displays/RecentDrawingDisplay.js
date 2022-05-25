@@ -1,7 +1,8 @@
 import {useEffect, useState} from 'react'
 import OtherUserDetails from './OtherUserDetails'
 
-function RecentDrawingDisplay({displayPics}) {
+function RecentDrawingDisplay({displayPics, artistDetails}) {
+    // console.log(displayPics)
 
     const [userToShow, setUserToShow] = useState({})
     const [otherUserOpen, setOtherUserOpen] = useState(false)
@@ -34,7 +35,7 @@ function RecentDrawingDisplay({displayPics}) {
                             <img src={drawing.origin_pic_url}/>
                         </div> */}
                         <div className='display-drawing-text'>
-                            <p><strong>Artist: </strong> {drawing.user.username !== "guest"  ? <em className='clickable-username' onClick={() => openAddFriend(drawing.user.id)}>{drawing.user.username}</em>: "anon"}</p>
+                            {artistDetails ?  <p><strong>Artist: </strong> {drawing.user.username !== "guest"  ? <em className='clickable-username' onClick={() => openAddFriend(drawing.user.id)}>{drawing.user.username}</em>: "anon"}</p> : null}
                             <p><strong>Title: </strong> <em> {drawing.title ? drawing.title :` untitled piece ${drawing.id}`}</em></p>
                             <p><strong>Completed in:</strong> {drawing.play_time ? <em>{drawing.play_time} seconds</em> : "unknown" }  </p>
                             {/* var dataURI = canvas.toDataURL("image/jpeg", 0.2);  // type, enc. option <0.0, 1.0] */}

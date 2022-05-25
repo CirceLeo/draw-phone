@@ -13,6 +13,8 @@ function OtherUserDetails({displayID, closeOtherUser}) {
             .then(shownUser => setDisplayUser(shownUser))
         }
     }, [])
+
+    // console.log(displayUser.drawings)
     
     return (
         <div id="show-other-user">
@@ -21,7 +23,7 @@ function OtherUserDetails({displayID, closeOtherUser}) {
                 <>
                     <h2>Artist detail: {displayUser.username}</h2> 
                     <p>let's look at what they've done</p>
-                    <RecentDrawingDisplay displayPics={displayUser.drawings} />
+                    { displayUser.drawings ? <RecentDrawingDisplay artistDetails={false} displayPics={displayUser.drawings} /> : <p>loading artist's recent works!</p>}
                 </>
                 :
                 <>
