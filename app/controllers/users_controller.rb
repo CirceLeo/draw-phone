@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
     skip_before_action :authenticate_user!, only: :create
-    before_action :find_user, only: [:update, :destroy, :user_drawings, :show]
+    before_action :find_user, only: [:update, :destroy, :user_details, :show]
 
     def create
         user = User.create!(user_params)
@@ -8,12 +8,13 @@ class UsersController < ApplicationController
         render json: user, status: :created
     end
 
-    def user_drawings
-        render json: @user.drawings.order(created_at: :desc), include: "user", status: :ok
+    def user_details
+        details = {drawings: @user.drawings.order(created_at: :desc), friendships: @user.friendships}
+        render json: details, status: :ok
     end
 
     def show
-        render json: @user, include: "drawings", status: :ok
+        render json: @user, include: ["drawings", "friends"], status: :ok
     end
 
     def current_logged_in

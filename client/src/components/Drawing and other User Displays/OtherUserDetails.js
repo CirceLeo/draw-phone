@@ -14,15 +14,32 @@ function OtherUserDetails({displayID, closeOtherUser}) {
         }
     }, [])
 
+    function addFriendship(){
+        fetch(`/friendships`, {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json",
+                Accept: "application/json"
+            },
+            body: JSON.stringify({
+                user_id: user.id,
+                friend_id: displayID
+            })
+        })
+        .then( res => res.json())
+        .then( data => console.log(data))
+        .catch( error => console.log(error.message));
+    }
+
     // console.log(displayUser.drawings)
     let alreadyFriends = false
     if (user.username){
-        alreadyFriends = user.followers.find(friend => friend.id === displayID)
+        alreadyFriends = user.friends.find(friend => friend.id === displayID)
     }
     
     return (
         <div id="show-other-user">
-            <button onClick={closeOtherUser}>X</button>
+            <button className="close-button" onClick={closeOtherUser}>X</button>
             { user.id !== displayID ?
                 <>
                     <h2>Artist detail: {displayUser.username}</h2> 
@@ -31,7 +48,7 @@ function OtherUserDetails({displayID, closeOtherUser}) {
                         alreadyFriends ? 
                         <p>You're friends already!</p> 
                         :
-                        <button>make a friend</button>
+                        <button onClick={addFriendship}>Befriend this user?</button>
                     }</>
                     : null}
                     <p>let's look at what they've done</p>

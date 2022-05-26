@@ -9,11 +9,15 @@ import FriendsList from "./FriendList";
 function UserPage(props) {
     const [user, setUser] = useContext(UserContext)
     const [userPics, setUserPics] = useState([])
+    const [friendships, setFriendships] = useState([])
 
     useEffect(() => {
             fetch(`user_details/${user.id}`)
             .then(resp => resp.json())
-            .then(data => setUserPics(data))
+            .then(data => {
+                setUserPics(data.drawings)
+                setFriendships(data.friendships)
+            })
     }, [])
     
     return (
@@ -26,7 +30,7 @@ function UserPage(props) {
                 <div className="user-friends">
                     {
                         user.friends.length > 0 ?
-                        <FriendsList friends={user.friends} />
+                        <FriendsList friends={friendships} />
                         // TODO:might need to fetch from the backend for this once you can add friends
                         :
                         <>

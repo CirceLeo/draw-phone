@@ -1,6 +1,5 @@
 class UsersSerializer < ActiveModel::Serializer
-  attributes :id, :username, :email, :friends
+  attributes :id, :username, :email
   has_many :drawings
-  has_many :followed
-  has_many :followers
+  has_many :friends
 end

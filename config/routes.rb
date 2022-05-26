@@ -3,7 +3,7 @@ Rails.application.routes.draw do
 
   resources :friendships
   resources :drawings
-  get '/user_details/:id', to: 'users#user_drawings'
+  get '/user_details/:id', to: 'users#user_details'
   resources :users
   # devise_for :users
 

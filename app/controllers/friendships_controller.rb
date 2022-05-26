@@ -24,6 +24,6 @@ class FriendshipsController < ApplicationController
         @friendship = Friendship.find(params[:id])
     end
     def friendship_params
-        params.permit(:follower_id, :followed_id)
+        params.permit(:friend_id, :user_id)
     end
 end

@@ -1,9 +1,11 @@
 function FriendsList({friends}) {
 
-    const renderedFriends = friends.map(friend => {
+    const renderedFriends = friends.map(friendship => {
+        console.log(friendship.friend_id)
+        // const friend = friendship.friend
         return(
-            <div className="friend-profile">
-                <h4>{friend.username}</h4>
+            <div key={1} className="friend-profile">
+                {/* <h4>{friend.username}</h4> */}
             </div>
         )
     })
