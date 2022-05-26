@@ -6,6 +6,8 @@ import SignUpForm from "./User stuff/SignUpForm"
 
 import {useState, useEffect, useContext} from 'react'
 import { UserContext } from "../context/user"
+import useSound from "use-sound"
+import ticking from '../sounds/ticking.m4a'
 
 
 function WelcomePage(props) {
@@ -42,10 +44,13 @@ function WelcomePage(props) {
         else {
             document.body.style.overflow = 'visible'}
     }, [modalOpen])
+
+    // const [play] = useSound(ticking)
     
     return (
         <div id="welcome-page">
             <Header />
+            {/* <button onClick={()=> play}>tick!</button> */}
             <div id="welcome-text">
                 <h1>welcome {user.username ? "back" : null}</h1>
                 <h3>Please peruse some of our most recent artistic works</h3>

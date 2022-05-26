@@ -19,7 +19,7 @@ class UsersController < ApplicationController
     def current_logged_in
         user = User.find(session[:user_id])
         if user
-            render json: user, include: ["drawings", "followers", "followeds"], methods: :friends, status: :ok
+            render json: user, include: ["drawings", "friends"], methods: :friends, status: :ok
         else
             render json: {}, status: :unauthorized
         end
