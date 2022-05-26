@@ -1,0 +1,18 @@
+.subject-card{
+    background-color: aqua;
+    width: 20em;
+}
+
+.subj-card h1 {
+    cursor: pointer;
+}
+
+.subj-grid {
+    background-color: pink;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    /* grid-template-rows: repeat(2, 1fr); */
+    grid-column-gap: 5px;
+    grid-row-gap: 5px;
+
+}
