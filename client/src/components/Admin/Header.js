@@ -1,4 +1,4 @@
-import {NavLink, useNavigate} from 'react-router-dom';
+import {NavLink, useNavigate, useLocation} from 'react-router-dom';
 import React, { useContext, useState } from "react";
 import { UserContext } from "../../context/user";
 import '../../styling/header.css'
@@ -10,9 +10,10 @@ import useSound from "use-sound"
 function Header(props) {
 
     const [user, setUser] = useContext(UserContext)
-    const [howToOpen, setHowToOpen] = useState(false)
+    const [howToOpen, setHowToOpen] = useState(true)
 
     const navigateTo = useNavigate()
+    let location = useLocation()
 
     function handleLogOut(){
         console.log("bye")
@@ -35,9 +36,9 @@ function Header(props) {
     
     return (
         <div id="header">
-            <h3>Im a header and youre { user.username ? user.username : "a guest"}</h3>
+            {/* <h3>Im a header and youre { user.username ? user.username : "a guest"}</h3> */}
             {
-                howToOpen && (
+                (howToOpen && location.pathname === '/play') && (
                     <>
                         <div className="overlay"></div>
                         <div className="modal">
@@ -45,13 +46,13 @@ function Header(props) {
                         </div>
                     </>
                 )
-            }
+            } 
             {/* { user.username ? <p>{user.username}</p> : <p> No one is logged in</p>} */}
             <nav>
                 <NavLink to = '/'>Home</NavLink>
                 <NavLink to = '/gallery'>Gallery</NavLink>
-                <NavLink to = '/play'>Play!</NavLink>
-                <button onClick={openHowTo}className='header-btn'>How to Play</button>
+                <NavLink to = '/play'>Play!</NavLink> 
+                { location.pathname === '/play' ? <button onClick={openHowTo}className='header-btn'>How to Play</button> : null}
                 { user.username ?
                     <>
                         <NavLink to ='/me'>User Page</NavLink> 

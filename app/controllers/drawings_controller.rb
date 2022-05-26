@@ -11,6 +11,10 @@ class DrawingsController < ApplicationController
     def index
         render json: Drawing.all.limit(15).order(created_at: :desc), status: :ok
     end
+
+    def by_subject
+        render json: Drawing.where(subject_category: params[:subject_matter]).order(created_at: :asc)
+    end
     
     def update
         @drawing.update(drawing_params)

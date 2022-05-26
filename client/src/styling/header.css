@@ -1,21 +1,24 @@
 nav a, nav .header-btn {
     text-decoration: none;
     color: blue;
-    padding: .4em 2em;
-    background-color: antiquewhite;
-    transition: all ease-in-out 0.3s;
+    padding: .4em 1em;
+    /* background-color: antiquewhite; */
+    background-image: linear-gradient(#FAD5AB, #EFC089, #C68C48 );
+    transition: all ease-in-out 0.5s;
     border-radius: 1em;
     border: none;
     font-size: 1em;
-    margin-bottom: .5em;
+    margin-top: 2.5em;
+    margin-left: .5em;
     /* height: 2.5em; */
     /* width: fit-content; */
 }
 
 nav a:hover,  nav .header-btn:hover {
-    background-color: aquamarine;
     transition: all ease-in-out 0.3s;
-    border-radius: .2em;
+    border-radius: .5em;
+    background-image: linear-gradient( #C68C48, #FAD5AB);
+
 }
 
 nav .active {
@@ -24,10 +27,27 @@ nav .active {
 }
 
 #header{
-    background-color: rgba(139, 0, 0, 0.67);
-    width: 90vw;
-    margin: 0em 2em;
-    color: white;
+    height: 7em;
+    left: 0px;
+    top: 0px;
+
     /* top: 1em; */
 }
 
+#footer, #header{
+    background-color: #50032F;
+    width: 100vw;
+    color: white;
+    position: absolute;
+}
+
+#footer p{
+    padding: 0em;
+    margin: 0em;
+    left: 0px;
+}
+
+#footer {
+    height: 2em;
+    /* top: 1000px; */
+}
