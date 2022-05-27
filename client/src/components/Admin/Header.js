@@ -43,7 +43,7 @@ function Header(props) {
             {
                 (howToOpen && location.pathname === '/play') && (
                     <>
-                        <div className="overlay"></div>
+                        <div className="overlay" onClick={closeHowTo}></div>
                         <div className="modal">
                             <HowToPlay closeHowTo={closeHowTo}/>
                         </div>

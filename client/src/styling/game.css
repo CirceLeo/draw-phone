@@ -64,15 +64,8 @@
     grid-area: timing-btn;
 }
 
-/* .color-picker > * {
-    margin-left: 2em;
-    background-color: #94622a;
-    padding: 1em;
-    width: fit-content;
-} */
 
 .color-picker {
-    /* margin-left: 2em; */
     margin: auto;
     background-color: #94622a;
     padding: 1em;

@@ -33,7 +33,7 @@ function Gallery(props) {
             {
                 subjOpen && (
                     <>
-                        <div className="overlay"></div>
+                        <div className="overlay" onClick={() => setSubjOpen(false)}></div>
                         <div className="modal">
                             <GallerySubjectModal topic={openedTopic} close={() => setSubjOpen(false)}/>
                         </div>

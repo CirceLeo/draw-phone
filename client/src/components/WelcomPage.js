@@ -66,7 +66,7 @@ function WelcomePage(props) {
                     {
                         modalOpen && (
                             <>
-                            <div className="overlay"></div>
+                            <div className="overlay" onClick={closeModal}></div>
                             <div className="modal">
                                 { modalDisplay==="login" ? <LoginForm closeModal={closeModal} /> : null}
                                 { modalDisplay==="signup" ? <SignUpForm closeModal={closeModal} /> : null}

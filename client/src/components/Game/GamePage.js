@@ -17,6 +17,7 @@ function GamePage(props) {
     const [gameStarted, setGameStarted] = useState(false)
     const [gameActive, setGameActive] = useState(false)
     const [isShown, setIsShown] = useState(false)
+    const [picLoaded, setPicLoaded] = useState(false)
     const [newDrawingId, setNewDrawingId] = useState(0)
 
     const [picUrl, setPicUrl] = useState('')
@@ -59,7 +60,7 @@ function GamePage(props) {
 
     function handleStart(){
         setIsShown(true)
-        setGameActive(true)
+        setGameActive(true) 
         setGameStarted(true)
     }
 
@@ -122,7 +123,7 @@ function GamePage(props) {
                 modalOpen && (
                     <>
                     {/* TODO:Refactor: change this to a separate const that gets inserted here - protect from fake game over */}
-                        <div className="overlay"></div>
+                        <div className="overlay" onClick={closeModal}></div>
                         <div className="modal">
                             { gameStarted ? 
                                 <GameEndScreen prepNewGame={prepNewGame} picUrl={picUrl} closeModal={closeModal} drawingData={drawingData} newDrawingId={newDrawingId}/>
@@ -148,15 +149,24 @@ function GamePage(props) {
                     {/* </div> */}
                     {/* <div id='start-pause-buttons'> */}
                         { gameActive ?    
-                            <button onClick={handlePause}>Pause</button> : 
-                            <>{gameStarted ? <button onClick={handleContinue}>continue</button> : <button onClick={handleStart}>start</button>}</>
+                            <>
+                                <button onClick={handlePause}>Pause</button> 
+                                <button onClick={handleGameEnd}>end game?</button>
+                            </>
+                            : 
+                            <>{gameStarted ? 
+                                <button onClick={handleContinue}>continue</button> 
+                                : 
+                                <button onClick={handleStart}>start</button>
+                            }</>
                             
                         }
                     {/* </div> */}
                 </div>
             {/* <div id='goal-and-canvas'> */}
                 <div id='goal-pic-div'>
-                    { isShown ? <img src={picUrl} /> : null }
+                    { isShown ? <img src={picUrl} onLoad={()=>{setPicLoaded(true) 
+                        console.log(picLoaded)}} /> : <>{gameActive ? <p>hover over me to see goal picture!</p> : <p>goal picture will appear here!</p>} </>}
                 </div>
                 <div 
                     id="game-canvas" 

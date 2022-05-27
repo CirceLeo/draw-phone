@@ -14,7 +14,7 @@
 
 .display-drawing img{
     transition: 1s;
-    border: gold 6px inset;
+    border: #D9AF7E 8px inset;
     margin: .5em;
     background-color: white;
     width: 80%;
