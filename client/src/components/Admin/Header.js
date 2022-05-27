@@ -3,6 +3,7 @@ import React, { useContext, useState } from "react";
 import { UserContext } from "../../context/user";
 import '../../styling/header.css'
 import HowToPlay from './HowToPlay';
+import logo from '../../images/sketcheelogo.png'
 
 import useSound from "use-sound"
 
@@ -36,7 +37,9 @@ function Header(props) {
     
     return (
         <div id="header">
-            {/* <h3>Im a header and youre { user.username ? user.username : "a guest"}</h3> */}
+            {/* <img src={logo}/> */}
+            {/* TODO: fix the spacing and sizing of the img, 
+            also make it clickable and replace the home btn */}
             {
                 (howToOpen && location.pathname === '/play') && (
                     <>

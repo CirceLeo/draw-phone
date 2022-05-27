@@ -64,8 +64,28 @@
     grid-area: timing-btn;
 }
 
+/* .color-picker > * {
+    margin-left: 2em;
+    background-color: #94622a;
+    padding: 1em;
+    width: fit-content;
+} */
+
+.color-picker {
+    /* margin-left: 2em; */
+    margin: auto;
+    background-color: #94622a;
+    padding: 1em;
+    width: fit-content;
+    border-radius: 1em;
+}
+
+.color-picker label {
+    margin-top: 1em;
+}
+
 #game-page {
-    background-color: #50032F;
+    background-color: rgba(99, 9, 60, 0.881);
 }
 
 #game-canvas{

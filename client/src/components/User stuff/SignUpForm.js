@@ -69,9 +69,9 @@ function SignUpForm({closeModal}) {
                 : null
             }
             <form onSubmit={handleNewSignup}>
-                <label>Email: </label>
-                <input onChange={handleFormChange}  name="email" type="email" value={newUserData.email}/>
-                <br />
+                {/* <label>Email: </label>
+                <input onChange={handleFormChange}  name="email" type="email" value={newUserData.email}/> */}
+                {/* <br /> */}
                 <label>Username: </label>
                 <input onChange={handleFormChange} name="username" type='username' value={newUserData.username} />
                 <br />

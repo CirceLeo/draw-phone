@@ -76,7 +76,20 @@ function GameCanvas({setDrawingData, gameActive, canvasRef}) {
                     onClick={handleSizeChange}
                     />
         </div>
-        <GithubPicker triangle='hide' onChange={handleColorChange} />
+        <div className='color-picker'>
+
+            <label>Brush color</label>
+            {/* <GithubPicker 
+                triangle='hide' 
+                onChange={handleColorChange} 
+                colors ={ ["#ffffff", "#000000", "#c91e1e", "#cc6414", "#FFFF00", "#2c9c1a", "#1a459c", "#00bcd4", "#601199"]}
+            /> */}
+            <CirclePicker 
+                circleSize={20}
+                circleSpacing={12}
+                colors ={ ["#ffffff", "#000000", "#c91e1e", "#cc6414", "#FFFF00", "#2c9c1a", "#1a459c", "#00bcd4", "#601199"]}
+            />
+        </div>
         </div>
             {canvas}
 
