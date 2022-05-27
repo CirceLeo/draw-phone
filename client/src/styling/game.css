@@ -39,7 +39,7 @@
     height: 20em;
     border: 2px black solid;
     background-color: pink;
-    width: 30em;
+    width: 20em;
     margin-left: 3em;
     grid-area: goal-pic;
 }
@@ -89,4 +89,29 @@ img {
     padding: 0em;
 }
 
+#brush-radio-small {
+    transform: scale(.75);
+    padding: .5em;
+}
 
+#brush-radio-med {
+    transform: scale(1.25);
+    padding: .5em;
+    margin-left: 1em;
+}
+
+#brush-radio-large {
+    transform: scale(1.75);
+    padding: .5em;
+    margin-left: 1em;
+}
+
+#brush-size-radio {
+    display: block;
+    /* cursor: pointer; */
+    /* width: fit-content; */
+}
+
+#brush-size-radio input {
+    cursor: pointer;
+}

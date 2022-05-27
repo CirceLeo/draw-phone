@@ -1,5 +1,5 @@
 import React, {useEffect, useState, useRef} from 'react';
-import {CirclePicker, GithubPicker} from 'react-color';
+import {CirclePicker, GithubPicker, BlockPicker} from 'react-color';
 import CanvasDraw from 'react-canvas-draw';
 
 
@@ -13,6 +13,7 @@ function GameCanvas({setDrawingData, gameActive, canvasRef}) {
     }
 
     const handleSizeChange = (e) => {
+        // setBrushSize(e.target.value)
         setBrushSize(parseInt(e.target.value, 10))
     }
 
@@ -36,28 +37,53 @@ function GameCanvas({setDrawingData, gameActive, canvasRef}) {
         // imgSrc={picUrl} <- try out both ways? would look cleaner
     />
 
+
     return (
         <>
-            {canvas}
             <button
                 onClick={handleUndo}
-            >
+                >
                 undo
             </button>
             <button
                 onClick={handleEraseAll}
-            >
+                >
                 clear canvas
-            </button> 
+            </button>
+            <br/> 
         <label>Brush size</label>
-        <input 
+        {/* <input 
             type="number" 
             value={brushSize}
             min={2}
             max={50}
             onChange={handleSizeChange}
-        />
+            /> */}
+        <div id="brush-size-radio">
+            <input 
+                type="radio"
+                name='brush-size'
+                id = 'brush-radio-small'
+                value={2}
+                onClick={handleSizeChange}
+                />
+            <input 
+                type="radio"
+                name='brush-size'
+                id = 'brush-radio-med'
+                value={5}
+                onClick={handleSizeChange}
+                />
+            <input 
+                type="radio"
+                name='brush-size'
+                id = 'brush-radio-large'
+                value={10}
+                onClick={handleSizeChange}
+                />
+        </div>
         <GithubPicker triangle='hide' onChange={handleColorChange} />
+            {canvas}
 
         </>
     )
