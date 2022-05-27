@@ -137,7 +137,7 @@ function GamePage(props) {
                 <div id='setting-and-control'>
                     {/* <div id='current-game-info'> */}
                     {gameStarted ? 
-                        <GameTimer handleGameEnd={handleGameEnd} gameActive={gameActive} playTime={playTime} gameStarted={gameStarted} />
+                        <GameTimer picLoaded={picLoaded} handleGameEnd={handleGameEnd} gameActive={gameActive} playTime={playTime} gameStarted={gameStarted} />
                         :
                         <div id="current-settings">
                             <p>Current Settings:</p>
@@ -165,8 +165,8 @@ function GamePage(props) {
                 </div>
             {/* <div id='goal-and-canvas'> */}
                 <div id='goal-pic-div'>
-                    { isShown ? <img src={picUrl} onLoad={()=>{setPicLoaded(true) 
-                        console.log(picLoaded)}} /> : <>{gameActive ? <p>hover over me to see goal picture!</p> : <p>goal picture will appear here!</p>} </>}
+                    {/* TODO: add note that pic is loading if !picLoaded */}
+                    { isShown ? <img src={picUrl} onLoad={()=>{setPicLoaded(true)}} /> : <>{gameActive ? <p>hover over me to see goal picture!</p> : <p>goal picture will appear here!</p>} </>}
                 </div>
                 <div 
                     id="game-canvas" 

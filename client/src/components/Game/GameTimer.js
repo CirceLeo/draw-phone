@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 
 function GameTimer(props) {
-    const {gameActive, handleGameEnd, playTime, gameStarted} = props
+    const {gameActive, picLoaded, handleGameEnd, playTime, gameStarted} = props
     //timer keeps rerendering cause it gets disappeard...leave timer up during pause?
     const [timeLeft, setTimeLeft] = useState(playTime) 
 
@@ -12,7 +12,7 @@ function GameTimer(props) {
         }, 1000);
         return () => clearInterval(interval)
     }
-}, [gameActive])
+}, [picLoaded, gameActive])
 
 useEffect(() => {
         if (timeLeft === 0) {
