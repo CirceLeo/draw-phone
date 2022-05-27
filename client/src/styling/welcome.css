@@ -73,7 +73,7 @@
     margin: 0px;
 }
 
-#welcome-page{
+#welcome-page, #user-page{
     height: 100vh;
     background-image: url('../images/background.jpg');
     /* background-image: url("http://mobileimages.lowes.com/product/converted/501158/5011583059502.jpg"); */

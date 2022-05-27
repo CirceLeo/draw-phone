@@ -1,4 +1,4 @@
-nav a, nav .header-btn, #game-page button {
+nav a, nav .header-btn{
     text-decoration: none;
     color: #360621;
     padding: .4em 1em;
@@ -14,11 +14,11 @@ nav a, nav .header-btn, #game-page button {
     /* width: fit-content; */
 }
 
-#game-page button {
+/* #game-page button {
     margin-top: 0em;
-}
+} */
 
-nav a:hover,  nav .header-btn:hover, #game-page button:hover {
+nav a:hover,  nav .header-btn:hover {
     transition: all ease-in-out 0.3s;
     color: white;
     border-radius: .5em;

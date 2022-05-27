@@ -35,9 +35,7 @@
     height: 10em;
 }
 
-#canvas-controls {
-    align-items: center;
-}
+
 #canvas-controls label {
     color: #FAD5AB;
 }

@@ -21,6 +21,7 @@ function UserPage(props) {
     }, [])
     
     return (
+        // TODO: fix the classnames so i can style this page properly
         <div id="user-page">
             <Header />
             { user.username ? 

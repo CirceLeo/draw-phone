@@ -9,6 +9,13 @@
     margin: .5em;
 }
 
+#user-page p, #user-page h2, #user-page h3 {
+    background-color: #FAD5AB;
+    width: fit-content;
+    margin: auto;
+}
+
+
 /* #show-other-user.display-drawing {
 
 } */
