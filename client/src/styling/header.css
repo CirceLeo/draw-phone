@@ -1,6 +1,6 @@
-nav a, nav .header-btn {
+nav a, nav .header-btn, #game-page button {
     text-decoration: none;
-    color: blue;
+    color: #360621;
     padding: .4em 1em;
     /* background-color: antiquewhite; */
     background-image: linear-gradient(#FAD5AB, #EFC089, #C68C48 );
@@ -14,23 +14,28 @@ nav a, nav .header-btn {
     /* width: fit-content; */
 }
 
-nav a:hover,  nav .header-btn:hover {
+#game-page button {
+    margin-top: 0em;
+}
+
+nav a:hover,  nav .header-btn:hover, #game-page button:hover {
     transition: all ease-in-out 0.3s;
+    color: white;
     border-radius: .5em;
     background-image: linear-gradient( #C68C48, #FAD5AB);
-
 }
 
 nav .active {
-    background-color: pink;
+    background-image: linear-gradient( #C68C48, #FAD5AB);
     border-radius: 1em;
+    font-style: italic;
 }
 
 #header{
     height: 7em;
     left: 0px;
     top: 0px;
-
+    box-shadow: 0px 4px #360621;
     /* top: 1em; */
 }
 

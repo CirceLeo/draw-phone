@@ -40,6 +40,7 @@ function GameCanvas({setDrawingData, gameActive, canvasRef}) {
 
     return (
         <>
+        <div id="canvas-controls">
             <button
                 onClick={handleUndo}
                 >
@@ -51,38 +52,32 @@ function GameCanvas({setDrawingData, gameActive, canvasRef}) {
                 clear canvas
             </button>
             <br/> 
-        <label>Brush size</label>
-        {/* <input 
-            type="number" 
-            value={brushSize}
-            min={2}
-            max={50}
-            onChange={handleSizeChange}
-            /> */}
-        <div id="brush-size-radio">
-            <input 
-                type="radio"
-                name='brush-size'
-                id = 'brush-radio-small'
-                value={2}
-                onClick={handleSizeChange}
-                />
-            <input 
-                type="radio"
-                name='brush-size'
-                id = 'brush-radio-med'
-                value={5}
-                onClick={handleSizeChange}
-                />
-            <input 
-                type="radio"
-                name='brush-size'
-                id = 'brush-radio-large'
-                value={10}
-                onClick={handleSizeChange}
-                />
+            <label>Brush size</label>
+            <div id="brush-size-radio">
+                <input 
+                    type="radio"
+                    name='brush-size'
+                    id = 'brush-radio-small'
+                    value={2}
+                    onClick={handleSizeChange}
+                    />
+                <input 
+                    type="radio"
+                    name='brush-size'
+                    id = 'brush-radio-med'
+                    value={5}
+                    onClick={handleSizeChange}
+                    />
+                <input 
+                    type="radio"
+                    name='brush-size'
+                    id = 'brush-radio-large'
+                    value={10}
+                    onClick={handleSizeChange}
+                    />
         </div>
         <GithubPicker triangle='hide' onChange={handleColorChange} />
+        </div>
             {canvas}
 
         </>

@@ -35,10 +35,17 @@
     height: 10em;
 }
 
+#canvas-controls {
+    align-items: center;
+}
+#canvas-controls label {
+    color: #FAD5AB;
+}
+
 #goal-pic-div {
     height: 20em;
     border: 2px black solid;
-    background-color: pink;
+    background-color: #FAD5AB;
     width: 20em;
     margin-left: 3em;
     grid-area: goal-pic;
@@ -57,6 +64,10 @@
 
 #start-pause-buttons {
     grid-area: timing-btn;
+}
+
+#game-page {
+    background-color: #50032F;
 }
 
 #game-canvas{
@@ -82,6 +93,7 @@ img {
     padding: 0em;
     border: black 2px solid;
     width: fit-content;
+    background-color: #94622a;
 }
 
 #current-settings p{

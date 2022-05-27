@@ -33,6 +33,7 @@ function RecentDrawingDisplay({displayPics, artistDetails}) {
                         {/* <div className='flip-card-back'>
                             <img src={drawing.origin_pic_url}/>
                         </div> */}
+                        {/* TODO: move outside the div so it doesnt flip once we have animations going again */}
                         <div className='display-drawing-text'>
                             {artistDetails ?  <p><strong>Artist: </strong> {drawing.user.username !== "guest"  ? <em className='clickable-username' onClick={() => openAddFriend(drawing.user.id)}>{drawing.user.username}</em>: "anon"}</p> : null}
                             <p><strong>Title: </strong> <em> {drawing.title ? drawing.title :` untitled piece ${drawing.id}`}</em></p>

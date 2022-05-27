@@ -4,14 +4,17 @@
 }
 
 .drawing-display {
-    overflow: auto;
+    /* overflow: auto; */
+    overflow-x: scroll;
+
     white-space: nowrap;
     margin-bottom: 2em;
+    height: fit-content;
 }
 
 .display-drawing img{
     transition: 1s;
-    border: gold 4px inset;
+    border: gold 6px inset;
     margin: .5em;
     background-color: white;
     width: 80%;
@@ -51,11 +54,17 @@
     width: 22em;
     display: inline-block;
     margin: 0em 1em;
-    border: 2px black solid;
     border-radius: 1em;
-    background-color: antiquewhite;
+    /* background-color: antiquewhite; */
     perspective: 1000px;
     height: 25em;
+}
+
+.display-drawing-text {
+    background-color: #f2dbc0;
+    color: #2C2C2C;
+    width: 16em;
+    margin: auto;
 }
 
 
@@ -67,7 +76,6 @@
 #welcome-page{
     height: 100vh;
     background-image: url('../images/background.jpg');
-
     /* background-image: url("http://mobileimages.lowes.com/product/converted/501158/5011583059502.jpg"); */
     /* align-items: center; */
 }
@@ -75,10 +83,17 @@
 #welcome-text, #login-text{
     background-color: rgba(77, 26, 20, 0.7);
     width: 66vw;
-    margin: 2em 10em;
+    margin: 2em 10em 2em;
     color: wheat;
     border-radius: 2em;
     text-decoration: none;
+}
+
+#display-explain {
+    color: white;
+    text-align: left;
+    margin-left: 3em;
+    font-size: 1em;
 }
 
 #welcome a{
