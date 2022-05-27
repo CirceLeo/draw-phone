@@ -1,5 +1,5 @@
 .subject-card{
-    background-color: aqua;
+    background-color: #50032F;
     width: 18em;
 }
 
@@ -19,4 +19,5 @@
 #gallery{
     margin-top: 3em;
     background-image: url('../images/background.jpg');
+    color: antiquewhite;
 }

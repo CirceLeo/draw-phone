@@ -63,6 +63,11 @@ function GamePage(props) {
         setGameStarted(true)
     }
 
+    function handleContinue(){
+        setIsShown(true)
+        setGameActive(true)
+    }
+
     function prepNewGame(){
         closeModal()
         canvasRef.current.eraseAll()
@@ -130,25 +135,22 @@ function GamePage(props) {
             <div id='game-grid'>
                 <div id='setting-and-control'>
                     {/* <div id='current-game-info'> */}
-                        {gameActive ? 
-                            <GameTimer handleGameEnd={handleGameEnd} gameActive={gameActive} playTime={playTime} />
-                                        : 
-                            <>
-                                {gameStarted ? 
-                                    null :
-                                <div id="current-settings">
-                                    <p>Current Settings:</p>
-                                    <p>Drawing subject: {imageTerm}</p>
-                                    <p>seconds to draw: {playTime}</p>
-                                    <button onClick={openModal}>Change settings?</button>
-                                </div> }
-                            </>
-                        }
+                    {gameStarted ? 
+                        <GameTimer handleGameEnd={handleGameEnd} gameActive={gameActive} playTime={playTime} gameStarted={gameStarted} />
+                        :
+                        <div id="current-settings">
+                            <p>Current Settings:</p>
+                            <p>Drawing subject: {imageTerm}</p>
+                            <p>seconds to draw: {playTime}</p>
+                            <button onClick={openModal}>Change settings?</button>
+                        </div> 
+                    }
                     {/* </div> */}
                     {/* <div id='start-pause-buttons'> */}
                         { gameActive ?    
                             <button onClick={handlePause}>Pause</button> : 
-                            <button onClick={handleStart}> {gameStarted ? 'continue' : 'start'}</button>
+                            <>{gameStarted ? <button onClick={handleContinue}>continue</button> : <button onClick={handleStart}>start</button>}</>
+                            
                         }
                     {/* </div> */}
                 </div>

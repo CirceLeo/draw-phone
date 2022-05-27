@@ -41,14 +41,14 @@ function GameSettings({closeModal, setPlayTime, setImageTerm}) {
                 <label>What do you want to draw?</label>
                 <select onChange={handleNewSearchTerm}>
                     <option value="dog">Dogs!</option>
-                    {user.username && user.did_daily ? <option value="daily">Daily challenge!</option> : null}
+                    {/* {user.username && !user.did_daily ? <option value="daily">Daily challenge!</option> : null} */}
                     <option value="cat">Cats</option>
                     <option value="flower">flowers</option>
                     <option value="car">cars</option> 
                     <option value="superhero">superheroes</option> 
                 </select>
                 <br/>
-                <button type='submit'>Looks good, let's draw!</button>
+                <button type='submit'>Looks good!</button>
             </form>
         </div>
     )

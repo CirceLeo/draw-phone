@@ -21,7 +21,7 @@ function Gallery(props) {
 
     const gallerySubjectCards = subjects.map( subject => {
         return(
-            <div className="subject-card">
+            <div key={subject} className="subject-card">
                 <h1 className="click" onClick={() => openSubjectModal(subject)}>{subject}</h1>
             </div>
         )
