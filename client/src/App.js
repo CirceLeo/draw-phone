@@ -15,7 +15,7 @@ import GamePage from './components/Game/GamePage';
 import UserPage from './components/User stuff/UserPage';
 
 import { UserContext, userObject } from "./context/user";
-import Gallery from './components/Gallery';
+import Gallery from './components/Gallery/Gallery';
 
 
 function App() {
