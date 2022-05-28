@@ -5,6 +5,7 @@ import './styling/welcome.css';
 import './styling/modal.css'
 import './styling/userAdmin.css'
 import './styling/Gallery.css'
+import './styling/drawingDisplay.css'
 
 
 import React, {useEffect, useState, useRef, useContext} from 'react';
