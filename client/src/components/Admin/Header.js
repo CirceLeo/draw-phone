@@ -37,7 +37,7 @@ function Header(props) {
     
     return (
         <div id="header">
-            {/* <img src={logo}/> */}
+            <img src={logo} onClick={navigateTo('/')} className='logo'/>
             {/* TODO: fix the spacing and sizing of the img, 
             also make it clickable and replace the home btn */}
             {

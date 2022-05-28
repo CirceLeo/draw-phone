@@ -8,8 +8,8 @@ import {useState, useEffect, useContext} from 'react'
 import { UserContext } from "../context/user"
 import useSound from "use-sound"
 import ticking from '../sounds/ticking.m4a'
-import Loader from "./Admin/Loader"
 
+import * as Tone from 'tone'
 
 function WelcomePage(props) {
 
