@@ -1,10 +1,12 @@
 import {useEffect, useState} from 'react'
+import CreateChallengeForm from '../Challenges/CreateChallengeForm'
 import OtherUserDetails from './OtherUserDetails'
 
-function RecentDrawingDisplay({displayPics, artistDetails}) {
+function RecentDrawingDisplay({displayPics, artistDetails, userPage}) {
 
     const [userToShow, setUserToShow] = useState({})
     const [otherUserOpen, setOtherUserOpen] = useState(false)
+    const [challengeOpen, setChallengeOpen] = useState(false)
 
     function openAddFriend(clickedUser){
         setUserToShow(clickedUser)
@@ -38,6 +40,8 @@ function RecentDrawingDisplay({displayPics, artistDetails}) {
                             {artistDetails ?  <p><strong>Artist: </strong> {drawing.user.username !== "guest"  ? <em className='clickable-username' onClick={() => openAddFriend(drawing.user.id)}>{drawing.user.username}</em>: "anon"}</p> : null}
                             <p><strong>Title: </strong> <em> {drawing.title ? drawing.title :` untitled piece ${drawing.id}`}</em></p>
                             <p><strong>Completed in:</strong> {drawing.play_time ? <em>{drawing.play_time} seconds</em> : "unknown" }  </p>
+                            {userPage? <button onClick={() => setChallengeOpen(true)}>create a challenge?</button> : null}
+                            {challengeOpen ? <CreateChallengeForm  drawingId={drawing.id} close={()=> setChallengeOpen(false)}/> : null}
                             {/* var dataURI = canvas.toDataURL("image/jpeg", 0.2);  // type, enc. option <0.0, 1.0] */}
                         </div>
                     </div>

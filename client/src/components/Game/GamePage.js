@@ -84,7 +84,6 @@ function GamePage(props) {
         setGameActive(false)
         const currentCanvas = canvasRef.current.canvasContainer.childNodes[1].toDataURL();
         setDrawingData(currentCanvas);
-        // setIsShown(true)
         handleExport(currentCanvas)
         setModalOpen(true)
     }
@@ -165,7 +164,7 @@ function GamePage(props) {
                 </div>
             {/* <div id='goal-and-canvas'> */}
                 <div id='goal-pic-div'>
-                    {picLoaded ? null : <p>Your goal photo is loading, get ready!</p>}
+                    {!picLoaded && gameStarted ?  <p>Your goal photo is loading, get ready!</p> : null}
                     { isShown ? <img src={picUrl} onLoad={()=>{setPicLoaded(true)}} /> : <>{gameActive ? <p>hover over me to see goal picture!</p> : <p>goal picture will appear here!</p>} </>}
                 </div>
                 <div 
