@@ -8,6 +8,7 @@ import GameCanvas from './GameCanvas';
 import GameSettings from './GameSettings';
 import GameTimer from './GameTimer';
 import GameEndScreen from './GameEndScreen';
+import Loader from '../Admin/Loader';
 
 function GamePage(props) {
     
@@ -164,7 +165,7 @@ function GamePage(props) {
                 </div>
             {/* <div id='goal-and-canvas'> */}
                 <div id='goal-pic-div'>
-                    {!picLoaded && gameStarted ?  <p>Your goal photo is loading, get ready!</p> : null}
+                    {!picLoaded && gameStarted ? <> <p>Your goal photo is loading, get ready!</p><Loader/> </> : null}
                     { isShown ? <img src={picUrl} onLoad={()=>{setPicLoaded(true)}} /> : <>{gameActive ? <p>hover over me to see goal picture!</p> : <p>goal picture will appear here!</p>} </>}
                 </div>
                 <div 

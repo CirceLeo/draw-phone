@@ -10,6 +10,11 @@
   display: none;
 }
 
+.loader {
+  color: bisque;
+  font-size: 10em;
+}
+
 
 body{
   padding-top: 7em;

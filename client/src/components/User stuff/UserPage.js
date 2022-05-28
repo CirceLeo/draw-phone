@@ -5,6 +5,7 @@ import { useContext, useEffect, useState } from "react"
 import { UserContext, userObject } from "../../context/user";
 import RecentDrawingDisplay from "../Drawing and other User Displays/RecentDrawingDisplay";
 import FriendsList from "./FriendList";
+import Loader from "../Admin/Loader";
 
 function UserPage(props) {
     const [user, setUser] = useContext(UserContext)
@@ -61,7 +62,7 @@ function UserPage(props) {
             :
             <>
             <p>User page loading!</p>
-            <p>Click <a href="/play">here</a>to play instead!</p>
+            <Loader />
             </>
         }
             <Footer />
