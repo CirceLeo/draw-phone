@@ -6,6 +6,10 @@
   font-family: 'Poppins', sans-serif;
 }
 
+::-webkit-scrollbar {
+  display: none;
+}
+
 
 body{
   padding-top: 7em;

@@ -10,15 +10,19 @@ function UserPage(props) {
     const [user, setUser] = useContext(UserContext)
     const [userPics, setUserPics] = useState([])
     const [friendships, setFriendships] = useState([])
-
+    
     useEffect(() => {
-            fetch(`user_details/${user.id}`)
-            .then(resp => resp.json())
-            .then(data => {
-                setUserPics(data.drawings)
-                setFriendships(data.friendships)
-            })
-    }, [])
+            if(user.id){
+                fetch(`user_details/${user.id}`)
+                .then(resp => resp.json())
+                .then(data => {
+                    setUserPics(data.drawings)
+                    setFriendships(data.friendships)
+                })
+            } else{
+                console.log('yeah i couldnt find a user soz')
+            }
+    }, [user])
     
     return (
         // TODO: fix the classnames so i can style this page properly

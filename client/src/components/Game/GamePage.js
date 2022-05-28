@@ -165,7 +165,7 @@ function GamePage(props) {
                 </div>
             {/* <div id='goal-and-canvas'> */}
                 <div id='goal-pic-div'>
-                    {/* TODO: add note that pic is loading if !picLoaded */}
+                    {picLoaded ? null : <p>Your goal photo is loading, get ready!</p>}
                     { isShown ? <img src={picUrl} onLoad={()=>{setPicLoaded(true)}} /> : <>{gameActive ? <p>hover over me to see goal picture!</p> : <p>goal picture will appear here!</p>} </>}
                 </div>
                 <div 

@@ -84,19 +84,19 @@ function GameCanvas({setDrawingData, gameActive, canvasRef}) {
                 onChange={handleColorChange} 
                 colors ={ [ 
                             "#c91e1e",  //red
-                            "#FFC0CB",  //pink
                             "#cc6414",  //orange
-                            "#fed8b1",  //light orange
-                            "#4b2d0b",  //brown
                             "#FFFF00",  //yellow
-                            "#ffffbf",  //light yellow
                             "#2c9c1a",  //green
-                            "#90ee90",  //light green
                             "#1a459c",  //blue
-                            "#00bcd4",  //light blue
                             "#601199",  //purple
-                            "#a865c9",  //light purple
+                            "#4b2d0b",  //brown
                             "#000000",  //black
+                            "#FFC0CB",  //pink
+                            "#fed8b1",  //light orange
+                            "#ffffbf",  //light yellow
+                            "#90ee90",  //light green
+                            "#00bcd4",  //light blue
+                            "#a865c9",  //light purple
                             "#ffffff",  //white
                             "#808080",  //grey
                         ]}
