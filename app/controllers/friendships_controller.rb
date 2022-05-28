@@ -4,6 +4,17 @@ class FriendshipsController < ApplicationController
         friendship = Friendship.create!(friendship_params)
         render json: friendship, status: :created
     end
+
+    def incomplete_friendships
+        non_confirmed = Friendship.where(friend_id: params[:user_id])
+        #and need a way to filter out where theres a corospoinding friendship....
+        render json: non_confirmed, include: "user"
+    end
+
+    def confirm_friendship
+        
+    end
+
     def show
         render json: @friendship, status: :ok
     end

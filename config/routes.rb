@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  resources :challenges
+  resources :attempts
   root to: 'home#index'
 
   resources :friendships
