@@ -24,6 +24,6 @@ class ChallengesController < ApplicationController
         @challenge = Challenge.find(params[:id])
     end
     def challenge_params
-        params.permit(:drawing_id, :title)
+        params.permit(:drawing_id, :challenge_title)
     end
 end
