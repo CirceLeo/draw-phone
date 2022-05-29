@@ -18,11 +18,13 @@
     text-decoration: none;
 }
 
-#display-explain {
+.display-explain {
     color: white;
     text-align: left;
     margin-left: 3em;
-    font-size: 1em;
+    margin-bottom: 0em;
+    padding: 0em;
+    /* font-size: .8em; */
 }
 
 #welcome a{

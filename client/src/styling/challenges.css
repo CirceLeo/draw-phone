@@ -1,0 +1,17 @@
+.blurred-pic{
+    filter: blur(8px);
+    /* border: #D9AF7E 8px inset; */
+}
+
+.challenge-display {
+    overflow-x: scroll;
+    height: fit-content;
+    white-space: nowrap;
+}
+
+.display-challenge {
+    display: inline-block;
+    margin: 0em 1em 0em;
+
+}
+

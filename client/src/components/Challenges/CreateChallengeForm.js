@@ -34,7 +34,7 @@ function CreateChallengeForm({drawingId, close}) {
             </div>
             <form onSubmit={handleSubmit}>
                 <label>Make a name for your challenge:</label>
-                <input onChange={(e)=>setTitle(e.target.value)} value={title} type='text' name="challenge_title"></input>
+                <input required onChange={(e)=>setTitle(e.target.value)} value={title} type='text' name="challenge_title"></input>
                 <br/>
                 { created ? <p>Challenge created!</p> : <button type='submit'> issue challenge!</button>}
             </form>

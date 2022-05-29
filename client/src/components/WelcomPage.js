@@ -6,12 +6,14 @@ import SignUpForm from "./User stuff/SignUpForm"
 
 import {useState, useEffect, useContext} from 'react'
 import { UserContext } from "../context/user"
+import ChallengeDisplay from "./Challenges/ChallengeDisplay"
 
 function WelcomePage(props) {
 
     const [user, setUser] = useContext(UserContext)
 
     const [recentPics, setRecentPics] = useState([])
+    const [recentChallenges, setRecentChallenges]= useState([])
     const [modalOpen, setModalOpen] = useState(false);
     const [modalDisplay, setModalDisplay] = useState('')
 
@@ -20,6 +22,10 @@ function WelcomePage(props) {
         fetch('/drawings')
         .then(resp => resp.json())
         .then(data => setRecentPics(data))
+
+        fetch('/challenges')
+        .then(resp => resp.json())
+        .then(data => setRecentChallenges(data))
     }, [])
 
     function openLoginModal(e) {
@@ -50,12 +56,15 @@ function WelcomePage(props) {
             <Header />
             {/* <button onClick={()=> play}>tick!</button> */}
             <div id="welcome-text">
-                <h1>welcome {user.username ? "back" : null}</h1>
-                <h3>Please peruse some of our most recent artistic works</h3>
+                <h1>welcome {user.username ? "back" : null} to Sketchee!</h1>
+            </div>
+            <div className="display-explain">
+                <h4>Please peruse our 15 most recent creations:</h4>
                 <p>Hover over them to see the inspiration behind the piece!</p>
             </div>
-            <p id="display-explain">15 most recent creations:</p>
             <RecentDrawingDisplay artistDetails={true} displayPics={recentPics} />
+            <p className="display-explain">Trending Challenges: </p>
+            <ChallengeDisplay challenges={recentChallenges}/>
             { user.username ? 
                 null
                 :

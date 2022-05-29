@@ -3,13 +3,12 @@
 .drawing-display {
     /* overflow: auto; */
     overflow-x: scroll;
-
     white-space: nowrap;
     margin-bottom: 2em;
     height: fit-content;
 }
 
-.display-drawing img{
+.display-drawing img {
     transition: 1s;
     border: #D9AF7E 8px inset;
     margin: .5em;
@@ -32,6 +31,7 @@
     text-align: center;
     transition: transform 1s;
     transform-style: preserve-3d;
+    padding-bottom: 0em;
 }
 
 .flip-card:hover .flip-card-content {
@@ -53,14 +53,14 @@
     width: 80%;
 }
 
-.display-drawing {
+.display-drawing{
     width: 22em;
     display: inline-block;
-    margin: 0em 1em;
+    margin: 0em 1em 0em;
     border-radius: 1em;
     /* background-color: antiquewhite; */
     perspective: 1000px;
-    height: 25em;
+    height: 23em;
 }
 
 .display-drawing-text {
