@@ -15,3 +15,10 @@
 
 }
 
+.display-challenge p {
+    background-color: #f2dbc0;
+    color: #2C2C2C;
+    width: 16em;
+    margin: auto;
+}
+

@@ -8,7 +8,7 @@ class ChallengesController < ApplicationController
         render json: @challenge, status: :ok
     end
     def index
-        render json: Challenge.all, status: :ok
+        render json: Challenge.all.limit(8), status: :ok
     end
     def update
         @challenge.update(challenge_params)
