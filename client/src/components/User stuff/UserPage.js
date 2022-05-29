@@ -6,6 +6,7 @@ import { UserContext, userObject } from "../../context/user";
 import RecentDrawingDisplay from "../Drawing and other User Displays/RecentDrawingDisplay";
 import FriendsList from "./FriendList";
 import Loader from "../Admin/Loader";
+import CreateChallengeForm from "../Challenges/CreateChallengeForm";
 
 function UserPage(props) {
     const [user, setUser] = useContext(UserContext)
@@ -37,7 +38,7 @@ function UserPage(props) {
                     {
                         user.friends.length > 0 ?
                         <FriendsList friends={friendships} />
-                        // TODO:might need to fetch from the backend for this once you can add friends
+                        // TODO: need to fetch from the backend for this once you can add friends
                         :
                         <>
                             <p>sorry buddy, you have not friends</p>
