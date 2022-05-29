@@ -151,7 +151,6 @@ function GamePage({challenges}) {
                         { gameActive ?    
                             <>
                                 <button onClick={handlePause}>Pause</button> 
-                                <button onClick={handleGameEnd}>end game?</button>
                             </>
                             : 
                             <>{gameStarted ? 
@@ -161,6 +160,7 @@ function GamePage({challenges}) {
                             }</>
                             
                         }
+                        {gameStarted ? <button onClick={handleGameEnd}>end game?</button> : null}
                     {/* </div> */}
                 </div>
             {/* <div id='goal-and-canvas'> */}

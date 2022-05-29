@@ -10,12 +10,22 @@ function GameTimer(props) {
     //timer keeps rerendering cause it gets disappeard...leave timer up during pause?
     const [timeLeft, setTimeLeft] = useState(playTime) 
 
-    const synth = new Tone.PolySynth(FMSynth).toDestination()
+    // const synth = new Tone.PolySynth(FMSynth).toDestination()
+    const synth = new Tone.Synth().toDestination()
     const chord = Tone.Frequency(`D#4`)//.harmonize([7]) // major
 
     function playSound(){
-        synth.triggerAttackRelease(chord, "6n")
+        const now = Tone.now()
+        synth.triggerAttackRelease("C6", "8n", now )
+        synth.triggerAttackRelease("C6", "8n", now + .25)
+        // synth.triggerAttackRelease("G4", "2n", now + 2)
+        // synth.triggerAttackRelease("B4", "4n", now + 2)
         Tone.start()
+        // synth.triggerAttackRelease("C4", "6n")
+        // Tone.start()
+        // synth.triggerAttackRelease("G4", "6n")
+        // Tone.start()
+
     }
 
     useEffect(() => {
