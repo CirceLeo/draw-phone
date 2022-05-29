@@ -6,12 +6,6 @@ import SignUpForm from "./User stuff/SignUpForm"
 
 import {useState, useEffect, useContext} from 'react'
 import { UserContext } from "../context/user"
-import useSound from "use-sound"
-import ticking from '../sounds/ticking.m4a'
-
-import * as Tone from 'tone'
-import { FMSynth } from 'tone';
-
 
 function WelcomePage(props) {
 
@@ -20,13 +14,6 @@ function WelcomePage(props) {
     const [recentPics, setRecentPics] = useState([])
     const [modalOpen, setModalOpen] = useState(false);
     const [modalDisplay, setModalDisplay] = useState('')
-
-    const synth = new Tone.PolySynth(FMSynth).toDestination()
-    const chord = Tone.Frequency(`"C3"`).harmonize([0, 4, 7]) // major
-
-    function playSound(){
-        synth.triggerAttackRelease(chord, "2n")
-    }
 
 
     useEffect(() => {
@@ -67,7 +54,6 @@ function WelcomePage(props) {
                 <h3>Please peruse some of our most recent artistic works</h3>
                 <p>Hover over them to see the inspiration behind the piece!</p>
             </div>
-            <button onClick={playSound}>noise</button>
             <p id="display-explain">15 most recent creations:</p>
             <RecentDrawingDisplay artistDetails={true} displayPics={recentPics} />
             { user.username ? 

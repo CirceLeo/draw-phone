@@ -38,7 +38,8 @@ function App() {
       <Router>
         <Routes>
           <Route path='/' element={<WelcomePage />} />
-          <Route path='/play' element={<GamePage />} />
+          <Route path='/challenges' element={<GamePage challenges={true}/>} />
+          <Route path='/play' element={<GamePage challenges={false}/>} />
           <Route path='/me' element={<UserPage />} />
           <Route path='/gallery' element={<Gallery/>} />
         </Routes>

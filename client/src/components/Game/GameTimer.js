@@ -1,9 +1,22 @@
 import { useState, useEffect } from "react";
+import useSound from "use-sound"
+import ticking from '../../sounds/ticking.m4a'
+
+import * as Tone from 'tone'
+import { FMSynth } from 'tone';
 
 function GameTimer(props) {
     const {gameActive, picLoaded, handleGameEnd, playTime, gameStarted} = props
     //timer keeps rerendering cause it gets disappeard...leave timer up during pause?
     const [timeLeft, setTimeLeft] = useState(playTime) 
+
+    const synth = new Tone.PolySynth(FMSynth).toDestination()
+    const chord = Tone.Frequency(`D#4`)//.harmonize([7]) // major
+
+    function playSound(){
+        synth.triggerAttackRelease(chord, "6n")
+        Tone.start()
+    }
 
     useEffect(() => {
         if(gameActive){
@@ -26,6 +39,7 @@ const secondsLeft = Math.abs(timeLeft % 60)
     return (
         <>
             <h2 style={{color: timeLeft < (playTime / 2) ? "red" : "black"}}>{Math.floor(timeLeft / 60) }:{secondsLeft < 10 ? `0${secondsLeft}` : secondsLeft}</h2>
+            <button onClick={playSound}>noise</button>
             {/* <h2 style={{color: timeLeft < 60 ? "red" : "black"}}>{timeLeft}</h2> */}
         </>
     )

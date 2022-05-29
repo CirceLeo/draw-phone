@@ -10,7 +10,7 @@ import GameTimer from './GameTimer';
 import GameEndScreen from './GameEndScreen';
 import Loader from '../Admin/Loader';
 
-function GamePage(props) {
+function GamePage({challenges}) {
     
     const [user] = useContext(UserContext)
 
