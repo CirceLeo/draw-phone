@@ -8,8 +8,10 @@ nav a, nav .header-btn{
     border-radius: 1em;
     border: none;
     font-size: 1em;
-    margin-top: 2.5em;
+    margin-top: 0.5em;
     margin-left: .5em;
+    white-space: nowrap;
+
     /* height: 2.5em; */
     /* width: fit-content; */
 }
@@ -99,6 +101,9 @@ nav .active {
     font-style: italic;
 }
 
+nav {
+    width: 40%;
+}
 #header{
     height: 7em;
     left: 0px;
