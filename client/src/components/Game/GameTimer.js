@@ -45,6 +45,10 @@ useEffect(() => {
     }, [timeLeft])
 
 const secondsLeft = Math.abs(timeLeft % 60)
+
+if(timeLeft === 15){
+    playSound()
+}
     
     return (
         <>

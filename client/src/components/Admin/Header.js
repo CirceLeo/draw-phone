@@ -5,6 +5,9 @@ import '../../styling/header.css'
 import HowToPlay from './HowToPlay';
 import logo from '../../images/sketcheelogo.png'
 
+import LoginForm from '../User stuff/LoginForm';
+import SignUpForm from '../User stuff/SignUpForm';
+
 import useSound from "use-sound"
 
 
@@ -12,6 +15,24 @@ function Header(props) {
 
     const [user, setUser] = useContext(UserContext)
     const [howToOpen, setHowToOpen] = useState(true)
+
+    const [modalOpen, setModalOpen] = useState(false);
+    const [modalDisplay, setModalDisplay] = useState('')
+
+    
+    function openLoginModal(e) {
+        setModalOpen(true)
+        setModalDisplay("login")
+    }
+
+    function openSignupModal(e) {
+        setModalOpen(true)
+        setModalDisplay("signup")
+    }
+
+    function closeModal(){
+        setModalOpen(false)
+    }
 
     const navigateTo = useNavigate()
     let location = useLocation()
@@ -37,6 +58,17 @@ function Header(props) {
     
     return (
         <div id="header">
+            {
+                modalOpen && (
+                    <>
+                    <div className="overlay" onClick={closeModal}></div>
+                    <div className="modal">
+                        { modalDisplay==="login" ? <LoginForm closeModal={closeModal} /> : null}
+                        { modalDisplay==="signup" ? <SignUpForm closeModal={closeModal} /> : null}
+                    </div>
+                    </>
+                )
+            }
             <div className='header-content'>
             <img src={logo} onClick={() => navigateTo('/')} className='logo'/>
             {/* TODO: fix the spacing and sizing of the img, 
@@ -62,7 +94,8 @@ function Header(props) {
                         <NavLink to ='/me'>User Page</NavLink> 
                         <button  onClick={handleLogOut} className='header-btn'>Log Out</button>
                     </>: 
-                    null}                
+                        <button className='header-btn' onClick={openLoginModal}>Login?</button>
+                }                
             </nav>
         </div>
         </div>

@@ -10,11 +10,12 @@ import GameTimer from './GameTimer';
 import GameEndScreen from './GameEndScreen';
 import Loader from '../Admin/Loader';
 
-function GamePage({challenges}) {
+function GamePage({challenges, challenge}) {
     
     const [user] = useContext(UserContext)
 
     const [modalOpen, setModalOpen] = useState(false);
+    const [challengeModalOpen, setChallengeModalOpen] = useState(false)
     const [gameStarted, setGameStarted] = useState(false)
     const [gameActive, setGameActive] = useState(false)
     const [isShown, setIsShown] = useState(false)
@@ -59,11 +60,16 @@ function GamePage({challenges}) {
         .catch( error => console.log(error.message));
     }
 
+    function openChallengeModal(){
+        setChallengeModalOpen(true)
+    }
+
     function handleStart(){
         setIsShown(true)
         setGameActive(true) 
         setGameStarted(true)
     }
+
 
     function handleContinue(){
         setIsShown(true)
@@ -83,6 +89,7 @@ function GamePage({challenges}) {
 
     function handleGameEnd(){
         setGameActive(false)
+        setIsShown(false)
         const currentCanvas = canvasRef.current.canvasContainer.childNodes[1].toDataURL();
         setDrawingData(currentCanvas);
         handleExport(currentCanvas)
@@ -146,6 +153,7 @@ function GamePage({challenges}) {
                             <button onClick={openModal}>Change settings?</button>
                         </div> 
                     }
+                    <button onClick={openChallengeModal}>Play a challenge instead of random?</button>
                     {/* </div> */}
                     {/* <div id='start-pause-buttons'> */}
                         { gameActive ?    

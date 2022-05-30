@@ -26,6 +26,13 @@
 
 
 .subject-card {
+    display: block;
+    position: relative;
+    margin: 50px auto 0;
+    color: #fff;
+    text-align: center;
+    text-transform: uppercase;
+    border: none;
     background-repeat: no-repeat;
     
     background-image: -webkit-linear-gradient(
@@ -68,6 +75,7 @@
 
 .subject-card:hover {
     transform: scale(0.9);
+    background-position: 0 0, 0 0;
     
     -webkit-transition-duration: 0.5s;
     -moz-transition-duration: 0.5s;

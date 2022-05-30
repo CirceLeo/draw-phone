@@ -1,8 +1,8 @@
-import LoginForm from "./User stuff/LoginForm"
 import Header from './Admin/Header'
 import Footer from "./Admin/Footer"
 import RecentDrawingDisplay from "./Drawing and other User Displays/RecentDrawingDisplay"
-import SignUpForm from "./User stuff/SignUpForm"
+// import SignUpForm from "./User stuff/SignUpForm"
+// import LoginForm from "./User stuff/LoginForm"
 
 import {useState, useEffect, useContext} from 'react'
 import { UserContext } from "../context/user"
@@ -14,8 +14,8 @@ function WelcomePage(props) {
 
     const [recentPics, setRecentPics] = useState([])
     const [recentChallenges, setRecentChallenges]= useState([])
-    const [modalOpen, setModalOpen] = useState(false);
-    const [modalDisplay, setModalDisplay] = useState('')
+    // const [modalOpen, setModalOpen] = useState(false);
+    // const [modalDisplay, setModalDisplay] = useState('')
 
 
     useEffect(() => {
@@ -28,26 +28,26 @@ function WelcomePage(props) {
         .then(data => setRecentChallenges(data))
     }, [])
 
-    function openLoginModal(e) {
-        setModalOpen(true)
-        setModalDisplay("login")
-    }
+    // function openLoginModal(e) {
+    //     setModalOpen(true)
+    //     setModalDisplay("login")
+    // }
 
-    function openSignupModal(e) {
-        setModalOpen(true)
-        setModalDisplay("signup")
-    }
+    // function openSignupModal(e) {
+    //     setModalOpen(true)
+    //     setModalDisplay("signup")
+    // }
 
-    function closeModal(){
-        setModalOpen(false)
-    }
+    // function closeModal(){
+    //     setModalOpen(false)
+    // }
 
-    useEffect(()=> {
-        if(modalOpen)
-        {document.body.style.overflow = 'hidden';}
-        else {
-            document.body.style.overflow = 'visible'}
-    }, [modalOpen])
+    // useEffect(()=> {
+    //     if(modalOpen)
+    //     {document.body.style.overflow = 'hidden';}
+    //     else {
+    //         document.body.style.overflow = 'visible'}
+    // }, [modalOpen])
 
     // const [play] = useSound(ticking)
     
@@ -65,7 +65,7 @@ function WelcomePage(props) {
             <RecentDrawingDisplay artistDetails={true} displayPics={recentPics} />
             <p className="display-explain">Trending Challenges: </p>
             <ChallengeDisplay challenges={recentChallenges}/>
-            { user.username ? 
+            {/* { user.username ? 
                 null
                 :
                 <div id="login-text">
@@ -83,7 +83,7 @@ function WelcomePage(props) {
                     }
                     <p>New user? Click <button onClick={openSignupModal}>here</button> to sign up or head <a href='/play'>here</a> to play as a guest!</p>
                 </div>
-            }
+            } */}
             <Footer />
         </div>
     )

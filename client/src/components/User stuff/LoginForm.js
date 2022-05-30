@@ -88,6 +88,7 @@ function LoginForm({closeModal}) {
                 />
                 <br/>
                 <button type="submit">Login</button>
+                <p>new user?</p><button onClick={closeModal}>Sign up!</button>
             </form>
         </div>
     )
