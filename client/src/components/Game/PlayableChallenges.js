@@ -12,7 +12,7 @@ function PlayableChallenges({close}) {
         // console.log(challenge)
         currentIndex = currentIndex + 1
         return(
-            <option value={currentIndex}>{challenge.challenge_title}</option>
+            <option key={challenge.id} value={currentIndex}>{challenge.challenge_title}</option>
         )
     })
 
@@ -29,7 +29,7 @@ function PlayableChallenges({close}) {
 
     function handleSubmit(e){
         e.preventDefault()
-        
+
     }
     return (
         <div className="playable-challenges">

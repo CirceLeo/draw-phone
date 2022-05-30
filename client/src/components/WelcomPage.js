@@ -1,8 +1,6 @@
 import Header from './Admin/Header'
 import Footer from "./Admin/Footer"
 import RecentDrawingDisplay from "./Drawing and other User Displays/RecentDrawingDisplay"
-// import SignUpForm from "./User stuff/SignUpForm"
-// import LoginForm from "./User stuff/LoginForm"
 
 import {useState, useEffect, useContext} from 'react'
 import { UserContext } from "../context/user"
@@ -14,8 +12,6 @@ function WelcomePage(props) {
 
     const [recentPics, setRecentPics] = useState([])
     const [recentChallenges, setRecentChallenges]= useState([])
-    // const [modalOpen, setModalOpen] = useState(false);
-    // const [modalDisplay, setModalDisplay] = useState('')
 
 
     useEffect(() => {
@@ -23,38 +19,15 @@ function WelcomePage(props) {
         .then(resp => resp.json())
         .then(data => setRecentPics(data))
 
-        fetch('/challenges/trending')
+        fetch('/challenges')
         .then(resp => resp.json())
         .then(data => setRecentChallenges(data))
     }, [])
 
-    // function openLoginModal(e) {
-    //     setModalOpen(true)
-    //     setModalDisplay("login")
-    // }
-
-    // function openSichallgnupModal(e) {
-    //     setModalOpen(true)
-    //     setModalDisplay("signup")
-    // }
-
-    // function closeModal(){
-    //     setModalOpen(false)
-    // }
-
-    // useEffect(()=> {
-    //     if(modalOpen)
-    //     {document.body.style.overflow = 'hidden';}
-    //     else {
-    //         document.body.style.overflow = 'visible'}
-    // }, [modalOpen])
-
-    // const [play] = useSound(ticking)
     
     return (
         <div id="welcome-page">
             <Header />
-            {/* <button onClick={()=> play}>tick!</button> */}
             <div id="welcome-text">
                 <h1>welcome {user.username ? "back" : null} to Sketchee!</h1>
             </div>
@@ -65,27 +38,58 @@ function WelcomePage(props) {
             <RecentDrawingDisplay artistDetails={true} displayPics={recentPics} />
             <p className="display-explain">Trending Challenges: </p>
             <ChallengeDisplay challenges={recentChallenges}/>
-            {/* { user.username ? 
-                null
-                :
-                <div id="login-text">
-                    <button onClick={openLoginModal}>login?</button>
-                    {
-                        modalOpen && (
-                            <>
-                            <div className="overlay" onClick={closeModal}></div>
-                            <div className="modal">
-                                { modalDisplay==="login" ? <LoginForm closeModal={closeModal} /> : null}
-                                { modalDisplay==="signup" ? <SignUpForm closeModal={closeModal} /> : null}
-                            </div>
-                            </>
-                        )
-                    }
-                    <p>New user? Click <button onClick={openSignupModal}>here</button> to sign up or head <a href='/play'>here</a> to play as a guest!</p>
-                </div>
-            } */}
             <Footer />
         </div>
     )
 }
 export default WelcomePage
+
+//REMOVED CODE:
+{/* <button onClick={()=> play}>tick!</button> */}
+// import SignUpForm from "./User stuff/SignUpForm"
+// import LoginForm from "./User stuff/LoginForm"
+
+    // const [modalOpen, setModalOpen] = useState(false);
+    // const [modalDisplay, setModalDisplay] = useState('')
+
+// function openLoginModal(e) {
+//     setModalOpen(true)
+//     setModalDisplay("login")
+// }
+
+// function openSichallgnupModal(e) {
+//     setModalOpen(true)
+//     setModalDisplay("signup")
+// }
+
+// function closeModal(){
+//     setModalOpen(false)
+// }
+
+// useEffect(()=> {
+//     if(modalOpen)
+//     {document.body.style.overflow = 'hidden';}
+//     else {
+//         document.body.style.overflow = 'visible'}
+// }, [modalOpen])
+
+// const [play] = useSound(ticking)
+{/* { user.username ? 
+    null
+    :
+    <div id="login-text">
+        <button onClick={openLoginModal}>login?</button>
+        {
+            modalOpen && (
+                <>
+                <div className="overlay" onClick={closeModal}></div>
+                <div className="modal">
+                    { modalDisplay==="login" ? <LoginForm closeModal={closeModal} /> : null}
+                    { modalDisplay==="signup" ? <SignUpForm closeModal={closeModal} /> : null}
+                </div>
+                </>
+            )
+        }
+        <p>New user? Click <button onClick={openSignupModal}>here</button> to sign up or head <a href='/play'>here</a> to play as a guest!</p>
+    </div>
+} */}

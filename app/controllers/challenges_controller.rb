@@ -9,7 +9,7 @@ class ChallengesController < ApplicationController
     end
     def trending
         # TODO: trending logic - 5 with most attempts
-        render json: Challenge.all.limit(8), status: :ok
+        render json: Challenge.all.limit(8), include: "drawing", status: :ok
     end
 
     #TODO: available challenges where there hasn't been a previous attempt
