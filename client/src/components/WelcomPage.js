@@ -23,7 +23,7 @@ function WelcomePage(props) {
         .then(resp => resp.json())
         .then(data => setRecentPics(data))
 
-        fetch('/challenges')
+        fetch('/challenges/trending')
         .then(resp => resp.json())
         .then(data => setRecentChallenges(data))
     }, [])
@@ -33,7 +33,7 @@ function WelcomePage(props) {
     //     setModalDisplay("login")
     // }
 
-    // function openSignupModal(e) {
+    // function openSichallgnupModal(e) {
     //     setModalOpen(true)
     //     setModalDisplay("signup")
     // }

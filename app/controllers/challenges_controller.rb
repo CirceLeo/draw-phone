@@ -7,9 +7,17 @@ class ChallengesController < ApplicationController
     def show
         render json: @challenge, status: :ok
     end
-    def index
+    def trending
+        # TODO: trending logic - 5 with most attempts
         render json: Challenge.all.limit(8), status: :ok
     end
+
+    #TODO: available challenges where there hasn't been a previous attempt
+
+    def index
+        render json: Challenge.all, include: ["drawing", "drawing.user", "attempts"], status: :ok
+    end
+
     def update
         @challenge.update(challenge_params)
         render json: @challenge, status: :accepted

@@ -2,6 +2,7 @@ Rails.application.routes.draw do
   root to: 'home#index'
 
   resources :challenges
+  get '/challenges/trending', to: 'challenges#trending'
   resources :attempts
   resources :friendships
   resources :drawings
