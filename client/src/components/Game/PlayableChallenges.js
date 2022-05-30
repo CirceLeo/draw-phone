@@ -1,9 +1,13 @@
 import {useState, useEffect} from 'react'
+import {useNavigate} from 'react-router-dom'
 function PlayableChallenges({close}) {
+
+    const navigate = useNavigate()
     
     const [currentSelected, setCurrentSelected] = useState({
         play_time: 0,
-        challenge_title: ''
+        challenge_title: '',
+        id: 1
     })
     const [challenges, setChallenges] = useState([])
 
@@ -11,6 +15,9 @@ function PlayableChallenges({close}) {
     const renderedChallengeOptions = challenges.map(challenge => {
         // console.log(challenge)
         currentIndex = currentIndex + 1
+        if (currentIndex === 0){
+            setCurrentSelected(challenge)
+        }
         return(
             <option key={challenge.id} value={currentIndex}>{challenge.challenge_title}</option>
         )
@@ -29,7 +36,7 @@ function PlayableChallenges({close}) {
 
     function handleSubmit(e){
         e.preventDefault()
-
+        navigate(`/play/challenge/${currentSelected.id}`)
     }
     return (
         <div className="playable-challenges">
