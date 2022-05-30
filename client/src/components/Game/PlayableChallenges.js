@@ -2,6 +2,8 @@ import {useState, useEffect} from 'react'
 import {useNavigate} from 'react-router-dom'
 function PlayableChallenges({close}) {
 
+    //TODO: auto select the first one?
+
     const navigate = useNavigate()
     
     const [currentSelected, setCurrentSelected] = useState({
@@ -15,9 +17,6 @@ function PlayableChallenges({close}) {
     const renderedChallengeOptions = challenges.map(challenge => {
         // console.log(challenge)
         currentIndex = currentIndex + 1
-        if (currentIndex === 0){
-            setCurrentSelected(challenge)
-        }
         return(
             <option key={challenge.id} value={currentIndex}>{challenge.challenge_title}</option>
         )
@@ -26,7 +25,9 @@ function PlayableChallenges({close}) {
     useEffect(() => {
         fetch('/challenges')
         .then(resp => resp.json())
-        .then(data => setChallenges(data))
+        .then(data => {
+            setChallenges(data)
+        })
     }, [])
 
     function handleChallengeSelect(e){
@@ -41,9 +42,10 @@ function PlayableChallenges({close}) {
     return (
         <div className="playable-challenges">
             <button onClick={close} className="close-button">X</button>
-            <form>
+            <form onSubmit={handleSubmit}>
                 <label>Select from your available challenges!</label>
                 <select onChange={handleChallengeSelect}>
+                    <option value="" disabled selected>Select your option</option>
                     {renderedChallengeOptions}
                 </select>
                 <div className='selected-details'>

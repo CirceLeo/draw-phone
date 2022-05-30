@@ -128,25 +128,46 @@ function GamePage({}) {
         if (user.username){
             tempUserID = user.id
         }
-        fetch(`/drawings`, {
-            method: "POST",
-            headers: {
-                "Content-Type": "application/json",
-                Accept: "application/json"
-            },
-            body: JSON.stringify({
-                user_id: tempUserID,
-                data_url: canvasData,
-                origin_pic_url: picUrl,
-                subject_category: imageTerm,
-                play_time: playTime
+
+        if (challengeId){
+           fetch(`/attempts`, {
+               method: "POST",
+               headers: {
+                   "Content-Type": "application/json",
+                   Accept: "application/json"
+               },
+               body: JSON.stringify({
+                   challenge_id: challengeId,
+                   user_id: tempUserID,
+                   data_url: canvasData,
+               })
+           })
+           .then( res => res.json())
+           .then( data => console.log(data))
+           .catch( error => console.log(error.message));
+        }
+        else {
+
+            fetch(`/drawings`, {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json",
+                    Accept: "application/json"
+                },
+                body: JSON.stringify({
+                    user_id: tempUserID,
+                    data_url: canvasData,
+                    origin_pic_url: picUrl,
+                    subject_category: imageTerm,
+                    play_time: playTime
+                })
             })
-        })
-        .then( res => res.json())
-        .then( data =>{
-            setNewDrawingId(data.id)
-        })
-        .catch( error => console.log(error.message));
+            .then( res => res.json())
+            .then( data =>{
+                setNewDrawingId(data.id)
+            })
+            .catch( error => console.log(error.message));
+        }
     };
 
     return (
