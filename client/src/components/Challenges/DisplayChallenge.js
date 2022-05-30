@@ -1,6 +1,6 @@
 function DisplayChallenge({challenge}) {
     
-    console.log(challenge)
+    // console.log(challenge)
     
     return (
         <div className="display-challenge">
