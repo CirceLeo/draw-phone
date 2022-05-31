@@ -4,6 +4,9 @@ function CreateChallengeForm({drawingId, close}) {
     const [title, setTitle] = useState('')
     const [created, setCreated] = useState(false)
 
+    // const [errors, setErrors] = useState([]);
+    const [showErrors, setShowErrors] = useState(false);
+
     function handleSubmit(e){
         e.preventDefault()
         const newChallenge = {
@@ -18,9 +21,21 @@ function CreateChallengeForm({drawingId, close}) {
             },
             body: JSON.stringify(newChallenge)
         })
-        .then( res => res.json())
-        .then( data => setCreated(true))
-        .catch( error => console.log(error.message));
+        .then( res => {
+            if(res.ok){
+                res.json().then( challenge => {
+                    setCreated(true)
+                })
+            } else {
+                res.json().then(response => {
+                    // console.log(response)
+                    // setErrors(response.errors[0])
+                    setShowErrors(true)
+                })
+            }
+        })
+        // .then( data => setCreated(true))
+        // .catch( error => console.log(error.message));
     }
     
     return (
@@ -36,6 +51,13 @@ function CreateChallengeForm({drawingId, close}) {
                 <label>Make a name for your challenge:</label>
                 <input required onChange={(e)=>setTitle(e.target.value)} value={title} type='text' name="challenge_title"></input>
                 <br/>
+                {showErrors ? 
+                    <div className='login-issues'>
+                        <p>You've already issue a challenge for this drawing!</p>
+                        <button onClick={()=>setShowErrors(false)} className='close-button'>X</button>
+                    </div> 
+                    : null
+                }
                 { created ? <p>Challenge created!</p> : <button type='submit'> issue challenge!</button>}
             </form>
         </div>

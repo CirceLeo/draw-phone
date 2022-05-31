@@ -199,6 +199,7 @@ function GamePage({}) {
                     </>
                 )
             }
+
             {
                 challengeModalOpen && (
                     <>
@@ -209,7 +210,10 @@ function GamePage({}) {
                     </>
                 )
             }
+            
             <div id='game-grid'>
+            <h1>{challengeId ? 'Sketchee Challenge!' : 'Sketchee Free Play!'}</h1>
+
                 <div id='setting-and-control'>
                     {/* <div id='current-game-info'> */}
                     {gameStarted ? 
