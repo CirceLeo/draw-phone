@@ -64,7 +64,7 @@ function Header(props) {
                     <>
                     <div className="overlay" onClick={closeModal}></div>
                     <div className="modal">
-                        { modalDisplay==="login" ? <LoginForm closeModal={closeModal} /> : null}
+                        { modalDisplay==="login" ? <LoginForm closeModal={closeModal} openSignupModal={openSignupModal} /> : null}
                         { modalDisplay==="signup" ? <SignUpForm closeModal={closeModal} /> : null}
                     </div>
                     </>

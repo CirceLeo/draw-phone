@@ -3,6 +3,7 @@ import {useEffect, useState} from 'react'
 import Header from '../Admin/Header'
 import Footer from '../Admin/Footer'
 import Gallery from './Gallery'
+import Loader from '../Admin/Loader'
 
 function GalleryChallengePage(props) {
 
@@ -11,14 +12,21 @@ function GalleryChallengePage(props) {
 
     const [challenge, setChallenge] = useState({
         attempts: [],
-        origin_pic_url: '',
+        drawing: {
+            origin_pic_url: '',
+            data_url: ''
+        },
         challenge_title: ''
     })
+
+    console.log(challenge)
 
     useEffect(() => {
         fetch(`/challenges/${challengeId}`)
         .then(resp => resp.json())
-        .then(data => setChallenge(data))
+        .then(data => {
+            console.log(data)
+            setChallenge(data)})
     }, [])
 
     const renderedAttempts = challenge.attempts.map(attempt => {
@@ -35,14 +43,16 @@ function GalleryChallengePage(props) {
             <Header />
             <div className='gallery-spacer'>
             </div>
-            <h1>Challenge Attempts for <em>{challenge.challenge_title}</em></h1>
-            <img src={challenge.drawing.origin_pic_url} />
-            <img src={challenge.drawing.data_url} />
-            {challenge.attempts.length > 0 ? {renderedAttempts} : <p>There are no attempts for this challenge! Click <a href={`/play/challenge/${challenge.id}`} /> to play the challenge! </p>}
-            
+            {challenge ?
             <div className='challenge-display-page'>
-
+                <h1>Challenge Attempts for <em>{challenge.challenge_title}</em></h1>
+                <img src={challenge.drawing.origin_pic_url} />
+                <img src={challenge.drawing.data_url} />
+                {challenge.attempts.length > 0 ? {renderedAttempts} : <p>There are no attempts for this challenge! Click <a href={`/play/challenge/${challenge.id}`}>here</a>to play the challenge! </p>}
             </div>
+            :
+            <Loader />
+            }
 
             <Footer />
 

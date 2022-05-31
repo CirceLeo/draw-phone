@@ -213,12 +213,14 @@ function GamePage({}) {
             }
             
             <div id='game-grid'>
-            <h1>{challengeId ? 'Sketchee Challenge!' : 'Sketchee Free Play!'}</h1>
+                <h1 className='game-type-header'>{challengeId ? 'Sketchee Challenge!' : 'Sketchee Random Play!'}</h1>
 
-                <div id='setting-and-control'>
+                {/* <div id='setting-and-control'> */}
                     {/* <div id='current-game-info'> */}
                     {gameStarted ? 
-                        <GameTimer picLoaded={picLoaded} handleGameEnd={handleGameEnd} gameActive={gameActive} playTime={playTime} gameStarted={gameStarted} />
+                        <div className='timer'>
+                            <GameTimer picLoaded={picLoaded} handleGameEnd={handleGameEnd} gameActive={gameActive} playTime={playTime} gameStarted={gameStarted} />
+                        </div>
                         :
                         <>
                         <div id="current-settings">
@@ -227,26 +229,26 @@ function GamePage({}) {
                             <p>seconds to draw: {playTime}</p>
                             { challengeId ? <p>You can't change challenge settings</p> : <button className='game-button' onClick={openModal}>Change settings?</button>}
                         </div> 
-                        <button onClick={openChallengeModal} className='game-button'>{challengeId ? 'Choose a different challenge?' : 'Play a challenge instead of random?'}</button>
+                        <button onClick={openChallengeModal} className='game-button challenge-pick-button'>{challengeId ? 'Choose a different challenge?' : 'Play a challenge instead of random?'}</button>
                         </>
                     }
                     {/* </div> */}
                     {/* <div id='start-pause-buttons'> */}
                         { gameActive ?    
                             <>
-                                <button className='game-button' onClick={handlePause}>Pause</button> 
+                                <button className='game-button pause-button' onClick={handlePause}>⏸Pause</button> 
                             </>
                             : 
                             <>{gameStarted ? 
-                                <button className='game-button' onClick={handleContinue}>continue</button> 
+                                <button className='game-button continue-button' onClick={handleContinue}>continue</button> 
                                 : 
-                                <button className='game-button' onClick={handleStart}>start</button>
+                                <button className='game-button start-button' onClick={handleStart}>start</button>
                             }</>
                             
                         }
-                        {gameStarted ? <button className='game-button' onClick={handleGameEnd}>end game?</button> : null}
+                        {gameStarted ? <button className='game-button game-end-button' onClick={handleGameEnd}>end game?</button> : null}
                     {/* </div> */}
-                </div>
+                {/* </div> */}
             {/* <div id='goal-and-canvas'> */}
                 <div id='goal-pic-div'>
                     {!picLoaded && gameStarted ? <> <p>Your goal photo is loading, get ready!</p><Loader/> </> : null}

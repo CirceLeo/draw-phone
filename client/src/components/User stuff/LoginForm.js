@@ -2,13 +2,12 @@ import {useState, useContext} from 'react';
 import { useNavigate } from 'react-router-dom';
 import { UserContext, userObject } from "../../context/user";
 
-function LoginForm({closeModal}) {
+function LoginForm({closeModal, openSignupModal}) {
 
     const navigate = useNavigate()
     const [errors, setErrors] = useState([]);
     const [showErrors, setShowErrors] = useState(false);
     const [user, setUser] = useContext(UserContext)
-
 
     const [loginInfo, setLoginInfo] = useState({
         username: '',
@@ -88,7 +87,7 @@ function LoginForm({closeModal}) {
                 />
                 <br/>
                 <button type="submit">Login</button>
-                <p>new user?</p><button onClick={closeModal}>Sign up!</button>
+                <p>new user?</p><button onClick={openSignupModal}>Sign up!</button>
             </form>
         </div>
     )

@@ -1,13 +1,4 @@
-#game-grid{
-    display: grid;
-    margin-bottom: 3em;
-    grid-template-areas:
-    ". controls controls ."
-    ". . canvas canvas"
-    "goal-pic goal-pic canvas canvas"
-    ". . canvas canvas";
-    /* "goal-pic goal-pic canvas canvas"; */
-}
+
 
 .game-button {
     margin: .5em;
@@ -34,8 +25,71 @@
 /* #current-settings{
     grid-area: settings;
 } */
+
+#game-grid{
+    display: grid;
+    margin-bottom: 3em;
+    grid-template-areas:
+    "header header header"
+    "current time-control chal-btn "
+    "continue timer end"
+    /* "continue time-control  end" */
+    ". . canvas"
+    "goal-pic . canvas"
+    ". .  canvas";
+    /* ". header header header ."
+    ". current .chal-btn ."
+    ". . start . ."
+    ". . . canvas canvas"
+    "goal-pic goal-pic . canvas canvas"
+    ". . . canvas canvas"; */
+    /* "goal-pic goal-pic canvas canvas"; */
+}
+
+
 #current-game-info{
     grid-area: game-info
+}
+
+#current-settings{
+    grid-area: current
+}
+
+.start-button{
+    grid-area: time-control; 
+    width: fit-content;
+    background-color: green;
+    font-size: 1.5em;
+    padding: .5em;
+
+}
+
+.pause-button{
+    grid-area: time-control;
+}
+
+.continue-button{
+    grid-area: continue;
+    width: fit-content;
+    padding: .5em;
+    height: fit-content;
+}
+
+.game-end-button{
+    grid-area: end;
+    width: fit-content;
+    height: fit-content;
+}
+
+.challenge-pick-button{
+    grid-area: chal-btn
+}
+.game-type-header{
+    grid-area: header;
+}
+
+.timer {
+    grid-area: timer
 }
 
 #result-pics {
@@ -59,6 +113,18 @@
     height: 10em;
 }
 
+#canvas-controls {
+    grid-area: canvas-btns;
+    display: grid;
+    grid-template-areas:
+    "palette btns"
+
+}
+
+#canvas-btns {
+    grid-area: "btns"
+}
+
 
 #canvas-controls label {
     color: #FAD5AB;
@@ -66,8 +132,9 @@
 
 #goal-pic-div {
     height: 20em;
-    border: 2px black solid;
-    background-color: #FAD5AB;
+    /* border: 2px black solid; */
+    border-radius: 2em;
+    background-color: #e1c29fa1;
     width: 20em;
     margin-left: 3em;
     grid-area: goal-pic;
@@ -91,13 +158,15 @@
 
 .color-picker {
     margin: auto;
-    background-color: #94622a;
+    /* background-color: rgba(99, 9, 60, 0.881); */
     padding: 1em;
     width: fit-content;
     border-radius: 1em;
+    grid-area: palette;
 }
 
 .color-picker label {
+    color: black;
     margin-top: 1em;
 }
 
@@ -125,10 +194,11 @@ img {
 
 #current-settings{
     margin: 1em;
-    padding: 0em;
-    border: black 2px solid;
+    padding: .5em;
+    border-radius: 2em;
+    /* border: black 2px solid; */
     width: fit-content;
-    background-color: #94622a;
+    background-color: #FAD5AB;
 }
 
 #current-settings p{

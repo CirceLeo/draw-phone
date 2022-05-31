@@ -53,7 +53,7 @@ if(timeLeft === 15){
     return (
         <>
             <h2 style={{color: timeLeft < (playTime / 2) ? "red" : "black"}}>{Math.floor(timeLeft / 60) }:{secondsLeft < 10 ? `0${secondsLeft}` : secondsLeft}</h2>
-            <button onClick={playSound}>noise</button>
+            {/* <button onClick={playSound}>noise</button> */}
             {/* <h2 style={{color: timeLeft < 60 ? "red" : "black"}}>{timeLeft}</h2> */}
         </>
     )

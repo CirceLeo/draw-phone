@@ -13,7 +13,6 @@ function GameCanvas({setDrawingData, gameActive, canvasRef}) {
     }
 
     const handleSizeChange = (e) => {
-        // setBrushSize(e.target.value)
         setBrushSize(parseInt(e.target.value, 10))
     }
 
@@ -37,20 +36,47 @@ function GameCanvas({setDrawingData, gameActive, canvasRef}) {
         // imgSrc={picUrl} <- try out both ways? would look cleaner
     />
 
+    const palette =  <GithubPicker 
+    triangle='hide' 
+    onChange={handleColorChange} 
+    colors ={ [ 
+                "#c91e1e",  //red
+                "#cc6414",  //orange
+                "#FFFF00",  //yellow
+                "#2c9c1a",  //green
+                "#1a459c",  //blue
+                "#601199",  //purple
+                "#4b2d0b",  //brown
+                "#000000",  //black
+                "#FFC0CB",  //pink
+                "#fed8b1",  //light orange
+                "#ffffbf",  //light yellow
+                "#90ee90",  //light green
+                "#00bcd4",  //light blue
+                "#a865c9",  //light purple
+                "#ffffff",  //white
+                "#808080",  //grey
+            ]}
+/>
 
     return (
         <>
+        
         <div id="canvas-controls">
+            <div className='color-picker'>
+                <label>Brush color</label>
+                {palette}
+            </div>
+            <div id="canvas-btns">
+
             <button
                 onClick={handleUndo}
-                className='game-button'
-                >
+                className='game-button'>
                 ↶ undo
             </button>
             <button
                 className='game-button'
-                onClick={handleEraseAll}
-                >
+                onClick={handleEraseAll}>
                 ⌫ clear canvas
             </button>
             <br/> 
@@ -62,7 +88,7 @@ function GameCanvas({setDrawingData, gameActive, canvasRef}) {
                     id = 'brush-radio-small'
                     value={2}
                     onClick={handleSizeChange}
-                    />
+                />
                 <input 
                     type="radio"
                     name='brush-size'
@@ -77,41 +103,10 @@ function GameCanvas({setDrawingData, gameActive, canvasRef}) {
                     value={10}
                     onClick={handleSizeChange}
                     />
-        </div>
-        <div className='color-picker'>
-
-            <label>Brush color</label>
-            <GithubPicker 
-                triangle='hide' 
-                onChange={handleColorChange} 
-                colors ={ [ 
-                            "#c91e1e",  //red
-                            "#cc6414",  //orange
-                            "#FFFF00",  //yellow
-                            "#2c9c1a",  //green
-                            "#1a459c",  //blue
-                            "#601199",  //purple
-                            "#4b2d0b",  //brown
-                            "#000000",  //black
-                            "#FFC0CB",  //pink
-                            "#fed8b1",  //light orange
-                            "#ffffbf",  //light yellow
-                            "#90ee90",  //light green
-                            "#00bcd4",  //light blue
-                            "#a865c9",  //light purple
-                            "#ffffff",  //white
-                            "#808080",  //grey
-                        ]}
-            />
-            {/* <CirclePicker 
-                circleSize={20}
-                circleSpacing={12}
-                colors ={ ["#ffffff", "#000000", "#c91e1e", "#cc6414", "#FFFF00", "#2c9c1a", "#1a459c", "#00bcd4", "#601199"]}
-            /> */}
-        </div>
+            </div>
+            </div>
         </div>
             {canvas}
-
         </>
     )
 }

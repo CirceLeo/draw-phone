@@ -68,6 +68,8 @@ function SignUpForm({closeModal}) {
                 </div> 
                 : null
             }
+            <h3>Welcome to Sketchee! </h3>
+            <p>enter a username and password to sign up:</p>
             <form onSubmit={handleNewSignup}>
                 {/* <label>Email: </label>
                 <input onChange={handleFormChange}  name="email" type="email" value={newUserData.email}/> */}
@@ -77,7 +79,10 @@ function SignUpForm({closeModal}) {
                 <br />
                 <label>password: </label>
                 <input onChange={handleFormChange} name="password" type='password' value={newUserData.password}/>
-                <br></br>
+                <br/>
+                {/* <label>confirm password: </label> */}
+                {/* <input onChange={handleFormChange} name="password" type='password' value={newUserData.password}/> */}
+                
                 <button type="submit">Sign up</button>
             </form>
         </div>
