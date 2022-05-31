@@ -5,17 +5,17 @@ function GameEndScreen({drawingData, prepNewGame, picUrl, closeModal, newDrawing
     const [inputTitle, setInputTitle] = useState('')
     const [titleChagned, setTitleChanged] = useState(false)
 
-    let renderedAttempts = []
+    // let renderedAttempts = []
 
-    if(challenge){
-        renderedAttempts = challenge.attempts.map(attempt => {
-            return(
-                <>
-                <img src={attempt.data_url} />
-                </>
-            )
-        })
-    }
+    // if(challenge){
+    //     renderedAttempts = challenge.attempts.map(attempt => {
+    //         return(
+    //             <>
+    //             <img src={attempt.attempt_data_url} />
+    //             </>
+    //         )
+    //     })
+    // }
 
     function handleAddTitle(){
 
@@ -57,7 +57,7 @@ function GameEndScreen({drawingData, prepNewGame, picUrl, closeModal, newDrawing
                 challenge ? 
                 <>
                 <p>Here's what other people did!</p>
-                {renderedAttempts}
+                {/* {renderedAttempts} */}
                 </> :
                 null
             }

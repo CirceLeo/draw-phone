@@ -4,6 +4,7 @@ Rails.application.routes.draw do
   resources :challenges
   get '/challenges/trending', to: 'challenges#trending'
   resources :attempts
+  # post '/attempts', to: 
   resources :friendships
   resources :drawings
   get '/drawings/subj/:subject_matter', to: 'drawings#by_subject'

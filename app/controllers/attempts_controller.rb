@@ -24,6 +24,6 @@ class AttemptsController < ApplicationController
         @attempt = Attempt.find(params[:id])
     end
     def attempt_params
-        params.permit(:user_id, :challenge_id, :title, attempt_url)
+        params.permit(:user_id, :challenge_id, :title, :attempt_data_url)
     end
 end
