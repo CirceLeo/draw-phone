@@ -15,7 +15,7 @@ class ChallengesController < ApplicationController
     #TODO: available challenges where there hasn't been a previous attempt
 
     def index
-        render json: Challenge.all, include: ["drawing", "drawing.user", "attempts"], status: :ok
+        render json: Challenge.all.order(created_at: :desc), include: ["drawing", "drawing.user", "attempts"], status: :ok
     end
 
     def update

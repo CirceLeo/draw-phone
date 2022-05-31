@@ -28,16 +28,19 @@ function WelcomePage(props) {
     return (
         <div id="welcome-page">
             <Header />
-            <div id="welcome-text">
-                <h1>welcome {user.username ? "back" : null} to Sketchee!</h1>
+            <div id="welcome-grid">
+                <div id="welcome-text">
+                    <h1>welcome {user.username ? "back" : null} to Sketchee!</h1>
+                </div>
+                <div className="display-explain">
+                    <h4>Please peruse our 15 most recent creations:</h4>
+                    <p>Hover over them to see the inspiration behind the piece!</p>
+                </div>
+                <RecentDrawingDisplay artistDetails={true} displayPics={recentPics} />
+                <p className="display-explain">Trending Challenges: </p>
+                <ChallengeDisplay challenges={recentChallenges}/>
+
             </div>
-            <div className="display-explain">
-                <h4>Please peruse our 15 most recent creations:</h4>
-                <p>Hover over them to see the inspiration behind the piece!</p>
-            </div>
-            <RecentDrawingDisplay artistDetails={true} displayPics={recentPics} />
-            <p className="display-explain">Trending Challenges: </p>
-            <ChallengeDisplay challenges={recentChallenges}/>
             <Footer />
         </div>
     )
