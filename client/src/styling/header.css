@@ -1,4 +1,4 @@
-nav a, nav .header-btn{
+nav a, nav .header-btn, .gallery-button{
     text-decoration: none;
     color: #360621;
     padding: .4em 1em;
@@ -36,9 +36,9 @@ nav a, nav .header-btn{
     margin-top: 0em;
 } */
 
-nav a:hover,  nav .header-btn:hover {
+nav a:hover,  nav .header-btn:hover, .gallery-button:hover {
     transition: all ease-in-out 0.3s;
-    color: white;
+    color: black;
     border-radius: .5em;
     filter: grayscale(50%);
     background-image: linear-gradient( #C68C48, #FAD5AB);
@@ -47,7 +47,7 @@ nav a:hover,  nav .header-btn:hover {
 nav .active {
     background-image: linear-gradient( #C68C48, #FAD5AB);
     border-radius: 1em;
-    font-style: italic;
+    text-decoration: underline;
 }
 
 nav {

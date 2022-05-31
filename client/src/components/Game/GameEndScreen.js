@@ -5,17 +5,17 @@ function GameEndScreen({drawingData, prepNewGame, picUrl, closeModal, newDrawing
     const [inputTitle, setInputTitle] = useState('')
     const [titleChagned, setTitleChanged] = useState(false)
 
-    // let renderedAttempts = []
+    let renderedAttempts = []
 
-    // if(challenge){
-    //     renderedAttempts = challenge.attempts.map(attempt => {
-    //         return(
-    //             <>
-    //             <img src={attempt.attempt_data_url} />
-    //             </>
-    //         )
-    //     })
-    // }
+    if(challenge && challenge.attempts.length > 0){
+        renderedAttempts = challenge.attempts.map(attempt => {
+            return(
+                <>
+                <img src={attempt.attempt_data_url} />
+                </>
+            )
+        })
+    }
 
     function handleAddTitle(){
 
@@ -60,7 +60,7 @@ function GameEndScreen({drawingData, prepNewGame, picUrl, closeModal, newDrawing
                     <button onClick={() => {navigator.clipboard.writeText(`https://mighty-scrubland-25079.herokuapp.com/play/challenge/${challenge.id}`)}}>
                     here!</button> to copy the link to your clipboard!</p>
                 <p>Here's what other people did!</p>
-                {/* {renderedAttempts} */}
+                {renderedAttempts}
                 </> :
                 null
             }

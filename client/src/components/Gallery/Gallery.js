@@ -40,12 +40,16 @@ function Gallery(props) {
                     </>
                 )
             }
-            <div id="gallery-spacer">
+            <div className="gallery-spacer">
 
             </div>
             <h1>Welcome to the Sketchee Gallery!</h1>
+            <button className="gallery-button">Visit the Challenge Gallery?</button>
             <div className="subj-grid">
                 {gallerySubjectCards}
+            </div>
+            <div className="gallery-spacer">
+
             </div>
             <Footer />
         </div>

@@ -33,19 +33,19 @@ function GameSettings({closeModal, setPlayTime, setImageTerm}) {
                 <label>How long do you want?</label>
                 <select defaultValue={45} onChange={handleNewPlayTime}>
                     <option value={5}>testing</option>
-                    <option value={45} >short</option>
-                    <option value={90}>medium</option>
-                    <option value={180}>long</option>
+                    <option value={30} >short</option>
+                    <option value={45}>medium</option>
+                    <option value={60}>long</option>
                 </select>
                 <br/>
                 <label>What do you want to draw?</label>
                 <select onChange={handleNewSearchTerm}>
-                    <option value="dog">Dogs!</option>
+                    <option value="dog">Dogs</option>
                     {/* {user.username && !user.did_daily ? <option value="daily">Daily challenge!</option> : null} */}
                     <option value="cat">Cats</option>
-                    <option value="flower">flowers</option>
-                    <option value="car">cars</option> 
-                    <option value="superhero">superheroes</option> 
+                    <option value="flower">Flowers</option>
+                    <option value="car">Cars</option> 
+                    <option value="superhero">Superheroes</option> 
                 </select>
                 <br/>
                 <button type='submit'>Looks good!</button>
