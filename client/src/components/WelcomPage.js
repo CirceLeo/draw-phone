@@ -5,6 +5,7 @@ import RecentDrawingDisplay from "./Drawing and other User Displays/RecentDrawin
 import {useState, useEffect, useContext} from 'react'
 import { UserContext } from "../context/user"
 import ChallengeDisplay from "./Challenges/ChallengeDisplay"
+import Loader from './Admin/Loader'
 
 function WelcomePage(props) {
 
@@ -39,9 +40,13 @@ function WelcomePage(props) {
                     <h4>Please peruse our 15 most recent creations:</h4>
                     <p>Hover over them to see the inspiration behind the piece!</p>
                 </div>
-                <RecentDrawingDisplay artistDetails={true} displayPics={recentPics} />
-                <p className="display-explain">Trending Challenges: </p>
-                <ChallengeDisplay challenges={recentChallenges}/>
+                { recentPics.length > 0  ? 
+                    <>
+                        <RecentDrawingDisplay artistDetails={true} displayPics={recentPics} /> 
+                        <p className="display-explain">Trending Challenges: </p>
+                        <ChallengeDisplay challenges={recentChallenges}/>
+                    </>
+                    : <Loader />}
 
             </div>
             <Footer />
