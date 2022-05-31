@@ -10,7 +10,9 @@ function GalleryChallengePage(props) {
     const challengeId = params.id
 
     const [challenge, setChallenge] = useState({
-        attempts: []
+        attempts: [],
+        origin_pic_url: '',
+        challenge_title: ''
     })
 
     useEffect(() => {

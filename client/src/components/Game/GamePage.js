@@ -14,7 +14,8 @@ import GameEndScreen from './GameEndScreen';
 import PlayableChallenges from './PlayableChallenges';
 
 function GamePage({}) {
-    
+
+    localStorage.setItem("everVisited", true)
     const [user] = useContext(UserContext)
 
     const navigate = useNavigate()

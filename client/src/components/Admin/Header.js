@@ -14,7 +14,8 @@ import useSound from "use-sound"
 function Header(props) {
 
     const [user, setUser] = useContext(UserContext)
-    const [howToOpen, setHowToOpen] = useState(true)
+    const visited = localStorage.getItem("everVisited")
+    const [howToOpen, setHowToOpen] = useState(!visited)
 
     const [modalOpen, setModalOpen] = useState(false);
     const [modalDisplay, setModalDisplay] = useState('')

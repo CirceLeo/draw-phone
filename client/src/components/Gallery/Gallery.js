@@ -3,6 +3,7 @@ import { useNavigate, useLocation } from "react-router-dom"
 
 import Footer from "../Admin/Footer"
 import Header from "../Admin/Header"
+import Loader from "../Admin/Loader"
 // import HowToPlay from "../Admin/HowToPlay"
 // import RecentDrawingDisplay from "../Drawing and other User Displays/RecentDrawingDisplay"
 import GallerySubjectModal from "./GallerySubjectModal"
@@ -28,7 +29,7 @@ function Gallery(props) {
                 setChallenges(data)
             })
         }
-    }, [])
+    }, [isChallenge])
     // console.log(location.pathname);
     
     const [subjOpen, setSubjOpen] = useState(false)
@@ -86,9 +87,12 @@ function Gallery(props) {
                 </>
 
             }
+            { isChallenge && challenges.length === 0 ?
+            <Loader />
+            :
             <div className="subj-grid">
                 {isChallenge ? challengeTitleCards : gallerySubjectCards}
-            </div>
+            </div>}
             <div className="gallery-spacer">
             </div>
             <Footer />
