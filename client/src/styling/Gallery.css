@@ -21,11 +21,11 @@
     padding: 1em;
 }
 
-#gallery{
+#gallery, .gallery-challenge-display{
     /* margin-top: 3em; */
     background-image: url('../images/background.jpg');
     color: antiquewhite;
-    height: 100vh;
+    height: 120vh;
 }
 
 #gallery h1 {

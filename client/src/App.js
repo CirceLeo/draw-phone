@@ -18,6 +18,7 @@ import UserPage from './components/User stuff/UserPage';
 
 import { UserContext, userObject } from "./context/user";
 import Gallery from './components/Gallery/Gallery';
+import GalleryChallengePage from './components/Gallery/GalleryChallengePage';
 
 
 function App() {
@@ -39,11 +40,17 @@ function App() {
       <Router>
         <Routes>
           <Route path='/' element={<WelcomePage />} />
-          {/* <Route path='/challenges' element={<GamePage challenges={true}/>} /> */}
+          <Route path='*' element={<WelcomePage />} />
+
+          <Route path='/me' element={<UserPage />} />
+
           <Route path='/play/challenge/:id' element={<GamePage challenges={true} />} />
           <Route path='/play' element={<GamePage challenges={false}/>} />
-          <Route path='/me' element={<UserPage />} />
+
           <Route path='/gallery' element={<Gallery/>} />
+          <Route path='/gallery/challenges' element={<Gallery/>} />
+          <Route path='/gallery/challenges/:id' element={<GalleryChallengePage />} />
+
         </Routes>
       </Router>
     </div>

@@ -1,24 +1,45 @@
 import { useEffect, useState } from "react"
+import { useNavigate, useLocation } from "react-router-dom"
 
 import Footer from "../Admin/Footer"
 import Header from "../Admin/Header"
-import HowToPlay from "../Admin/HowToPlay"
-import RecentDrawingDisplay from "../Drawing and other User Displays/RecentDrawingDisplay"
+// import HowToPlay from "../Admin/HowToPlay"
+// import RecentDrawingDisplay from "../Drawing and other User Displays/RecentDrawingDisplay"
 import GallerySubjectModal from "./GallerySubjectModal"
 
 function Gallery(props) {
 
+    const navigate = useNavigate()
 
+    const location = useLocation();
+    const isChallenge = location.pathname === "/gallery/challenges"
+
+    const [challenges, setChallenges] = useState([])
+
+    const subjects = ["dog", "cat", "car", "superhero", "flower" ]
+    // let challengeTitles = []
+
+    useEffect(() => {
+        if(isChallenge)
+        {
+            fetch('/challenges')
+            .then(resp => resp.json())
+            .then(data => {
+                setChallenges(data)
+            })
+        }
+    }, [])
+    // console.log(location.pathname);
+    
     const [subjOpen, setSubjOpen] = useState(false)
     const [openedTopic, setOpenedTopic] = useState('dog')
 
-    const subjects = ["dog", "cat", "daily", "car", "superhero", "flower" ]
-
+    
     function openSubjectModal(topic){
         setSubjOpen(true)
         setOpenedTopic(topic)
     }
-
+    
     const gallerySubjectCards = subjects.map( subject => {
         return(
             <div key={subject} className="subject-card">
@@ -27,6 +48,15 @@ function Gallery(props) {
         )
     })
     
+    const challengeTitleCards = challenges.map(challenge => {
+        return (
+            <div onClick={() => navigate(`/gallery/challenges/${challenge.id}`)} key={challenge.id} className="subject-card">
+                <h1 className="click">{challenge.challenge_title}</h1>
+                <h3>Set by: {challenge.drawing.user.username}</h3>
+            </div>
+        )
+    })
+
     return (
         <div id="gallery">
             <Header />
@@ -43,13 +73,23 @@ function Gallery(props) {
             <div className="gallery-spacer">
 
             </div>
-            <h1>Welcome to the Sketchee Gallery!</h1>
-            <button className="gallery-button">Visit the Challenge Gallery?</button>
+            <h1>Welcome to the Sketchee {isChallenge ? "Challenge" : null} Gallery!</h1>
+            { isChallenge ? 
+                <>
+                    <h2>WARNING! Challenge spoilers ahead!</h2>
+                    <button onClick={() => navigate('/gallery')}className="gallery-button">Return to Main Gallery?</button>
+                </>
+                :
+                <>
+                    <h2>View all artworks by category:</h2>
+                    <button onClick={() => navigate('/gallery/challenges')}className="gallery-button">Visit the Challenge Gallery?</button>
+                </>
+
+            }
             <div className="subj-grid">
-                {gallerySubjectCards}
+                {isChallenge ? challengeTitleCards : gallerySubjectCards}
             </div>
             <div className="gallery-spacer">
-
             </div>
             <Footer />
         </div>
