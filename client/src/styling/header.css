@@ -16,6 +16,18 @@ nav a, nav .header-btn, .gallery-button{
     /* width: fit-content; */
 }
 
+nav a:hover,  nav .header-btn:hover, .gallery-button:hover {
+    transition: all ease-in-out 0.3s;
+    color: black;
+    border-radius: 2em;
+    padding: .2em .75em;
+
+    height: fit-content;
+    /* width: .5em; */
+    filter: grayscale(50%);
+    background-image: linear-gradient( #C68C48, #FAD5AB);
+}
+
 .logo {
     transition: .7s;
     padding-left: 3em;
@@ -36,13 +48,7 @@ nav a, nav .header-btn, .gallery-button{
     margin-top: 0em;
 } */
 
-nav a:hover,  nav .header-btn:hover, .gallery-button:hover {
-    transition: all ease-in-out 0.3s;
-    color: black;
-    border-radius: .5em;
-    filter: grayscale(50%);
-    background-image: linear-gradient( #C68C48, #FAD5AB);
-}
+
 
 nav .active {
     background-image: linear-gradient( #C68C48, #FAD5AB);
