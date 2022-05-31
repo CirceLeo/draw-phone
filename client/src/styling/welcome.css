@@ -9,6 +9,10 @@
     /* align-items: center; */
 }
 
+#welcome-spacer{
+    height: 2em;
+}
+
 #welcome-text, #login-text{
     background-color: rgba(77, 26, 20, 0.7);
     width: 66vw;

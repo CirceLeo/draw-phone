@@ -49,19 +49,22 @@ function PlayableChallenges({close}) {
             <button onClick={close} className="close-button">X</button>
             <form onSubmit={handleSubmit}>
                 <label>Select from your available challenges!</label>
+                <br/>
                 <select onChange={handleChallengeSelect}>
                     <option value="" disabled selected>Select your option</option>
                     {renderedChallengeOptions}
                 </select>
+                <br/>
+                <button className='game-button' type="submit"> Start this challenge!</button>
                 <div className='selected-details'>
                     {
                         currentSelected.drawing ? 
                         <>
-                            <p>Selected Challenge details</p>
+                            <p><strong>Selected Challenge Details:</strong></p>
                             <p>Title: {currentSelected.challenge_title}</p>
                             <p>Available Time: {currentSelected.drawing.play_time}</p>
                             <p>challenge's origional result:</p>
-                            <img className='blurred-pic' src={currentSelected.drawing.data_url}/>
+                            <img className='blurred-pic challenge-list-pic' src={currentSelected.drawing.data_url}/>
                             <p>Challenge set by: {currentSelected.drawing.user.username}</p> 
                             <p>number of attempts: {currentSelected.attempts.length}</p>
                         </>
@@ -70,7 +73,6 @@ function PlayableChallenges({close}) {
                     }
                 </div>
                 
-                <button type="submit"> Start this challenge!</button>
             </form>
         </div>
     )

@@ -56,6 +56,9 @@ function GameEndScreen({drawingData, prepNewGame, picUrl, closeModal, newDrawing
             {
                 challenge ? 
                 <>
+                <p>Want to send this challenge to your friends? click 
+                    <button onClick={() => {navigator.clipboard.writeText(`https://mighty-scrubland-25079.herokuapp.com/play/challenge/${challenge.id}`)}}>
+                    here!</button> to copy the link to your clipboard!</p>
                 <p>Here's what other people did!</p>
                 {/* {renderedAttempts} */}
                 </> :

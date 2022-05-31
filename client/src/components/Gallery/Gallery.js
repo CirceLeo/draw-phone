@@ -40,6 +40,9 @@ function Gallery(props) {
                     </>
                 )
             }
+            <div id="gallery-spacer">
+
+            </div>
             <h1>Welcome to the Sketchee Gallery!</h1>
             <div className="subj-grid">
                 {gallerySubjectCards}

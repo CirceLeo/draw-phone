@@ -43,10 +43,12 @@ function GameCanvas({setDrawingData, gameActive, canvasRef}) {
         <div id="canvas-controls">
             <button
                 onClick={handleUndo}
+                className='game-button'
                 >
                 ↶ undo
             </button>
             <button
+                className='game-button'
                 onClick={handleEraseAll}
                 >
                 ⌫ clear canvas

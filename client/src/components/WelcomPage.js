@@ -29,6 +29,9 @@ function WelcomePage(props) {
         <div id="welcome-page">
             <Header />
             <div id="welcome-grid">
+                <div id="welcome-spacer">
+
+                </div>
                 <div id="welcome-text">
                     <h1>welcome {user.username ? "back" : null} to Sketchee!</h1>
                 </div>

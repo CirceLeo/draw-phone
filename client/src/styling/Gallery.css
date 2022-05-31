@@ -4,6 +4,10 @@
     transition-duration: 1s;
 }
 
+#gallery-spacer{
+    height: 2em;
+}
+
 .subject-card h1 {
     cursor: pointer;
 }
@@ -24,6 +28,9 @@
     height: 100vh;
 }
 
+#gallery h1 {
+    text-shadow: 2px 2px 3px #12060d ;
+}
 
 .subject-card {
     display: block;

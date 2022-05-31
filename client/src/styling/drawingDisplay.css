@@ -63,7 +63,7 @@
     height: 23em;
 }
 
-.display-drawing-text {
+.display-drawing-text, .display-drawing button {
     background-color: #f2dbc0;
     color: #2C2C2C;
     width: 16em;

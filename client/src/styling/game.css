@@ -3,8 +3,32 @@
     margin-bottom: 3em;
     grid-template-areas:
     ". controls controls ."
+    ". . canvas canvas"
     "goal-pic goal-pic canvas canvas"
-    "goal-pic goal-pic canvas canvas";
+    ". . canvas canvas";
+    /* "goal-pic goal-pic canvas canvas"; */
+}
+
+.game-button {
+    margin: .5em;
+    border-radius: 1em;
+    background-color: white;
+    transition: .3s;
+    border: 0px;
+}
+
+.game-button:hover {
+    background-color: #FAD5AB;
+    transform: scale(.95);
+}
+
+.challenge-list-pic{
+    background-color: white;
+}
+
+.selected-details p{
+    padding: 0px;
+    margin: 0px;
 }
 
 /* #current-settings{
