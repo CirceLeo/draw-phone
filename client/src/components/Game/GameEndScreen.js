@@ -1,12 +1,29 @@
 import {useState} from 'react'
 
-function GameEndScreen({drawingData, prepNewGame, picUrl, closeModal, newDrawingId}) {
+function GameEndScreen({drawingData, prepNewGame, picUrl, closeModal, newDrawingId, challenge}) {
 
     const [inputTitle, setInputTitle] = useState('')
     const [titleChagned, setTitleChanged] = useState(false)
 
+    let renderedAttempts = []
+
+    if(challenge){
+        renderedAttempts = challenge.attempts.map(attempt => {
+            return(
+                <>
+                <img src={attempt.data_url} />
+                </>
+            )
+        })
+    }
+
     function handleAddTitle(){
-        fetch(`/drawings/${newDrawingId}`, {
+
+        let destination = 'drawings'
+        if(challenge.id){
+            destination = 'attempts'
+        }
+        fetch(`/${destination}/${newDrawingId}`, {
             method: "PATCH",
             headers: {
                 "Content-Type": "application/json",
@@ -36,6 +53,15 @@ function GameEndScreen({drawingData, prepNewGame, picUrl, closeModal, newDrawing
                 </div>
             </div>
 
+            {
+                challenge ? 
+                <>
+                <p>Here's what other people did!</p>
+                {renderedAttempts}
+                </> :
+                null
+            }
+
             {titleChagned ? 
             <p>Awesome! Your artwork will be known as <strong>{inputTitle}</strong></p>
             :
@@ -50,7 +76,7 @@ function GameEndScreen({drawingData, prepNewGame, picUrl, closeModal, newDrawing
             </>
             }
             <br/>
-            <button onClick={prepNewGame}>Play Again?</button>
+            <button onClick={prepNewGame}>{challenge.id ? 'Play a new game?' : 'Play Again?'}</button>
         </div>
     )
 }

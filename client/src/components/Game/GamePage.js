@@ -1,5 +1,5 @@
 import React, {useEffect, useState, useRef, useContext} from 'react';
-import { useParams } from "react-router-dom";
+import { Navigate, useNavigate, useParams } from "react-router-dom";
 
 import { UserContext } from "../../context/user";
 
@@ -16,6 +16,8 @@ import PlayableChallenges from './PlayableChallenges';
 function GamePage({}) {
     
     const [user] = useContext(UserContext)
+
+    const navigate = useNavigate()
 
     const params = useParams()
     const challengeId = params.id
@@ -89,13 +91,11 @@ function GamePage({}) {
         setChallengeModalOpen(false)
     }
 
-
     function handleStart(){
         setIsShown(true)
         setGameActive(true) 
         setGameStarted(true)
     }
-
 
     function handleContinue(){
         setIsShown(true)
@@ -103,9 +103,13 @@ function GamePage({}) {
     }
 
     function prepNewGame(){
-        closeModal()
+        if(challengeId){
+            navigate('/play')
+        }
         canvasRef.current.eraseAll()
+        setIsShown(false)
         setGameStarted(false)
+        closeModal()
     }
 
     function handlePause(){
@@ -120,6 +124,7 @@ function GamePage({}) {
         setDrawingData(currentCanvas);
         handleExport(currentCanvas)
         setModalOpen(true)
+        //TODO:fix that gd end game modal 
     }
 
     const handleExport = (canvasData) => {
@@ -130,21 +135,21 @@ function GamePage({}) {
         }
 
         if (challengeId){
-           fetch(`/attempts`, {
-               method: "POST",
-               headers: {
-                   "Content-Type": "application/json",
-                   Accept: "application/json"
-               },
-               body: JSON.stringify({
-                   challenge_id: challengeId,
-                   user_id: tempUserID,
-                   data_url: canvasData,
-               })
-           })
-           .then( res => res.json())
-           .then( data => console.log(data))
-           .catch( error => console.log(error.message));
+            fetch(`/attempts`, {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json",
+                    Accept: "application/json"
+                },
+                body: JSON.stringify({
+                    challenge_id: challengeId,
+                    user_id: tempUserID,
+                    data_url: canvasData,
+                })
+            })
+            .then( res => res.json())
+            .then( data => setNewDrawingId(data.id))
+            .catch( error => console.log(error.message));
         }
         else {
 
@@ -180,7 +185,7 @@ function GamePage({}) {
                         <div className="overlay" onClick={closeModal}></div>
                         <div className="modal">
                             { gameStarted ? 
-                                <GameEndScreen prepNewGame={prepNewGame} picUrl={picUrl} closeModal={closeModal} drawingData={drawingData} newDrawingId={newDrawingId}/>
+                                <GameEndScreen prepNewGame={prepNewGame} picUrl={picUrl} closeModal={closeModal} drawingData={drawingData} newDrawingId={newDrawingId} challenge={challenge}/>
                                 : <GameSettings closeModal={closeModal} setImageTerm={setImageTerm} setPlayTime={setPlayTime}/>
                             }
                         </div>

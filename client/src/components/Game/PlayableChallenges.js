@@ -38,6 +38,7 @@ function PlayableChallenges({close}) {
     function handleSubmit(e){
         e.preventDefault()
         navigate(`/play/challenge/${currentSelected.id}`)
+        close()
     }
     return (
         <div className="playable-challenges">
