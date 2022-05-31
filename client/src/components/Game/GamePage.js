@@ -144,7 +144,7 @@ function GamePage({}) {
                 body: JSON.stringify({
                     challenge_id: challengeId,
                     user_id: tempUserID,
-                    data_url: canvasData,
+                    attempt_data_url: canvasData,
                 })
             })
             .then( res => res.json())

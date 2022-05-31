@@ -5,7 +5,7 @@ class ChallengesController < ApplicationController
         render json: challenge, status: :created
     end
     def show
-        render json: @challenge, status: :ok
+        render json: @challenge, include: ["drawing", "attempts"], status: :ok
     end
     def trending
         # TODO: trending logic - 5 with most attempts

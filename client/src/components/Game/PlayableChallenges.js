@@ -5,6 +5,8 @@ function PlayableChallenges({close}) {
     //TODO: auto select the first one?
 
     const navigate = useNavigate()
+
+    const [currentIndex, setCurrentIndex] = useState(0)
     
     const [currentSelected, setCurrentSelected] = useState({
         play_time: 0,
@@ -13,12 +15,13 @@ function PlayableChallenges({close}) {
     })
     const [challenges, setChallenges] = useState([])
 
-    let currentIndex = -1
+    let tempIndex = -1
+
     const renderedChallengeOptions = challenges.map(challenge => {
+        tempIndex = tempIndex + 1
         // console.log(challenge)
-        currentIndex = currentIndex + 1
         return(
-            <option key={challenge.id} value={currentIndex}>{challenge.challenge_title}</option>
+            <option key={challenge.id} value={tempIndex}>{challenge.challenge_title}</option>
         )
     })
 
@@ -27,12 +30,13 @@ function PlayableChallenges({close}) {
         .then(resp => resp.json())
         .then(data => {
             setChallenges(data)
+            setCurrentSelected(data[0])
         })
     }, [])
 
     function handleChallengeSelect(e){
         setCurrentSelected(challenges[e.target.value])
-        console.log(challenges[e.target.value])
+        console.log(currentSelected)
     }
 
     function handleSubmit(e){
