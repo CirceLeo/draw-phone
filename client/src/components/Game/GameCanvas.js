@@ -3,7 +3,7 @@ import {CirclePicker, GithubPicker, BlockPicker} from 'react-color';
 import CanvasDraw from 'react-canvas-draw';
 
 
-function GameCanvas({setDrawingData, gameActive, canvasRef}) {
+function GameCanvas({setDrawingData, gameActive, canvasRef, picUrl}) {
     
     const [brushColor, setBrushColor] = useState('#B80000')
     const [brushSize, setBrushSize] = useState(3)
@@ -33,7 +33,7 @@ function GameCanvas({setDrawingData, gameActive, canvasRef}) {
         lazyRadius={2}
         ref={canvasRef}
         disabled={!gameActive}
-        // imgSrc={picUrl} <- try out both ways? would look cleaner
+        imgSrc={picUrl} //<- try out both ways? would look cleaner
     />
 
     const palette =  <GithubPicker 
@@ -46,7 +46,7 @@ function GameCanvas({setDrawingData, gameActive, canvasRef}) {
                 "#2c9c1a",  //green
                 "#1a459c",  //blue
                 "#601199",  //purple
-                "#4b2d0b",  //brown
+                "#664229",  //brown
                 "#000000",  //black
                 "#FFC0CB",  //pink
                 "#fed8b1",  //light orange

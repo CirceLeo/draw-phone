@@ -29,30 +29,51 @@ function GalleryChallengePage(props) {
             setChallenge(data)})
     }, [])
 
-    const renderedAttempts = challenge.attempts.map(attempt => {
+    const attempts = challenge.attempts
+
+    // const renderedAttempts = attempts.map((attempt) => {
+    //     return(
+    //         <img />
+    //     )
+    // })
+
+    const renderedAttempts = attempts.map((attempt) => {
         return (
-            <div className='attempt-card'>
+            <div className='attempt-card challenge-gallery-img'>
                 <img src={attempt.attempt_data_url} />
-                {/* <p>By: {attempt.user.username}</p> */}
             </div>
         )
     })
+
+    console.log("attempts", renderedAttempts)
     
     return (
         <div className="gallery-challenge-display">
             <Header />
             <div className='gallery-spacer'>
             </div>
-            {challenge ?
+            {challenge.challenge_title ?
             <div className='challenge-display-page'>
                 <h1>Challenge Attempts for <em>{challenge.challenge_title}</em></h1>
-                <img src={challenge.drawing.origin_pic_url} />
-                <img src={challenge.drawing.data_url} />
-                {challenge.attempts.length > 0 ? {renderedAttempts} : <p>There are no attempts for this challenge! Click <a href={`/play/challenge/${challenge.id}`}>here</a>to play the challenge! </p>}
+                <div className='origin-pics'>
+                    <h2>Origional picture and artwork:</h2>
+                    <img className='challenge-gallery-img' src={challenge.drawing.origin_pic_url} />
+                    <img className='challenge-gallery-img' src={challenge.drawing.data_url} />
+                </div>
+                <h2>Challenge Attempts:</h2>
+                <div className='attempt-display'>
+                    {challenge.attempts.length > 0 ? renderedAttempts : <p>There are no attempts for this challenge! Click <a href={`/play/challenge/${challenge.id}`}>here</a>to play the challenge! </p>}
+                </div>
             </div>
             :
-            <Loader />
+            <>
+                <Loader />
+            </>
             }
+
+            <div className='gallery-spacer'>
+                
+            </div>
 
             <Footer />
 

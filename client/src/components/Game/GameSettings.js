@@ -46,6 +46,7 @@ function GameSettings({closeModal, setPlayTime, setImageTerm}) {
                     <option value="flower">Flowers</option>
                     <option value="car">Cars</option> 
                     <option value="superhero">Superheroes</option> 
+                    <option value="monster">Monsters</option> 
                 </select>
                 <br/>
                 <button type='submit'>Looks good!</button>

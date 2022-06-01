@@ -2,12 +2,15 @@ import {useState} from 'react'
 
 function GameEndScreen({drawingData, prepNewGame, picUrl, closeModal, newDrawingId, challenge}) {
 
+    console.log(challenge)
+
     const [inputTitle, setInputTitle] = useState('')
     const [titleChagned, setTitleChanged] = useState(false)
 
     let renderedAttempts = []
 
-    if(challenge && challenge.attempts.length > 0){
+    if(challenge.attempts)
+        { if (challenge.attempts.length > 0){
         renderedAttempts = challenge.attempts.map(attempt => {
             return(
                 <>
@@ -15,7 +18,7 @@ function GameEndScreen({drawingData, prepNewGame, picUrl, closeModal, newDrawing
                 </>
             )
         })
-    }
+    }}
 
     function handleAddTitle(){
 
