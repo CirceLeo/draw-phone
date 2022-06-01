@@ -10,7 +10,7 @@ function DisplayChallenge({challenge}) {
             <p>Issued by: {challenge.drawing.user.username}</p>
             <p>Subject {challenge.drawing.subject_category}</p>
             <p>Time allowed: {challenge.drawing.play_time} seconds</p>
-            <button onClick={() => navigate(`/play/challenge/${challenge.id}`)}>Play!</button>
+            <button className='display-chal-button' onClick={() => navigate(`/play/challenge/${challenge.id}`)}>Play!</button>
             <p>Sneak peek at the picture:</p>
             <div className='flip-card-content'>
                 <div className='flip-card-front'>

@@ -28,8 +28,8 @@
     height: fit-content;
 }
 
-#gallery h1 {
-    text-shadow: 2px 2px 3px #12060d ;
+#gallery h1, #gallery h2 {
+    text-shadow: 2px 2px 3px #12060d;
 }
 
 .subject-card {
@@ -40,6 +40,8 @@
     text-align: center;
     text-transform: uppercase;
     border: none;
+    box-shadow: 2px 4px 4px #360621;
+
     background-repeat: no-repeat;
     
     background-image: -webkit-linear-gradient(
@@ -82,6 +84,8 @@
 
 .subject-card:hover {
     transform: scale(0.9);
+    box-shadow: inset 2px 4px 4px #360621;
+
     background-position: 0 0, 0 0;
     
     -webkit-transition-duration: 0.5s;

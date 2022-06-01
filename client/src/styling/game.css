@@ -7,11 +7,15 @@
     transition: .3s;
     border: 0px;
     width: fit-content;
+    box-shadow: 1px 1px 3px #360621;
 }
 
 .game-button:hover {
-    background-color: grey;
+    /* background-color: #50032F; */
     transform: scale(.95);
+    filter: saturate(60%);
+
+
 }
 
 .challenge-list-pic{
@@ -180,14 +184,18 @@
 }
 
 #game-page {
-    background-color: rgba(99, 9, 60, 0.881);
+    background-color: rgba(99, 9, 60, 0.901);
 }
 
 #game-page h2 {
     border: 5px black solid;
     padding: .7em;
     background-color: white;
-    width: 3em;
+    width: fit-content;
+}
+
+.how-to{
+    text-align: center;
 }
 
 #game-canvas{

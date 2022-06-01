@@ -12,7 +12,11 @@
 .display-challenge {
     display: inline-block;
     margin: 0em 1em 0em;
+    height: 30em;
+}
 
+.display-chal-button {
+    color: red;
 }
 
 .display-challenge p {

@@ -3,7 +3,7 @@
     cursor: pointer;
 }
 #welcome-page, #user-page{
-    height: 200vw;
+    height: fit-content;
     background-image: url('../images/background.jpg');
     /* background-image: url("http://mobileimages.lowes.com/product/converted/501158/5011583059502.jpg"); */
     /* align-items: center; */
@@ -20,6 +20,22 @@
     color: wheat;
     border-radius: 2em;
     text-decoration: none;
+}
+
+#welcome-page h4 {
+    margin-bottom: 5px;
+}
+
+#welcome-text em{
+    font-family: 'Great Vibes', cursive;
+    font-weight: 150;
+    font-style: none;
+    font-size: 1.5em;
+    padding: 0.5em;
+}
+
+#welcome-text h1 {
+    letter-spacing: 2px;
 }
 
 .display-explain {

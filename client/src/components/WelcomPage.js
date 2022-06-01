@@ -34,11 +34,11 @@ function WelcomePage(props) {
 
                 </div>
                 <div id="welcome-text">
-                    <h1>welcome {user.username ? "back" : null} to Sketchee!</h1>
+                    <h1>Welcome {user.username ? "back" : null} to <em>Sketchee!</em></h1>
                 </div>
                 <div className="display-explain">
                     <h4>Please peruse our 15 most recent creations:</h4>
-                    <p>Hover over them to see the inspiration behind the piece!</p>
+                    <em>Hover over them to see the inspiration behind the piece!</em>
                 </div>
                 { recentPics.length > 0  ? 
                     <>
@@ -48,6 +48,8 @@ function WelcomePage(props) {
                     </>
                     : <Loader />}
 
+            </div>
+            <div className='gallery-spacer'>
             </div>
             <Footer />
         </div>
