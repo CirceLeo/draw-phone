@@ -8,6 +8,7 @@ nav a, nav .header-btn, .gallery-button{
     border-radius: 1em;
     border: none;
     font-size: 1em;
+    font-weight: 400;
     margin-top: 0.5em;
     margin-left: .5em;
     white-space: nowrap;

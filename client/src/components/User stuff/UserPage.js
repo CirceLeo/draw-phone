@@ -30,11 +30,12 @@ function UserPage(props) {
         // TODO: fix the classnames so i can style this page properly
         <div id="user-page">
             <Header />
+            <div className="gallery-spacer"></div>
             { user.username ? 
             <>
-                <p>hi there, {user.username}</p>
+                <h2>hi there, <em>{user.username}</em></h2>
 
-                <div className="user-friends">
+                {/* <div className="user-friends">
                     {
                         user.friends.length > 0 ?
                         <FriendsList friends={friendships} />
@@ -44,7 +45,7 @@ function UserPage(props) {
                             <p>sorry buddy, you have not friends</p>
                         </>
                     }
-                </div>
+                </div> */}
 
                 <div className="user-drawings">
                 {user.drawings.length > 0 ? 
@@ -66,6 +67,9 @@ function UserPage(props) {
             <Loader />
             </>
         }
+        
+        <div className="gallery-spacer"></div>
+
             <Footer />
         </div>
 

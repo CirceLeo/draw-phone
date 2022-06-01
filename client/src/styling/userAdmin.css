@@ -10,17 +10,19 @@
 }
 
 #user-page p, #user-page h2, #user-page h3 {
-    background-color: #FAD5AB;
-    width: fit-content;
+    /* background-color: #FAD5AB; */
     margin: auto;
 }
 
 .challenge-modal {
-    width: 45vw;
+    width: 90%;
 }
 
-.challenge-form-text p {
-    width: 2em;
+.challenge-form-text  {
+    display: inline-block;
+}
+.challenge-form-text p  {
+    text-align: center;
 }
 
 

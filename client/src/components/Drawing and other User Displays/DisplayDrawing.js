@@ -44,7 +44,7 @@ function DisplayDrawing({drawing, artistDetails, userPage, openAddFriend}) {
                     <p><strong>Title: </strong> <em> {drawing.title ? drawing.title :` untitled piece ${drawing.id}`}</em></p>
                     <p><strong>Completed in:</strong> {drawing.play_time ? <em>{drawing.play_time} seconds</em> : "unknown" }  </p>
                     {userPage ? 
-                        <button onClick={openChallenge}>create a challenge?</button>
+                        <button className="create-chal-btn" onClick={openChallenge}>create a challenge?</button>
                         : null
                     }
                     {/* {challengeOpen ? <CreateChallengeForm  drawingId={drawing.id} close={()=> setChallengeOpen(false)}/> : null} */}

@@ -5,7 +5,7 @@
     overflow-x: scroll;
     white-space: nowrap;
     margin-bottom: 2em;
-    height: fit-content;
+    height: 32em;
 }
 
 .display-drawing img {
@@ -63,11 +63,12 @@
     height: 23em;
 }
 
-.display-drawing-text, .display-drawing button {
+.display-drawing-text {
     background-color: #f2dbc0;
     color: #2C2C2C;
     width: 16em;
     margin: auto;
+    /* padding-bottom: 0.5em; */
 }
 
 .display-pic-loading {
@@ -78,4 +79,16 @@
 .display-drawing p {
     padding: 0px;
     margin: 0px;
+}
+
+
+.create-chal-btn {
+    margin-bottom: 1em;
+    background-color: white ;
+    transition: .3s;
+    border: 2px solid;
+}
+
+.create-chal-btn:hover {
+    transform: scale(.9);
 }

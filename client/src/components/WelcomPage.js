@@ -43,7 +43,10 @@ function WelcomePage(props) {
                 { recentPics.length > 0  ? 
                     <>
                         <RecentDrawingDisplay artistDetails={true} displayPics={recentPics} /> 
-                        <p className="display-explain">Trending Challenges: </p>
+                        <div className="display-explain">
+                            <h4>Check out our Trending Challenges: </h4>
+                            <em>Try to make a better drawing of the same picture!</em>
+                        </div>
                         <ChallengeDisplay challenges={recentChallenges}/>
                     </>
                     : <Loader />}

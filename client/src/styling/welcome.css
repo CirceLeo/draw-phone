@@ -13,20 +13,22 @@
     height: 2em;
 }
 
-#welcome-text, #login-text{
-    background-color: rgba(77, 26, 20, 0.7);
+#welcome-text, #user-page h2, #user-page h3{
+    /* background-color: rgb(77, 26, 20); */
+    background-image: linear-gradient(90deg, rgba(77, 26, 20, 0.1), rgba(77, 26, 20, 0.7), rgb(77, 26, 20), rgba(77, 26, 20, 0.7), rgba(77, 26, 20, 0.1) );
     width: 66vw;
     margin: 2em 10em 2em;
     color: wheat;
     border-radius: 2em;
     text-decoration: none;
+    padding: .2em .8em;
 }
 
 #welcome-page h4 {
     margin-bottom: 5px;
 }
 
-#welcome-text em{
+#welcome-text em {
     font-family: 'Great Vibes', cursive;
     font-weight: 150;
     font-style: none;
@@ -52,6 +54,18 @@
     color: wheat;
 }
 
+.loader {
+    /* background-color: black; */
+    background-image: radial-gradient(black,black, rgba(0, 0, 0, 0.608), rgba(0, 0, 0, 0));
+    border-radius: 5em;
+    width: fit-content;
+    padding: .5em;
+}
+.loader p {
+    background: -webkit-linear-gradient(#eee, #333);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
 /* #welcome a:visited{
     text-decoration: none;
     color: wheat;

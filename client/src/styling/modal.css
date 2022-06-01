@@ -6,6 +6,7 @@
     top: 0;
     left: 0;
     z-index: 10;
+    border-radius: 1em;
     /* overflow: hidden */
 }
 
@@ -45,3 +46,8 @@
 }
 
 
+
+#how-to {
+    padding: auto;
+    text-align: center;
+}
