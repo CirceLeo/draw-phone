@@ -41,14 +41,16 @@ function CreateChallengeForm({drawingId, close}) {
     return (
         <div id="create-challenge-form">
             <button className='close-button' onClick={close}>X</button>
-            <h3>Create a new challenge? </h3>
+            <h4>Create a new challenge? </h4>
             <div className='challenge-form-text'>
-                <p>If you want to see what others can do with the same picture and play time </p>
-                <p> you had for this drawing, you can issue a challenge here!</p>
+                <p>If you want to see what others can do </p>
+                <p> with the same image and play time </p>
+                <p>  you can issue a challenge here!</p>
 
             </div>
             <form onSubmit={handleSubmit}>
                 <label>Make a name for your challenge:</label>
+                <br/>
                 <input required onChange={(e)=>setTitle(e.target.value)} value={title} type='text' name="challenge_title"></input>
                 <br/>
                 {showErrors ? 

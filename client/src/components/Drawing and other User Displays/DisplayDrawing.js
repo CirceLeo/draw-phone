@@ -24,7 +24,7 @@ function DisplayDrawing({drawing, artistDetails, userPage, openAddFriend}) {
                 challengeOpen && (
                     <>
                     <div className="overlay" onClick={closeChallenge}></div>
-                    <div className="modal challenge-modal">
+                    <div className="challenge-modal">
                         <CreateChallengeForm drawingId={drawing.id} close={closeChallenge}/>
                     </div>
                     </>

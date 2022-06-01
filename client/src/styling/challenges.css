@@ -14,14 +14,14 @@
 
 .challenge-display {
     overflow-x: scroll;
-    height: fit-content;
+    height: 32em;
     white-space: nowrap;
 }
 
 .display-challenge {
     display: inline-block;
     margin: 0em 1em 0em;
-    height: 30em;
+    height: 31em;
 }
 
 .display-chal-button {

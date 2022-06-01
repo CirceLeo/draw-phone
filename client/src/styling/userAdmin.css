@@ -16,14 +16,30 @@
 
 .challenge-modal {
     width: 90%;
+    height: 60%;
+    position: fixed;
+    z-index: 20;
+    background: rgba(248, 243, 243, 0.873);
+    border-radius: 1em;
+    color:black;
+
+    /* Center the modal */
+    top: 50%;
+    left: 50%;
+    transform: translateX(-50%) translateY(-50%);
 }
 
 .challenge-form-text  {
-    display: inline-block;
+    /* display: inline-block; */
+    padding: 10px;
 }
-.challenge-form-text p  {
-    text-align: center;
+
+#create-challenge-form h4 {
+    background-image: linear-gradient(90deg, rgba(77, 26, 20, 0.1), rgba(77, 26, 20, 0.7), rgb(77, 26, 20), rgba(77, 26, 20, 0.7), rgba(77, 26, 20, 0.1) );
+    color: wheat;
+    margin: 0;
 }
+
 
 
 /* #show-other-user.display-drawing {

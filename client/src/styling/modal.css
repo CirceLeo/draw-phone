@@ -13,7 +13,7 @@
 .modal {
     position: fixed;
     z-index: 20;
-    background: rgba(248, 243, 243, 0.85);
+    background: rgba(248, 243, 243, 0.873);
     width: 70vw;
     border-radius: 1em;
     color:black;
