@@ -7,6 +7,8 @@ import Header from '../Admin/Header'
 import Footer from '../Admin/Footer';
 import Loader from '../Admin/Loader';
 
+import FaPlay from 'react-icons/fa'
+
 import GameCanvas from './GameCanvas';
 import GameSettings from './GameSettings';
 import GameTimer from './GameTimer';
@@ -242,7 +244,7 @@ function GamePage({}) {
                             <>{gameStarted ? 
                                 <button className='game-button continue-button' onClick={handleContinue}>continue</button> 
                                 : 
-                                <button className='game-button start-button' onClick={handleStart}>start</button>
+                                <button className='game-button start-button' onClick={handleStart}> start</button>
                             }</>
                             
                         }
@@ -262,6 +264,9 @@ function GamePage({}) {
                     <GameCanvas setDrawingData={setDrawingData} gameActive={gameActive} canvasRef={canvasRef} picURL={picUrl} />
                 </div>
             {/* </div> */}
+            </div>
+            <div className='gallery-spacer'>
+                
             </div>
             <Footer />
         </div>

@@ -42,7 +42,7 @@ function OtherUserDetails({displayID, closeOtherUser}) {
             <button className="close-button" onClick={closeOtherUser}>X</button>
             { user.id !== displayID ?
                 <>
-                    <h2>Artist detail: {displayUser.username}</h2> 
+                    <h2>Works by: {displayUser.username}</h2> 
                     { user.username ? 
                     <>{
                         alreadyFriends ? 
@@ -51,7 +51,7 @@ function OtherUserDetails({displayID, closeOtherUser}) {
                         <button onClick={addFriendship}>Befriend this user?</button>
                     }</>
                     : null}
-                    <p>let's look at what they've done</p>
+                    {/* <p>let's look at what they've done</p> */}
                     { displayUser.drawings ? <RecentDrawingDisplay artistDetails={false} displayPics={displayUser.drawings} /> : <p>loading artist's recent works!</p>}
                 </>
                 :
