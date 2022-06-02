@@ -56,8 +56,8 @@ function UserPage(props) {
                     </> 
                     : 
                     <>
-                    <h3>We have no artworks attributed to you, alas</h3>
-                    <p>Why not <a href="/play">play</a> a few rounds?</p>
+                    <h3>We have no artworks attributed to you! </h3>
+                    <h3>Why not <a href="/play">play</a> a few rounds?</h3>
                     </>
                 }
                 </div>

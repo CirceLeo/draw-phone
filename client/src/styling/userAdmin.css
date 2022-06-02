@@ -9,10 +9,16 @@
     margin: .5em;
 }
 
-#user-page p, #user-page h2, #user-page h3 {
+#user-page p, #user-page h2, #user-page h3{
     /* background-color: #FAD5AB; */
     margin: auto;
 }
+
+#user-page h3 > a {
+    color: wheat;
+
+}
+
 
 .challenge-modal {
     width: 90%;

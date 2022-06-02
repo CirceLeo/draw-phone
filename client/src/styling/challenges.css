@@ -7,6 +7,7 @@
     align-items: center;
 }
 
+
 /* .create-challenge-form p{
     display: inline;
     width: 90%;
@@ -14,14 +15,15 @@
 
 .challenge-display {
     overflow-x: scroll;
-    height: 32em;
+    height: 33em;
     white-space: nowrap;
 }
 
 .display-challenge {
     display: inline-block;
-    margin: 0em 1em 0em;
-    height: 31em;
+    margin: 0em 0.5em 0em;
+    height: fit-content;
+    /* border: 2px black  */
 }
 
 .display-chal-button {

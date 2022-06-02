@@ -73,10 +73,12 @@ function GameEndScreen({drawingData, prepNewGame, picUrl, closeModal, newDrawing
             {
                 challenge.id ? 
                 <>
-                <p>Want to send this challenge to your friends? click 
+                <p>Want to send this challenge to your friends? </p>
+                <p>Click 
                     <button  className='game-button' onClick={() => {navigator.clipboard.writeText(`https://mighty-scrubland-25079.herokuapp.com/play/challenge/${challenge.id}`)}}>
-                    here!</button> to copy the link to your clipboard!</p>
-                <p>Here's what other people did!</p>
+                    here!</button> 
+                    to copy the link to your clipboard!</p>
+                { renderedAttempts.length > 0 ? <p>Scroll to see what other people did!</p> : null}
                 <div className='rendered-attempts'>
 
                     {renderedAttempts  }

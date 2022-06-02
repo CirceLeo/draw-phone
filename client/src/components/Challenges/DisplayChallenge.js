@@ -6,7 +6,7 @@ function DisplayChallenge({challenge}) {
         
     return (
         <div className="display-challenge display-drawing  flip-card">
-            <p>Title: {challenge.challenge_title}</p>
+            <p> <strong>{challenge.challenge_title}</strong></p>
             <p>Issued by: {challenge.drawing.user.username}</p>
             <p>Subject: {challenge.drawing.subject_category}</p>
             <p>Time allowed: {challenge.drawing.play_time} seconds</p>

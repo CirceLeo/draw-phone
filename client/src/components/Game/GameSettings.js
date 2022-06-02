@@ -32,7 +32,7 @@ function GameSettings({closeModal, setPlayTime, setImageTerm}) {
             <form onSubmit={handleSubmit}>
                 <label>How long do you want?</label>
                 <select defaultValue={45} onChange={handleNewPlayTime}>
-                    <option value={5}>testing</option>
+                    {/* <option value={5}>testing</option> */}
                     <option value={30} >short</option>
                     <option value={45}>medium</option>
                     <option value={60}>long</option>
@@ -47,9 +47,10 @@ function GameSettings({closeModal, setPlayTime, setImageTerm}) {
                     <option value="car">Cars</option> 
                     <option value="superhero">Superheroes</option> 
                     <option value="monster">Monsters</option> 
+                    <option value="mountain">Mountains</option>
                 </select>
                 <br/>
-                <button type='submit'>Looks good!</button>
+                <button className='game-button' type='submit'>Looks good!</button>
             </form>
         </div>
     )

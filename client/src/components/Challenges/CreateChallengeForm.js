@@ -60,7 +60,7 @@ function CreateChallengeForm({drawingId, close}) {
                     </div> 
                     : null
                 }
-                { created ? <p>Challenge created!</p> : <button type='submit'> issue challenge!</button>}
+                { created ? <p>Challenge created!</p> : <button className='game-button' type='submit'> issue challenge!</button>}
             </form>
         </div>
     )

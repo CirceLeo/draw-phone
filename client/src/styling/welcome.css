@@ -55,7 +55,7 @@
 }
 
 .loader {
-    background-color: black;
+    /* background-color: black; */
     /* background-image: radial-gradient(black,black, rgba(0, 0, 0, 0.608), rgba(0, 0, 0, 0)); */
     border-radius: 5em;
     width: 60%;

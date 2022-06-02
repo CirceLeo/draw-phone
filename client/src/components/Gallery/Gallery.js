@@ -17,7 +17,7 @@ function Gallery(props) {
 
     const [challenges, setChallenges] = useState([])
 
-    const subjects = ["dog", "cat", "car", "superhero", "flower", "monster" ]
+    const subjects = ["dog", "cat", "car", "superhero", "flower", "monster", "mountain" ]
     // let challengeTitles = []
 
     useEffect(() => {
