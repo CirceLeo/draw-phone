@@ -34,7 +34,7 @@ function WelcomePage(props) {
 
                 </div>
                 <div id="welcome-text">
-                    <h1>Welcome {user.username ? "back" : null} to <em>Sketchee!</em></h1>
+                    <h1 className='lineUp'>Welcome {user.username ? "back" : null} to <em>Sketchee!</em></h1>
                 </div>
                 <div className="display-explain">
                     <h4>Please peruse our 15 most recent creations:</h4>

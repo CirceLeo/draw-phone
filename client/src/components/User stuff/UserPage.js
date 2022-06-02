@@ -30,6 +30,7 @@ function UserPage(props) {
         // TODO: fix the classnames so i can style this page properly
         <div id="user-page">
             <Header />
+            {/* <Loader /> */}
             <div className="gallery-spacer"></div>
             { user.username ? 
             <>
@@ -47,7 +48,7 @@ function UserPage(props) {
                     }
                 </div> */}
 
-                <div className="user-drawings">
+                <div className="user-drawings lineUp">
                 {user.drawings.length > 0 ? 
                     <> 
                         <h3>Here are all of your masterpieces</h3> 
@@ -63,7 +64,7 @@ function UserPage(props) {
             </>
             :
             <>
-            <p>User page loading!</p>
+            <h1 className="loading-msg">User page loading!</h1>
             <Loader />
             </>
         }

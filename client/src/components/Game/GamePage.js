@@ -219,11 +219,11 @@ function GamePage({}) {
                 {gameStarted ? <div >
                             <GameTimer picLoaded={picLoaded} handleGameEnd={handleGameEnd} gameActive={gameActive} playTime={playTime} gameStarted={gameStarted} />
                         </div> : null}
-                <div id='goal-and-canvas'>
+                <div id='goal-and-canvas' className='lineUp'>
                     <div id='goal-and=-btn'>
                         <div id='goal-pic-div'>
-                            {!picLoaded && gameStarted ? <> <p>Your goal photo is loading, get ready!</p><Loader/> </> : null}
-                            { isShown ? <img src={picUrl} onLoad={()=>{setPicLoaded(true)}} /> : <>{gameActive ? <p>hover over me to see goal picture!</p> : <p>Try to draw what you see here!</p>} </>}
+                            {!picLoaded && gameStarted ? <><Loader/> </> : null}
+                            { isShown ? <img src={picUrl} onLoad={()=>{setPicLoaded(true)}} /> : <>{gameActive ? <p>Hover over me to see goal picture!</p> :  <p>{ gameStarted ?  "" : "Try to draw what you see here!"}</p>}</>}
                         </div>
                         <div id='current-game-info'>
                         {gameStarted ? 
@@ -236,11 +236,10 @@ function GamePage({}) {
                                 <p>Time to draw: {playTime} sec</p>
                                 { challengeId ? <strong>Challenge mode: settings cannot be changed</strong> : <button className='game-button' onClick={openModal}>Change Settings?</button>}
                             </div> 
-                            <button onClick={openChallengeModal} className='game-button challenge-pick-button'>{challengeId ? 'Choose a different challenge?' : 'Play challenge instead of random mode?'}</button>
                             </>
                         }
-                        </div>
                         <div className='game-button-container'>
+                        { gameStarted ? null : <button onClick={openChallengeModal} className='game-button challenge-pick-button'>{challengeId ? 'Choose a different challenge?' : 'Play challenge instead of random mode?'}</button>}
                             { gameActive ?    
                                 <>
                                     <button className='game-button pause-button' onClick={handlePause}>⏸Pause</button> 
@@ -254,6 +253,7 @@ function GamePage({}) {
                                 
                             }
                             {gameStarted ? <button className='game-button game-end-button' onClick={handleGameEnd}>end game?</button> : null}
+                        </div>
                         </div>
                     </div>
                     <div 
