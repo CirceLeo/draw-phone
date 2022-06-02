@@ -17,8 +17,8 @@
     width: 70vw;
     border-radius: 1em;
     color:black;
-    display: flex;
-    justify-content: center;
+    /* display: flex;
+    justify-content: center; */
 
     /* Center the modal */
     top: 50%;

@@ -204,8 +204,8 @@
 }
 
 .gameEnd{
-    height: 80vh;
-    overflow: auto;
+    height: 90vh;
+    overflow: scroll;
     width: 80vw;
     margin: 1em;
 }
