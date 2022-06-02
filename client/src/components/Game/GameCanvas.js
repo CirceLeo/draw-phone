@@ -61,39 +61,39 @@ function GameCanvas({setDrawingData, gameActive, canvasRef, picUrl}) {
 
     return (
         <div id='canvas'>
-        
-        <div id="canvas-controls">
-            <label>Brush size</label>
-            <div id="brush-size-radio">
-                <input 
-                    type="radio"
-                    name='brush-size'
-                    id = 'brush-radio-small'
-                    value={2}
-                    onClick={handleSizeChange}
-                />
-                <input 
-                    type="radio"
-                    name='brush-size'
-                    id = 'brush-radio-med'
-                    value={5}
-                    onClick={handleSizeChange}
-                    />
-                <input 
-                    type="radio"
-                    name='brush-size'
-                    id = 'brush-radio-large'
-                    value={10}
-                    onClick={handleSizeChange}
-                    />
-            </div>
-            <div className='color-picker'>
-                <label>Brush color</label>
-                {palette}
-            </div>
-            </div>
             {canvas}
-            {/* <div id="canvas-btns"> */}
+            <div id="canvas-controls">
+                <div className='size-radio-and-label'>
+                    <label>Brush size</label>
+                    <div id="brush-size-radio">
+                        <input 
+                            type="radio"
+                            name='brush-size'
+                            id = 'brush-radio-small'
+                            value={2}
+                            onClick={handleSizeChange}
+                        />
+                        <input 
+                            type="radio"
+                            name='brush-size'
+                            id = 'brush-radio-med'
+                            value={5}
+                            onClick={handleSizeChange}
+                            />
+                        <input 
+                            type="radio"
+                            name='brush-size'
+                            id = 'brush-radio-large'
+                            value={10}
+                            onClick={handleSizeChange}
+                            />
+                    </div>
+                </div>
+                <div className='color-picker'>
+                    <label>Brush color</label>
+                    {palette}
+                </div>
+            </div>
 
             <button
                 onClick={handleUndo}
@@ -106,9 +106,6 @@ function GameCanvas({setDrawingData, gameActive, canvasRef, picUrl}) {
                 ⌫ clear canvas
             </button>
             <br/> 
-            
-            {/* </div> */}
-        {/* </div> */}
             
         </div>
     )

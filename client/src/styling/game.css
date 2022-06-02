@@ -8,12 +8,15 @@
     border: 0px;
     width: fit-content;
     box-shadow: 1px 1px 3px #360621;
+    background: linear-gradient(180deg, #F5F5F5 48.44%, #b4b3b3 100%);
+    border: 1px solid #A4A4A4;
 }
 
 .game-button:hover {
     /* background-color: #50032F; */
     transform: scale(.95);
-    filter: saturate(60%);
+    background: linear-gradient(180deg, #d1cfcf 48.44%, #D9D9D9 100%);
+
 
 
 }
@@ -61,7 +64,7 @@
     width: 100%;
     display: flex;
     flex-direction: row;
-    align-items: center;
+    align-items: flex-start;
     justify-content: center;
 
 }
@@ -72,8 +75,8 @@
 
 .start-button{
     grid-area: time-control; 
-    width: fit-content;
-    background-color: green;
+    width: 4em;
+    background-image: linear-gradient(180deg, #CEFFD6 48.44%, #B6D7BC 100%);
     font-size: 1.25em;
     padding: .5em;
     height: fit-content;
@@ -107,7 +110,8 @@
 .challenge-pick-button{
     grid-area: chal-btn;
     font-size: .8em;
-    width:  6em;
+    width:  10em;
+    margin-top: 1em;
 }
 .game-type-header{
     text-shadow: rgba(158, 156, 156, 0.671) 1px 1px 2px;
@@ -145,7 +149,11 @@
     flex-direction: row;
     align-items: center;
     justify-content: center;
+    background-color: #F5EFE8;
+    width: fit-content;
+    margin: auto;
 }
+
 
 #canvas-btns {
     grid-area: "btns"
@@ -153,21 +161,30 @@
 
 
 #canvas-controls label {
-    color: #FAD5AB;
+    color: #2C2C2C;
+
 }
 
 #goal-pic-div {
     height: 20em;
-    /* border: 2px black solid; */
-    border-radius: 2em;
-    background-color: #FAD5AB;
+    border: 4px rgb(42, 41, 41) inset;
+    /* border-radius: 2em; */
+    background-color: rgba(63, 61, 61, 0.7);
     width: 20em;
     height: 22em;
     margin-left: 3em;
+    margin-top: 1em;
+    margin-right: 1em;
     grid-area: goal-pic;
     display: flex;
     align-items: center;
     justify-content: center;
+    color: white;
+}
+
+.size-radio-and-label {
+    padding: .5em;
+    border-right: 2px solid black;
 }
 
 /* #goal-pic-div p{
@@ -180,6 +197,10 @@
     align-items: center;
     margin: 0px;
     padding: 0px;
+}
+
+#canvas canvas {
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
 }
 
 .gameEnd{
@@ -202,7 +223,7 @@
 
 
 .color-picker {
-    margin: auto;
+    /* margin: auto; */
     margin-top: 0em;
     /* background-color: rgba(99, 9, 60, 0.881); */
     padding: 1em;
@@ -237,7 +258,7 @@
 }
 
 .canvas {
-    border: 2px black solid;
+    border: 6px #D9AF7E outset;
     margin: 1em;
 }
 
@@ -252,7 +273,7 @@ img {
 #goal-and-canvas{
     display: flex;
     flex-direction: row;
-    align-items: center;
+    align-items: flex-start;
     padding-top: 0px;
     margin-top: 0px;
 }
@@ -260,10 +281,10 @@ img {
 #current-settings{
     margin: 1em;
     padding: .5em;
-    border-radius: 2em;
+    border-radius: .2em;
     /* border: black 2px solid; */
     width: fit-content;
-    background-color: #FAD5AB;
+    background-color: #F5EFE8;
 }
 
 #current-settings p{
@@ -273,23 +294,32 @@ img {
 
 #brush-radio-small {
     transform: scale(.75);
-    padding: .5em;
+    padding: .4em;
+    margin: auto;
 }
 
 #brush-radio-med {
     transform: scale(1.25);
     padding: .5em;
-    margin-left: 1em;
+    /* margin-left: 1em; */
+    margin: auto;
+
 }
 
 #brush-radio-large {
     transform: scale(1.75);
-    padding: .5em;
-    margin-left: 1em;
+    padding: .8em;
+    /* margin-left: 1em; */
+    margin: auto;
+
 }
 
 #brush-size-radio {
-    display: block;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 4em;
     /* cursor: pointer; */
     /* width: fit-content; */
 }

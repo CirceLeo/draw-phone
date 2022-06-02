@@ -33,7 +33,7 @@ function UserPage(props) {
             <div className="gallery-spacer"></div>
             { user.username ? 
             <>
-                <h2>hi there, <em>{user.username}</em></h2>
+                <h2 className="user-header">hi there, <em>{user.username}</em></h2>
 
                 {/* <div className="user-friends">
                     {

@@ -100,6 +100,7 @@ function GamePage({}) {
     function handleStart(){
         setIsShown(true)
         setGameActive(true) 
+        window.scrollTo(0, 155)
         setGameStarted(true)
     }
 
@@ -214,26 +215,31 @@ function GamePage({}) {
                 )
             } 
             <div id='game-grid'>
-                <h3 className='game-type-header'>{challengeId ? 'Sketchee Challenge!' : 'Sketchee Random Play!'}</h3>
-
-                {/* <div id='setting-and-control'> */}
-                    <div id='current-game-info'>
+                <h3 className='game-type-header'>{challengeId ? 'Sketchee Challenge Mode!' : 'Sketchee Random Play!'}</h3>
+                {gameStarted ? <div >
+                            <GameTimer picLoaded={picLoaded} handleGameEnd={handleGameEnd} gameActive={gameActive} playTime={playTime} gameStarted={gameStarted} />
+                        </div> : null}
+                <div id='goal-and-canvas'>
+                    <div id='goal-and=-btn'>
+                        <div id='goal-pic-div'>
+                            {!picLoaded && gameStarted ? <> <p>Your goal photo is loading, get ready!</p><Loader/> </> : null}
+                            { isShown ? <img src={picUrl} onLoad={()=>{setPicLoaded(true)}} /> : <>{gameActive ? <p>hover over me to see goal picture!</p> : <p>Try to draw what you see here!</p>} </>}
+                        </div>
+                        <div id='current-game-info'>
                         {gameStarted ? 
                             null
                             :
                             <>
                             <div id="current-settings">
-                                <p style={{textDecoration: "underline"}}>Current Settings</p>
+                                <strong>Current Settings</strong>
                                 <p>Drawing subject: {imageTerm}</p>
-                                <p>Seconds to draw: {playTime}</p>
-                                { challengeId ? <p>You can't change challenge settings</p> : <button className='game-button' onClick={openModal}>Change settings?</button>}
+                                <p>Time to draw: {playTime} sec</p>
+                                { challengeId ? <strong>Challenge mode: settings cannot be changed</strong> : <button className='game-button' onClick={openModal}>Change Settings?</button>}
                             </div> 
                             <button onClick={openChallengeModal} className='game-button challenge-pick-button'>{challengeId ? 'Choose a different challenge?' : 'Play challenge instead of random mode?'}</button>
                             </>
                         }
-                    </div>
-                    {/* <div id='start-pause-buttons'> */}
-                    
+                        </div>
                         <div className='game-button-container'>
                             { gameActive ?    
                                 <>
@@ -241,7 +247,7 @@ function GamePage({}) {
                                 </>
                                 : 
                                 <>{gameStarted ? 
-                                    <button className='game-button continue-button' onClick={handleContinue}>continue</button> 
+                                    <button className='game-button continue-button' onClick={handleContinue}>resume</button> 
                                     : 
                                     <button className='game-button start-button' onClick={handleStart}> <FaPlay /> start</button>
                                 }</>
@@ -249,24 +255,15 @@ function GamePage({}) {
                             }
                             {gameStarted ? <button className='game-button game-end-button' onClick={handleGameEnd}>end game?</button> : null}
                         </div>
-                        {gameStarted ? <div >
-                            <GameTimer picLoaded={picLoaded} handleGameEnd={handleGameEnd} gameActive={gameActive} playTime={playTime} gameStarted={gameStarted} />
-                        </div> : null}
-                    {/* </div> */}
-                {/* </div> */}
-            <div id='goal-and-canvas'>
-                <div id='goal-pic-div'>
-                    {!picLoaded && gameStarted ? <> <p>Your goal photo is loading, get ready!</p><Loader/> </> : null}
-                    { isShown ? <img src={picUrl} onLoad={()=>{setPicLoaded(true)}} /> : <>{gameActive ? <p>hover over me to see goal picture!</p> : <p>goal picture will appear here!</p>} </>}
+                    </div>
+                    <div 
+                        id="game-canvas" 
+                        onMouseEnter={() => {if(gameActive){setIsShown(false)}}}
+                        onMouseLeave={() => {if(gameActive){setIsShown(true)}}}
+                    >
+                        <GameCanvas setDrawingData={setDrawingData} gameActive={gameActive} canvasRef={canvasRef} picURL={picUrl} />
+                    </div>
                 </div>
-                <div 
-                    id="game-canvas" 
-                    onMouseEnter={() => {if(gameActive){setIsShown(false)}}}
-                    onMouseLeave={() => {if(gameActive){setIsShown(true)}}}
-                >
-                    <GameCanvas setDrawingData={setDrawingData} gameActive={gameActive} canvasRef={canvasRef} picURL={picUrl} />
-                </div>
-            </div>
             </div>
             <div className='gallery-spacer'>
 
