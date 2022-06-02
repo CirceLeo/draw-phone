@@ -29,7 +29,7 @@ function GameTimer(props) {
     }
 
     useEffect(() => {
-        if(gameActive){
+        if(gameActive && picLoaded){
         const interval = setInterval(() => {
             setTimeLeft(timeLeft =>  timeLeft - 1)
         }, 1000);
@@ -52,7 +52,7 @@ if(timeLeft === 15){
     
     return (
         <>
-            <h2 style={{color: timeLeft < (playTime / 2) ? "red" : "black"}}>{Math.floor(timeLeft / 60) }:{secondsLeft < 10 ? `0${secondsLeft}` : secondsLeft}</h2>
+            <h2 className="timer" style={{color: timeLeft < (playTime / 2) ? "red" : "black"}}>{Math.floor(timeLeft / 60) }:{secondsLeft < 10 ? `0${secondsLeft}` : secondsLeft}</h2>
             {/* <button onClick={playSound}>noise</button> */}
             {/* <h2 style={{color: timeLeft < 60 ? "red" : "black"}}>{timeLeft}</h2> */}
         </>

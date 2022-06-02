@@ -60,26 +60,9 @@ function GameCanvas({setDrawingData, gameActive, canvasRef, picUrl}) {
 />
 
     return (
-        <>
+        <div id='canvas'>
         
         <div id="canvas-controls">
-            <div className='color-picker'>
-                <label>Brush color</label>
-                {palette}
-            </div>
-            <div id="canvas-btns">
-
-            <button
-                onClick={handleUndo}
-                className='game-button'>
-                ↶ undo
-            </button>
-            <button
-                className='game-button'
-                onClick={handleEraseAll}>
-                ⌫ clear canvas
-            </button>
-            <br/> 
             <label>Brush size</label>
             <div id="brush-size-radio">
                 <input 
@@ -104,10 +87,30 @@ function GameCanvas({setDrawingData, gameActive, canvasRef, picUrl}) {
                     onClick={handleSizeChange}
                     />
             </div>
+            <div className='color-picker'>
+                <label>Brush color</label>
+                {palette}
             </div>
-        </div>
+            </div>
             {canvas}
-        </>
+            {/* <div id="canvas-btns"> */}
+
+            <button
+                onClick={handleUndo}
+                className='game-button'>
+                ↶ undo
+            </button>
+            <button
+                className='game-button'
+                onClick={handleEraseAll}>
+                ⌫ clear canvas
+            </button>
+            <br/> 
+            
+            {/* </div> */}
+        {/* </div> */}
+            
+        </div>
     )
 }
 export default GameCanvas

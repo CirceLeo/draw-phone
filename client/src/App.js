@@ -2,6 +2,7 @@ import './styling/App.css';
 import './styling/App.css';
 import './styling/game.css';
 import './styling/welcome.css';
+import './styling/end-game.css';
 import './styling/modal.css'
 import './styling/userAdmin.css'
 import './styling/Gallery.css'

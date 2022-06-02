@@ -51,3 +51,7 @@
     padding: auto;
     text-align: center;
 }
+
+#how-to h2 {
+    text-decoration: underline;
+}

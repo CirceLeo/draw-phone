@@ -32,16 +32,19 @@
 } */
 
 #game-grid{
-    display: grid;
+    /* display: grid; */
     margin-bottom: 3em;
-    grid-template-areas:
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    /* grid-template-areas:
     "header header header"
     "current time-control chal-btn "
     "continue timer end"
-    /* "continue time-control  end" */
     ". . canvas"
     "goal-pic . canvas"
-    ". .  canvas";
+    ". .  canvas"; */
+    /* "continue time-control  end" */
     /* ". header header header ."
     ". current .chal-btn ."
     ". . start . ."
@@ -53,18 +56,25 @@
 
 
 #current-game-info{
-    grid-area: game-info
+    /* grid-area: game-info */
+    grid-area: current;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+
 }
 
 #current-settings{
-    grid-area: current
+    align-self: center;
 }
 
 .start-button{
     grid-area: time-control; 
     width: fit-content;
     background-color: green;
-    font-size: 1.5em;
+    font-size: 1.25em;
     padding: .5em;
     height: fit-content;
 }
@@ -72,7 +82,7 @@
 .pause-button{
     grid-area: time-control;
     width: fit-content;
-    font-size: 1.5em;
+    font-size: 1em;
     padding: .5em;
 }
 
@@ -95,15 +105,14 @@
 }
 
 .challenge-pick-button{
-    grid-area: chal-btn
+    grid-area: chal-btn;
+    font-size: .8em;
+    width:  6em;
 }
 .game-type-header{
-    grid-area: header;
+    text-shadow: rgba(158, 156, 156, 0.671) 1px 1px 2px;
 }
 
-.timer {
-    grid-area: timer;
-}
 
 #result-pics {
     display: flex;
@@ -115,11 +124,14 @@
 
 #result-pics img, #result-pics p {
     width: 10em;
-    height: auto;
+    height: auto;    
+
 }
 
 #setting-and-control{
     grid-area: controls;
+    padding: 0em;
+    margin: 0em;
     align-items: center;
     /* background-color: rgb(38, 255, 0); */
     width: fit-content;
@@ -127,11 +139,12 @@
 }
 
 #canvas-controls {
+    padding-top: 0px;
     grid-area: canvas-btns;
-    display: grid;
-    grid-template-areas:
-    "palette btns"
-
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
 }
 
 #canvas-btns {
@@ -147,10 +160,26 @@
     height: 20em;
     /* border: 2px black solid; */
     border-radius: 2em;
-    background-color: #e1c29fa1;
+    background-color: #FAD5AB;
     width: 20em;
+    height: 22em;
     margin-left: 3em;
     grid-area: goal-pic;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* #goal-pic-div p{
+    
+} */
+
+#canvas{
+    display: inline-block;
+    justify-content: center;
+    align-items: center;
+    margin: 0px;
+    padding: 0px;
 }
 
 .gameEnd{
@@ -162,15 +191,19 @@
 .gameEnd img {
     background-color: white;
     border: black 2px inset;
+    padding: 2px;
 }
 
 #start-pause-buttons {
     grid-area: timing-btn;
+    margin: 0em;
+    padding: 0em;
 }
 
 
 .color-picker {
     margin: auto;
+    margin-top: 0em;
     /* background-color: rgba(99, 9, 60, 0.881); */
     padding: 1em;
     width: fit-content;
@@ -187,9 +220,10 @@
     background-color: rgba(99, 9, 60, 0.901);
 }
 
-#game-page h2 {
+.timer  {
     border: 5px black solid;
     padding: .7em;
+    margin: .2em;
     background-color: white;
     width: fit-content;
 }
@@ -209,12 +243,19 @@
 
 img {
     width: auto;
+    max-width: 18em;
     height: 19em;
+    padding: .5em;
+    margin: .5em;
 }
 
-/* #goal-and-canvas{
-    display: inline-block;
-} */
+#goal-and-canvas{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding-top: 0px;
+    margin-top: 0px;
+}
 
 #current-settings{
     margin: 1em;

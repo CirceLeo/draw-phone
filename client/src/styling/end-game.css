@@ -1,0 +1,19 @@
+.time-up {
+    margin: 0em;
+    text-decoration: underline;
+}
+
+.gameEnd {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+.gameEnd p, .gameEnd label {
+    margin: 0em;
+    padding: 0em;
+}
+
+.rendered-attempts {
+    column-count: 2;
+}
