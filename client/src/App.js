@@ -40,7 +40,9 @@ function App() {
     <div className="App">
       <Router>
         <Routes>
-          <Route path='/' element={<WelcomePage />} />
+          <Route path='/' element={<WelcomePage />} >
+            <IndexRoute component={<WelcomePage />} />
+          </Route>
           <Route path='*' element={<WelcomePage />} />
 
           <Route path='/me' element={<UserPage />} />
