@@ -4,7 +4,8 @@ function Footer(props) {
     return (
         <div id="footer">
             {/* TODO: add github */}
-            <p> Sketchee was created by Calypso Leonard <a href='https://github.com/CirceLeo'><AiFillGithub /> </a> | Like Sketchee? buy me a ☕</p>
+            <p> Sketchee was created by Calypso Leonard <a href='https://github.com/CirceLeo'><AiFillGithub /> </a></p>
+            {/*  | Like Sketchee? buy me a ☕ */}
         </div>
     )
 }

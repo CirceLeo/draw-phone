@@ -70,6 +70,10 @@ nav {
     align-items: center;
 }
 
+#footer{
+    box-shadow: -2px -4px 4px #360621;
+}
+
 .header-content {
     display: flex;
     justify-content: space-between;
