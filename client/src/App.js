@@ -48,12 +48,18 @@ function App() {
 
           <Route path='/me' element={<UserPage />} />
 
-          <Route path='/play/challenge/:id' element={<GamePage challenges={true} />} />
-          <Route path='/play' element={<GamePage challenges={false}/>} />
+          <Route path='/play' element={<GamePage challenges={false}/>} >
+            <Route index element={<GamePage/>}/>
+            <Route path='/play/challenge/:id' element={<GamePage challenges={true} />} />
+          </Route>
 
-          <Route path='/gallery' element={<Gallery/>} />
-          <Route path='/gallery/challenges' element={<Gallery/>} />
-          <Route path='/gallery/challenges/:id' element={<GalleryChallengePage />} />
+          <Route path='/gallery' element={<Gallery/>} >
+            {/* <Route index element={<Gallery/>}/> */}
+          </Route>
+            <Route path='/gallery/challenges' element={<Gallery/>} >
+              {/* <Route index element={<Gallery/>}/> */}
+            </Route>
+            <Route path='/gallery/challenges/:id' element={<GalleryChallengePage />} />
 
         </Routes>
       </Router>

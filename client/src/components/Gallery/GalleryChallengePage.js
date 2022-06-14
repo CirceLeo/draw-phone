@@ -1,4 +1,4 @@
-import {useParams} from 'react-router-dom'
+import {useParams, useNavigate} from 'react-router-dom'
 import {useEffect, useState} from 'react'
 import Header from '../Admin/Header'
 import Footer from '../Admin/Footer'
@@ -6,6 +6,8 @@ import Gallery from './Gallery'
 import Loader from '../Admin/Loader'
 
 function GalleryChallengePage(props) {
+
+    const navigate = useNavigate()
 
     const params = useParams()
     const challengeId = params.id
@@ -49,9 +51,11 @@ function GalleryChallengePage(props) {
     
     return (
         <div className="gallery-challenge-display">
+
             <Header />
             <div className='gallery-spacer'>
             </div>
+            <button onClick={() => navigate('/gallery/challenges')}className="gallery-button">Return to the Challenge Gallery?</button>
             {challenge.challenge_title ?
             <div className='challenge-display-page'>
                 <h1>Challenge Attempts for <em>{challenge.challenge_title}</em></h1>
