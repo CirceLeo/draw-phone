@@ -141,7 +141,7 @@ function GamePage({}) {
         if (user.username){
             tempUserID = user.id
         }
-        console.log(user.id, tempUserID)
+        console.log(tempUserID)
 
         if (challengeId){
             // console.log(challengeId, challenge)
@@ -150,7 +150,7 @@ function GamePage({}) {
                 user_id: tempUserID,
                 attempt_data_url: canvasData,
             }
-            console.log("attempt data:",newAttempt)
+            // console.log("attempt data:",newAttempt)
             fetch(`/attempts`, {
                 method: "POST",
                 headers: {
