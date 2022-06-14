@@ -141,9 +141,10 @@ function GamePage({}) {
         if (user.username){
             tempUserID = user.id
         }
+        console.log(user.id, tempUserID)
 
         if (challengeId){
-            console.log(challengeId, challenge)
+            // console.log(challengeId, challenge)
             const newAttempt = {
                 challenge_id: challenge.id,
                 user_id: tempUserID,
