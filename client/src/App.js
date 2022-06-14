@@ -41,7 +41,8 @@ function App() {
       <Router>
         <Routes>
           <Route path='/' element={<WelcomePage />} >
-            <IndexRoute component={<WelcomePage />} />
+            <Route index element={<WelcomePage/>}/>
+            {/* <IndexRoute component={<WelcomePage />} /> */}
           </Route>
           <Route path='*' element={<WelcomePage />} />
 
