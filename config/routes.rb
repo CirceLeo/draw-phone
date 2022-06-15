@@ -1,6 +1,8 @@
 Rails.application.routes.draw do
   root to: 'home#index'
 
+  # get '*path' => 'main#index'
+
   resources :challenges
   get '/challenges/trending', to: 'challenges#trending'
   resources :attempts

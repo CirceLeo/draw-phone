@@ -7,6 +7,11 @@ class ApplicationController < ActionController::API
     rescue_from ActiveRecord::RecordInvalid, with: :render_invalid
     # rescue_from ActiveRecord::RecordNotFound, with: :render_not_found
 
+    def index
+        respond_to do |format|
+            format.html { render body: Rails.root.join('public/index.html').read }
+        end
+    end
     
     private
     
