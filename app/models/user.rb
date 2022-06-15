@@ -11,12 +11,6 @@ class User < ApplicationRecord
 
   has_many :friendships, dependent: :destroy
   has_many :friends, through: :friendships
-  # has_many :follower_follows, foreign_key: :followed_id, class_name: "Friendship"
-  # has_many :followers, through: :follower_follows, source: :follower
-
-  # has_many :followed_follows, foreign_key: :followed_id, class_name: "Friendship"
-  # has_many :followeds, through: :followed_follows, source: :followed
-
 
   def create
     user = User.create(user_params)
