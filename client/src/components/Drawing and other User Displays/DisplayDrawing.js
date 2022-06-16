@@ -3,7 +3,7 @@ import CreateChallengeForm from '../Challenges/CreateChallengeForm'
 
 function DisplayDrawing({drawing, artistDetails, userPage, openAddFriend}) {
 
-    console.log(drawing)
+    // console.log(drawing)
 
     const [backPicLoaded, setBackPicLoaded] = useState(false)
     const [challengeOpen, setChallengeOpen] = useState(false)

@@ -4,7 +4,7 @@ function ChallengeDisplay({challenges}) {
 
     const renderedChallenges = challenges.map(challenge => {
         return(
-            <DisplayChallenge challenge={challenge}/>
+            <DisplayChallenge key={challenge.id} challenge={challenge}/>
         )
     })
     
