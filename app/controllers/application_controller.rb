@@ -12,6 +12,10 @@ class ApplicationController < ActionController::API
             format.html { render body: Rails.root.join('public/index.html').read }
         end
     end
+
+    def fallback_index_html
+        render file: 'public/index.html'
+    end
     
     private
     
