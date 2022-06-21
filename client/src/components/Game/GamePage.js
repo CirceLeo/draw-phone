@@ -164,7 +164,7 @@ function GamePage({}) {
             .catch( error => console.log(error.message));
         }
         else {
-
+            console.log("tring to post a new drawing")
             fetch(`/drawings`, {
                 method: "POST",
                 headers: {
@@ -183,7 +183,7 @@ function GamePage({}) {
             .then( data =>{
                 setNewDrawingId(data.id)
             })
-            .catch( error => console.log(error.message));
+            .catch( error => console.log("idk why something is wrong", error.message));
         }
     };
 

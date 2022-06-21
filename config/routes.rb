@@ -1,11 +1,11 @@
 Rails.application.routes.draw do
-  root to: 'home#index'
-
+  
   # get '*path' => 'main#index'
-
+  
   get '*path', to: "application#fallback_index_html", constraints: ->(request) do
-    !request.xhr? && request.format.html?
+  !request.xhr? && request.format.html?
   end
+  root to: 'home#index'
 
   resources :challenges
   get '/challenges/trending', to: 'challenges#trending'
