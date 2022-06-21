@@ -10,7 +10,8 @@ function ChallengeDisplay({challenges}) {
     
     return (
         <div className="challenge-display">
-            {renderedChallenges}
+            {renderedChallenges.length > 0 ? renderedChallenges : <p>No one's made any challenges yet!</p>}
+            {/* {renderedChallenges} */}
         </div>
     )
 }
