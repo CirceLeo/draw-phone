@@ -47,7 +47,7 @@ function WelcomePage(props) {
                             <h4>Check out our Trending Challenges: </h4>
                             <em>Try to make a better drawing of the same picture!</em>
                         </div>
-                        <ChallengeDisplay challenges={recentChallenges}/>
+                        {recentChallenges.length > 0 ? <ChallengeDisplay challenges={recentChallenges}/> : <h4>No one's made any challenges yet!</h4>}
                     </>
                     : <Loader />}
 
