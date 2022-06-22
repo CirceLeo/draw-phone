@@ -19,7 +19,7 @@ function SignUpForm({closeModal}) {
     function handleNewSignup(event){
         event.preventDefault()
         console.log(newUserData)
-        fetch(`http://localhost:4000/users`, {
+        fetch(`/users`, {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",
@@ -32,7 +32,7 @@ function SignUpForm({closeModal}) {
                 res.json().then(userData => {
                     setUser(userData)
                     closeModal()
-                    // navigate('/me') //TODO: change to play??
+                    navigate('/play') //TODO: change to play??
                 })
             } else {
                 res.json().then(response => {
