@@ -25,7 +25,7 @@ function LoginForm({closeModal, openSignupModal}) {
     function handleSubmit(event){
         event.preventDefault()
         console.log(loginInfo)
-        fetch(`http://localhost:4000/login`, {
+        fetch(`/login`, {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",
