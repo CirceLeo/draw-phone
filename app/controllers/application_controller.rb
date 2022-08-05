@@ -1,13 +1,14 @@
 class ApplicationController < ActionController::Base
     include ActionController::Cookies
 
-    # before_action :authenticate_user!
+    before_action :authenticate_user!
 
     
     rescue_from ActiveRecord::RecordInvalid, with: :render_invalid
     # rescue_from ActiveRecord::RecordNotFound, with: :render_not_found
 
     def index
+        logger.debug "howdy"
         respond_to do |format|
             format.html { render body: Rails.root.join('public/index.html').read }
         end

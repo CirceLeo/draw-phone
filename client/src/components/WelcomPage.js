@@ -43,11 +43,12 @@ function WelcomePage(props) {
                 { recentPics.length > 0  ? 
                     <>
                         <RecentDrawingDisplay artistDetails={true} displayPics={recentPics} /> 
-                        <div className="display-explain">
+                        {/* TODO: put this back in once back end is working properly :/ */}
+                        {/* <div className="display-explain">
                             <h4>Check out our Trending Challenges: </h4>
                             <em>Try to make a better drawing of the same picture!</em>
                         </div>
-                        {recentChallenges.length > 0 ? <ChallengeDisplay challenges={recentChallenges}/> : <h4>No one's made any challenges yet!</h4>}
+                        {recentChallenges.length > 0 ? <ChallengeDisplay challenges={recentChallenges}/> : <h4>No one's made any challenges yet!</h4>} */}
                     </>
                     : <Loader />}
 
