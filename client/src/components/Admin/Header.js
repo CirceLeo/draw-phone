@@ -71,7 +71,7 @@ function Header(props) {
                 )
             }
             <div className='header-content'>
-            <img src={logo} onClick={() => navigateTo('/')} className='logo'/>
+            <img src={logo} onClick={() => navigateTo('/play')} className='logo'/>
 
             {
                 (howToOpen && location.pathname === '/play') && (
@@ -85,8 +85,8 @@ function Header(props) {
             } 
             {/* { user.username ? <p>{user.username}</p> : <p> No one is logged in</p>} */}
             <nav>
-                <NavLink to = '/'>Home</NavLink>
-                <NavLink to = '/gallery'>Gallery</NavLink>
+                {/* <NavLink to = '/'>Home</NavLink> */}
+                {/* <NavLink to = '/gallery'>Gallery</NavLink> */}
                 <NavLink to = '/play'>Play!</NavLink> 
                 { location.pathname === '/play' ? <button onClick={openHowTo}className='header-btn'>How to Play</button> : null}
                 { user.username ?
