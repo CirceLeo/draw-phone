@@ -22,7 +22,7 @@ Rails.application.routes.draw do
   get '/auth', to: 'users#show'
   
   resources :users
-  devise_for :users,     controllers: {       sessions: 'sessions'     }
+  # devise_for :users,     controllers: {       sessions: 'sessions'     }
   devise_scope :user do
     # scope :auth, defaults: { format: :json } do
       post   '/login',       to: 'sessions#create'

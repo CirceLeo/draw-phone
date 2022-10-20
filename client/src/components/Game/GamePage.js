@@ -127,12 +127,11 @@ function GamePage({}) {
         setDrawingData(currentCanvas);
         handleExport(currentCanvas)
         setModalOpen(true)
-        //TODO:fix that gd end game modal 
     }
 
     const handleExport = (canvasData) => {
         console.log("trying to post this drawing")
-        let tempUserID = 1 //TODO: fix so we're not straight up hard coding an id cause this will fail as soon as we reseed
+        let tempUserID = 1 
     
         if (user.username){
             tempUserID = user.id
@@ -160,7 +159,6 @@ function GamePage({}) {
             .catch( error => console.log(error.message));
         }
         else {
-            console.log("tring to post a new drawing")
             fetch(`/drawings`, {
                 method: "POST",
                 headers: {

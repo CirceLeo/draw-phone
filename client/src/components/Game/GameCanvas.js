@@ -33,7 +33,7 @@ function GameCanvas({setDrawingData, gameActive, canvasRef, picUrl}) {
         lazyRadius={2}
         ref={canvasRef}
         disabled={!gameActive}
-        imgSrc={picUrl} //<- try out both ways? would look cleaner
+        imgSrc={picUrl} 
     />
 
     const palette =  <GithubPicker 
