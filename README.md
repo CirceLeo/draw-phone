@@ -2,14 +2,6 @@ Sketchee is a React and Ruby based drawing game created by Calypso Leonard in 3 
 
 
 
-PROJECT REQUIREMENTS:
-
-
-INITIAL DESIGN & OBJECTIVES:
-
-STRETCH OBJECTIEVES:
-
-
 LEARNINGS:
 
 game logic
