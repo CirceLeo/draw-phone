@@ -234,7 +234,7 @@ function GamePage({}) {
                             </>
                         }
                         <div className='game-button-container'>
-                        { gameStarted ? null : <button onClick={openChallengeModal} className='game-button challenge-pick-button'>{challengeId ? 'Choose a different challenge?' : 'Play challenge instead of random mode?'}</button>}
+                        {/* { gameStarted ? null : <button onClick={openChallengeModal} className='game-button challenge-pick-button'>{challengeId ? 'Choose a different challenge?' : 'Play challenge instead of random mode?'}</button>} */}
                             { gameActive ?    
                                 <>
                                     <button className='game-button pause-button' onClick={handlePause}>⏸Pause</button> 
