@@ -30,12 +30,13 @@ function WelcomePage(props) {
         <div id="welcome-page">
             <Header />
             <div id="welcome-grid">
-                <div id="welcome-spacer">
 
-                </div>
+                <div id="welcome-spacer"></div>
+
                 <div id="welcome-text">
                     <h1 className='lineUp'>Welcome {user.username ? "back" : null} to <em>Sketchee!</em></h1>
                 </div>
+                
                 <div className="display-explain">
                     <h4>Please peruse our 15 most recent creations:</h4>
                     <em>Hover over them to see the inspiration behind the piece!</em>

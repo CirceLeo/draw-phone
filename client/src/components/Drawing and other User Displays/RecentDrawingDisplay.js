@@ -7,7 +7,6 @@ function RecentDrawingDisplay({displayPics, artistDetails, userPage}) {
     const [userToShow, setUserToShow] = useState({})
     const [otherUserOpen, setOtherUserOpen] = useState(false)
 
-
     function openAddFriend(clickedUser){
         setUserToShow(clickedUser)
         openOtherUser()

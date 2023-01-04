@@ -28,6 +28,7 @@ function GamePage({}) {
 
     const [modalOpen, setModalOpen] = useState(false);
     const [challengeModalOpen, setChallengeModalOpen] = useState(false)
+    
     const [gameStarted, setGameStarted] = useState(false)
     const [gameActive, setGameActive] = useState(false)
     const [isShown, setIsShown] = useState(false)

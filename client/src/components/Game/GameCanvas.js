@@ -37,27 +37,27 @@ function GameCanvas({setDrawingData, gameActive, canvasRef, picUrl}) {
     />
 
     const palette =  <GithubPicker 
-    triangle='hide' 
-    onChange={handleColorChange} 
-    colors ={ [ 
-                "#c91e1e",  //red
-                "#cc6414",  //orange
-                "#FFFF00",  //yellow
-                "#2c9c1a",  //green
-                "#1a459c",  //blue
-                "#601199",  //purple
-                "#664229",  //brown
-                "#000000",  //black
-                "#FFC0CB",  //pink
-                "#fed8b1",  //light orange
-                "#ffffbf",  //light yellow
-                "#90ee90",  //light green
-                "#00bcd4",  //light blue
-                "#a865c9",  //light purple
-                "#ffffff",  //white
-                "#808080",  //grey
+        triangle='hide' 
+        onChange={handleColorChange} 
+        colors ={ [ 
+                    "#c91e1e",  //red
+                    "#cc6414",  //orange
+                    "#FFFF00",  //yellow
+                    "#2c9c1a",  //green
+                    "#1a459c",  //blue
+                    "#601199",  //purple
+                    "#664229",  //brown
+                    "#000000",  //black
+                    "#FFC0CB",  //pink
+                    "#fed8b1",  //light orange
+                    "#ffffbf",  //light yellow
+                    "#90ee90",  //light green
+                    "#00bcd4",  //light blue
+                    "#a865c9",  //light purple
+                    "#ffffff",  //white
+                    "#808080",  //grey
             ]}
-/>
+    />
 
     return (
         <div id='canvas'>
@@ -100,13 +100,13 @@ function GameCanvas({setDrawingData, gameActive, canvasRef, picUrl}) {
                 className='game-button'>
                 ↶ undo
             </button>
+
             <button
                 className='game-button'
                 onClick={handleEraseAll}>
                 ⌫ clear canvas
             </button>
-            <br/> 
-            
+            <br/>       
         </div>
     )
 }
