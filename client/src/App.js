@@ -21,7 +21,6 @@ import { UserContext, userObject } from "./context/user";
 import Gallery from './components/Gallery/Gallery';
 import GalleryChallengePage from './components/Gallery/GalleryChallengePage';
 
-
 function App() {
   const [user, setUser] = useContext(UserContext)
 
