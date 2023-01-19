@@ -7,7 +7,6 @@ Rails.application.routes.draw do
   end
 
 
-
   resources :challenges
   get '/challenges/trending', to: 'challenges#trending'
   resources :attempts
