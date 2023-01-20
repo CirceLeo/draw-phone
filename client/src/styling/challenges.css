@@ -26,8 +26,30 @@
     /* border: 2px black  */
 }
 
+.display-chal-text{
+    padding: .2rem;
+    background-color: #f2dbc0;
+    align-items: center;
+    width: 80%;
+}
+
+.display-chal-title-btn{
+    display: flex;
+    font-size: 1.2rem;
+    width: 60%;
+    margin: auto;
+}
+
 .display-chal-button {
     background-color: white;
+    border: 2px solid black;
+    margin: auto;
+    transition: .5s;
+}
+
+.display-chal-button:hover {
+    background-color: rgb(40, 34, 34);
+    color: #f2dbc0;
     border: 2px solid black;
 }
 

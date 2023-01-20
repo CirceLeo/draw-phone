@@ -38,8 +38,8 @@ function WelcomePage(props) {
                 </div>
                 
                 <div className="display-explain">
-                    <h4>Please peruse our 15 most recent creations:</h4>
-                    <em>Hover over them to see the inspiration behind the piece!</em>
+                    <h4>Please some of most recent artworks:</h4>
+                    <em>Hover over to see the inspiration behind the piece!</em>
                 </div>
                 { recentPics.length > 0  ? 
                     <>
