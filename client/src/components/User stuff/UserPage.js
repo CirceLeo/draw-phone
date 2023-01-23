@@ -27,7 +27,6 @@ function UserPage(props) {
     }, [user])
     
     return (
-        // TODO: fix the classnames so i can style this page properly
         <div id="user-page">
             <Header />
             {/* <Loader /> */}
@@ -35,18 +34,6 @@ function UserPage(props) {
             { user.username ? 
             <>
                 <h2 className="user-header">hi there, <em>{user.username}</em></h2>
-
-                {/* <div className="user-friends">
-                    {
-                        user.friends.length > 0 ?
-                        <FriendsList friends={friendships} />
-                        // TODO: need to fetch from the backend for this once you can add friends
-                        :
-                        <>
-                            <p>sorry buddy, you have not friends</p>
-                        </>
-                    }
-                </div> */}
 
                 <div className="user-drawings lineUp">
                 {user.drawings.length > 0 ? 
@@ -57,7 +44,7 @@ function UserPage(props) {
                     : 
                     <>
                     <h3>We have no artworks attributed to you! </h3>
-                    <h3>Why not <a href="/play">play</a> a few rounds?</h3>
+                    <h3>Why not <a href="/play" style={{color:"white"}}>play</a> a few rounds?</h3>
                     </>
                 }
                 </div>

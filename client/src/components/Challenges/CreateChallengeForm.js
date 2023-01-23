@@ -7,6 +7,8 @@ function CreateChallengeForm({drawingId, close}) {
     // const [errors, setErrors] = useState([]);
     const [showErrors, setShowErrors] = useState(false);
 
+    let chalId = null
+
     function handleSubmit(e){
         e.preventDefault()
         const newChallenge = {
@@ -25,6 +27,7 @@ function CreateChallengeForm({drawingId, close}) {
             if(res.ok){
                 res.json().then( challenge => {
                     setCreated(true)
+                    chalId = challenge.id
                 })
             } else {
                 res.json().then(response => {
@@ -55,12 +58,14 @@ function CreateChallengeForm({drawingId, close}) {
                 <br/>
                 {showErrors ? 
                     <div className='login-issues'>
-                        <p>You've already issue a challenge for this drawing!</p>
+                        <p>You've already issued a challenge for this drawing!</p>
                         <button onClick={()=>setShowErrors(false)} className='close-button'>X</button>
                     </div> 
                     : null
                 }
-                { created ? <p>Challenge created!</p> : <button className='game-button' type='submit'> issue challenge!</button>}
+                { created ? 
+                    <p>Challenge created! Here is the <a href={`/play/challenge/${challenge.id}`} style={{color:"white"}}>link</a></p> : 
+                    <button className='game-button' type='submit'> issue challenge!</button>}
             </form>
         </div>
     )

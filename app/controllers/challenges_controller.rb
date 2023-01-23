@@ -8,11 +8,8 @@ class ChallengesController < ApplicationController
         render json: @challenge, include: ["drawing", "attempts"], status: :ok
     end
     def trending
-        # TODO: trending logic - 5 with most attempts
         render json: Challenge.all.limit(8), include: "drawing", status: :ok
     end
-
-    #TODO: available challenges where there hasn't been a previous attempt
 
     def index
         render json: Challenge.all.order(created_at: :desc), include: ["drawing", "drawing.user", "attempts"], status: :ok
@@ -25,7 +22,6 @@ class ChallengesController < ApplicationController
     def destroy
         @challenge.destroy
         render json: {}, status: 204
-        # head :no_content, status: 204
     end
     private
     def find_challenge

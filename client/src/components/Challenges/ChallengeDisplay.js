@@ -11,7 +11,7 @@ function ChallengeDisplay({challenges}) {
     return (
         <div className="challenge-display">
             {renderedChallenges.length > 0 ? renderedChallenges : <p>No one's made any challenges yet!</p>}
-            {/* {renderedChallenges} */}
+            <div className="gallery-spacer"></div>
         </div>
     )
 }

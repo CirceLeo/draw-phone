@@ -189,7 +189,6 @@ function GamePage({}) {
             {
                 modalOpen && (
                     <>
-                    {/* TODO:Refactor: change this to a separate const that gets inserted here - protect from fake game over */}
                         <div className="overlay" onClick={closeModal}></div>
                         <div className="modal">
                             { gameStarted ? 
@@ -219,7 +218,19 @@ function GamePage({}) {
                     <div id='goal-and=-btn'>
                         <div id='goal-pic-div'>
                             {!picLoaded && gameStarted ? <><Loader/> </> : null}
-                            { isShown ? <img src={picUrl} onLoad={()=>{setPicLoaded(true)}} /> : <>{gameActive ? <p>Hover over me to see goal picture!</p> :  <p>{ gameStarted ?  "" : "Try to draw what you see here!"}</p>}</>}
+                            { 
+                                isShown ? 
+                                    <img src={picUrl} onLoad={()=>{setPicLoaded(true)}} /> : 
+                                    <>
+                                        {gameActive ? 
+                                            <p>Hover over me to see goal picture!</p> :  
+                                            <p>{ gameStarted ?  
+                                                "" : 
+                                                "Try to draw what you see here!"
+                                            }</p>
+                                        }
+                                    </>
+                            }
                         </div>
                         <div id='current-game-info'>
                         {gameStarted ? 
@@ -230,12 +241,14 @@ function GamePage({}) {
                                 <strong>Current Settings</strong>
                                 <p>Drawing subject: {imageTerm}</p>
                                 <p>Time to draw: {playTime} sec</p>
-                                { challengeId ? <strong>Challenge mode: settings cannot be changed</strong> : <button className='game-button' onClick={openModal}>Change Settings?</button>}
+                                { challengeId ? 
+                                    <strong>Challenge mode: settings cannot be changed</strong> : 
+                                    <button className='game-button' onClick={openModal}>Change Settings?</button>
+                                }
                             </div> 
                             </>
                         }
                         <div className='game-button-container'>
-                        {/* { gameStarted ? null : <button onClick={openChallengeModal} className='game-button challenge-pick-button'>{challengeId ? 'Choose a different challenge?' : 'Play challenge instead of random mode?'}</button>} */}
                             { gameActive ?    
                                 <>
                                     <button className='game-button pause-button' onClick={handlePause}>⏸Pause</button> 
@@ -248,7 +261,10 @@ function GamePage({}) {
                                 }</>
                                 
                             }
-                            {gameStarted ? <button className='game-button game-end-button' onClick={handleGameEnd}>end game?</button> : null}
+                            {gameStarted ? 
+                                <button className='game-button game-end-button' onClick={handleGameEnd}>end game?</button> : 
+                                null
+                            }
                         </div>
                         </div>
                     </div>
