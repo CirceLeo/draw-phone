@@ -7,7 +7,6 @@ class FriendshipsController < ApplicationController
 
     def incomplete_friendships
         non_confirmed = Friendship.where(friend_id: params[:user_id])
-        #and need a way to filter out where theres a corospoinding friendship....
         render json: non_confirmed, include: "user"
     end
 
@@ -28,7 +27,6 @@ class FriendshipsController < ApplicationController
     def destroy
         @friendship.destroy
         render json: {}, status: 204
-        # head :no_content, status: 204
     end
     private
     def find_friendship

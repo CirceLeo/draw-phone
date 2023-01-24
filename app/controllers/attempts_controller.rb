@@ -17,7 +17,6 @@ class AttemptsController < ApplicationController
     def destroy
         @attempt.destroy
         render json: {}, status: 204
-        # head :no_content, status: 204
     end
     private
     def find_attempt

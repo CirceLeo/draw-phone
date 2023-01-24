@@ -2,8 +2,6 @@ import {useState} from 'react'
 
 function GameEndScreen({drawingData, prepNewGame, picUrl, closeModal, newDrawingId, challenge}) {
 
-    console.log(challenge)
-
     const [inputTitle, setInputTitle] = useState('')
     const [titleChagned, setTitleChanged] = useState(false)
 
@@ -23,9 +21,7 @@ function GameEndScreen({drawingData, prepNewGame, picUrl, closeModal, newDrawing
     function handleAddTitle(){
 
         let destination = 'drawings'
-        if(challenge.id){
-            destination = 'attempts'
-        }
+        if(challenge.id){ destination = 'attempts'}
         fetch(`/${destination}/${newDrawingId}`, {
             method: "PATCH",
             headers: {
@@ -35,8 +31,7 @@ function GameEndScreen({drawingData, prepNewGame, picUrl, closeModal, newDrawing
             body: JSON.stringify({
                 title: inputTitle
             })
-        })
-        .then( res => (res.json()))
+        }).then( res => (res.json()))
         .then(() => setTitleChanged(true) )
         .catch( error => console.log(error.message));
     }
@@ -69,7 +64,6 @@ function GameEndScreen({drawingData, prepNewGame, picUrl, closeModal, newDrawing
                 </form>
             </>
             }
-
             {
                 challenge.id ? 
                 <>
@@ -86,8 +80,6 @@ function GameEndScreen({drawingData, prepNewGame, picUrl, closeModal, newDrawing
                 </> :
                 null
             }
-
-            
             <br/>
             <button className='game-button' onClick={prepNewGame}>{challenge.id ? 'Play a new game?' : 'Play Again?'}</button>
         </div>

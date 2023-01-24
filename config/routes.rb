@@ -1,18 +1,16 @@
 Rails.application.routes.draw do
-  
-  # get '*path' => 'main#index'
-  
+    
   get '*path', to: "application#fallback_index_html", constraints: ->(request) do
     !request.xhr? && request.format.html?
   end
 
-
   resources :challenges
   get '/challenges/trending', to: 'challenges#trending'
+
   resources :attempts
-  # post '/attempts', to: 
   resources :friendships
   resources :drawings
+
   get '/drawings/subj/:subject_matter', to: 'drawings#by_subject'
   get '/user_details/:id', to: 'users#user_details'
   
@@ -21,23 +19,24 @@ Rails.application.routes.draw do
   get '/auth', to: 'users#show'
   
   resources :users
-  # devise_for :users,     controllers: {       sessions: 'sessions'     }
+
   devise_scope :user do
-    # scope :auth, defaults: { format: :json } do
       post   '/login',       to: 'sessions#create'
       delete '/logout',      to: 'sessions#destroy'
-      # post   '/signup',       to: 'registrations#create'
-      # put    '/account',      to: 'registrations#update'
-      # delete '/account',      to: 'registrations#destroy'
-      # put    '/password',     to: 'devise/passwords#update'
-      # post   '/password',     to: 'devise/passwords#create'
-      # get    '/confirmation', to: 'devise/confirmations#show'
-      # post   '/unlock',       to: 'devise/unlocks#create'
-      # get    '/unlock',       to: 'devise/unlocks#show'
-    # end
-  end
-  # devise_for :users
-
+    end
+    
+    
+    # devise_for :users
+    
+    # post   '/signup',       to: 'registrations#create'
+    # put    '/account',      to: 'registrations#update'
+    # delete '/account',      to: 'registrations#destroy'
+    # put    '/password',     to: 'devise/passwords#update'
+    # post   '/password',     to: 'devise/passwords#create'
+    # get    '/confirmation', to: 'devise/confirmations#show'
+    # post   '/unlock',       to: 'devise/unlocks#create'
+    # get    '/unlock',       to: 'devise/unlocks#show'
+  # end
   # devise_scope :user do
   #   get 'login', to: 'devise/sessions#new'
   # end

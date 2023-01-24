@@ -1,6 +1,4 @@
 class User < ApplicationRecord
-  # Include default devise modules. Others available are:
-  # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
         :recoverable, :rememberable, :validatable, :authentication_keys => [:username]
   
@@ -20,11 +18,6 @@ class User < ApplicationRecord
         render json: {errors: user.errors.full_messages}, status: :unprocessable_entity
     end
   end
-
-  # def friends
-  #   all_friends = self.followeds + self.followers
-  #   all_friends
-  # end
 
   private 
 

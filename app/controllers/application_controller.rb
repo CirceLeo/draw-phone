@@ -5,7 +5,6 @@ class ApplicationController < ActionController::Base
     # before_action :authenticate_user!
 
     rescue_from ActiveRecord::RecordInvalid, with: :render_invalid
-    # rescue_from ActiveRecord::RecordNotFound, with: :render_not_found
 
     def index
         logger.debug "howdy"
