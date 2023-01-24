@@ -10,14 +10,14 @@
 }
 
 #welcome-spacer{
-    height: 2em;
+    height: .5em;
 }
 
 #welcome-text, #user-page h2, #user-page h3{
     /* background-color: rgb(77, 26, 20); */
     background-image: linear-gradient(90deg, rgba(77, 26, 20, 0.1), rgba(77, 26, 20, 0.7), rgb(77, 26, 20), rgba(77, 26, 20, 0.7), rgba(77, 26, 20, 0.1) );
     width: 66vw;
-    margin: 2em 10em 2em;
+    margin: 1em 10em 1em;
     color: wheat;
     border-radius: 2em;
     text-decoration: none;

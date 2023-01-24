@@ -3,11 +3,11 @@ function CreateChallengeForm({drawingId, close}) {
 
     const [title, setTitle] = useState('')
     const [created, setCreated] = useState(false)
+    const [chalId, setChalId] = useState(null)
 
     // const [errors, setErrors] = useState([]);
     const [showErrors, setShowErrors] = useState(false);
 
-    let chalId = null
 
     function handleSubmit(e){
         e.preventDefault()
@@ -27,7 +27,7 @@ function CreateChallengeForm({drawingId, close}) {
             if(res.ok){
                 res.json().then( challenge => {
                     setCreated(true)
-                    chalId = challenge.id
+                    setChalId(challenge.id)
                 })
             } else {
                 res.json().then(response => {
@@ -64,7 +64,7 @@ function CreateChallengeForm({drawingId, close}) {
                     : null
                 }
                 { created ? 
-                    <p>Challenge created! Here is the <a href={`/play/challenge/${challenge.id}`} style={{color:"white"}}>link</a></p> : 
+                    <p>Challenge created! Here is the <a href={`/play/challenge/${chalId}`} style={{color:"black"}}>link</a></p> : 
                     <button className='game-button' type='submit'> issue challenge!</button>}
             </form>
         </div>

@@ -31,20 +31,23 @@
     background-color: #f2dbc0;
     align-items: center;
     width: 80%;
+    margin: auto;
 }
 
 .display-chal-title-btn{
-    display: flex;
-    font-size: 1.2rem;
-    width: 60%;
-    margin: auto;
+    display: inline-block;
+    align-items: center;
+    text-align: center;
+    font-size: 1.1rem;
+    width: 100%;
 }
 
 .display-chal-button {
     background-color: white;
     border: 2px solid black;
-    margin: auto;
+    /* margin: auto; */
     transition: .5s;
+    padding: .2rem;
 }
 
 .display-chal-button:hover {
