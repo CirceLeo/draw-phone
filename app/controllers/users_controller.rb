@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-    # skip_before_action :authenticate_user!, only: :create
+
     before_action :find_user, only: [:update, :destroy, :user_details, :show]
 
     def create
@@ -38,7 +38,6 @@ class UsersController < ApplicationController
     def destroy
         @user.destroy
         render json: {}, status: 204
-        # head :no_content, status: 204
     end
     private
     def find_user

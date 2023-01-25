@@ -1,6 +1,5 @@
 class DrawingsController < ApplicationController
     before_action :find_drawing, only: [:show, :update, :destroy]
-    # skip_before_action :authenticate_user!
     def create
         drawing = Drawing.create!(drawing_params)
         render json: drawing, status: :created
@@ -23,7 +22,6 @@ class DrawingsController < ApplicationController
     def destroy
         @drawing.destroy
         render json: {}, status: 204
-        # head :no_content, status: 204
     end
     private
     def find_drawing

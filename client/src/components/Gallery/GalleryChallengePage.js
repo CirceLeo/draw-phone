@@ -66,7 +66,8 @@ function GalleryChallengePage(props) {
                 </div>
                 <h2>Challenge Attempts:</h2>
                 <div className='attempt-display'>
-                    {challenge.attempts.length > 0 ? renderedAttempts : <p>There are no attempts for this challenge! Click <a href={`/play/challenge/${challenge.id}`}>here</a>to play the challenge! </p>}
+                    {challenge.attempts.length > 0 ? renderedAttempts : <p>There are no attempts for this challenge!  </p>}
+                    <h2>Click <a style={{color:"white"}} href={`/play/challenge/${challenge.id}`}>here</a> to play the challenge!</h2>
                 </div>
             </div>
             :
